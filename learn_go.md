@@ -1878,7 +1878,7 @@ func main() {
 	$ go run main.go
 	1
 
-### Iteriranje preko niza
+##### Iteriranje preko niza
 
 Dakle, postoji više načina za iteraciju kroz nizove.
 
@@ -1923,7 +1923,7 @@ for _, e := range arr {} 	// Omit index with _ and use element
 for i := range arr {} 		// Use index only
 for range arr {} 			// Simply loop over the array
 ```
-##### Višedimenzionalni nizovi
+### Višedimenzionalni nizovi
 
 Svi nizovi koje smo do sada kreirali su jednodimenzionalni. Takođe možemo kreirati višedimenzionalne nizove u programskom jeziku Go.
 
@@ -1981,15 +1981,12 @@ To znači da kada dodelimo niz novoj promenljivoj ili prosledimo niz funkciji, c
 Dakle, ako napravimo bilo kakve izmene u ovom kopiranom nizu, originalni niz neće biti pogođen i ostaće nepromenjen.
 ```
 package main
-
 import "fmt"
 
 func main() {
 	var a = [7]string{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
 	var b = a // Copy of a is assigned to b
-
 	b[0] = "Monday"
-
 	fmt.Println(a) // Output: [Mon Tue Wed Thu Fri Sat Sun]
 	fmt.Println(b) // Output: [Monday Tue Wed Thu Fri Sat Sun]
 }
