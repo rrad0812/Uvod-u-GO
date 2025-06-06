@@ -1959,7 +1959,7 @@ func main() {
 	Index: 0, Element: [1 2 3 4]
 	Index: 1, Element: [5 6 7 8]
 
-###### Svojstva nizova
+### Svojstva nizova
 
 Sada hajde da pričamo o nekim svojstvima nizova.
 
