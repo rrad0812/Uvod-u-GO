@@ -133,12 +133,7 @@ Konačno, da bismo pokrenuli naš kod, možemo jednostavno koristiti `go run` ko
     $ go run main.go
     Hello World!
 
-# Promenljive i tipovi podataka
-
-U ovom tutorijalu ćemo naučiti o promenljivim. Takođe ćemo naučiti o različitim
-tipovima podataka koje nam Go pruža.
-
-### Promenljive
+# Promenljive
 Počnimo sa deklarisanjem promenljive.
 
 1. **Deklaracija bez inicijalizacije**:
@@ -183,10 +178,10 @@ const b = a // ✅ Works
 var a = 10
 const b = a // ❌ a (variable of type int) is not constant (InvalidConstInit)
 ```
-### Tipovi podataka
+# Tipovi podataka
 Sada hajde da pogledamo neke osnovne tipove podataka dostupne u Gou.
 
-##### String
+### String
 U jeziku Go, string je niz bajtova. Deklarišu se ili pomoću dvostrukih navodnika ili povratnih navodnika koji omogućuju da se string proteže preko više redova.
 ```
 var name string = "My name is Go"
@@ -210,6 +205,7 @@ Jednakost |	  == !=
 
 ### Numerički tipovi
 Sada, hajde da pričamo o numeričkim tipovima.
+
 ##### Označeni i neoznačeni celi brojevi
 Go ima nekoliko ugrađenih tipova celih brojeva različitih veličina za čuvanje označenih i neoznačenih celih brojeva.
 
@@ -235,8 +231,7 @@ var ui64 uint64 = 9223372036854775807 // 0 to 2^64
 var uiptr uintptr                     // Integer representation of a memory address
 ```
 
-Ako ste primetili, postoji i `uintptrtip` neoznačenog celobrojnog pointera, koji je celobrojna reprezentacija memorijske adrese. Ne preporučuje se njegova
-upotreba, tako da ne moramo da brinemo o tome.
+Ako ste primetili, postoji i `uintptrtyp` neoznačenog celobrojnog pointera, koji je celobrojna reprezentacija memorijske adrese. Ne preporučuje se njegova upotreba, tako da ne moramo da brinemo o tome.
 
 ##### Pa koji bi tip celog broja trebalo da koristimo?
 
@@ -470,7 +465,7 @@ Odlično! Ali ovo je samo vrh ledenog brega... zato obavezno pogledajte dokument
 
 Za one koji dolaze sa C/C++ pozadinom, ovo bi trebalo da deluje prirodno, ali ako dolazite, recimo, sa Pythona ili Javascripta, ovo bi u početku moglo biti malo čudno. Ali je veoma moćno i videćete da se ova funkcionalnost koristiprilično intenzivno.
 
-# Kontrola protoka
+# Kontrola toka
 
 Hajde da pričamo o kontroli protoka, počevši od if/else.
 
@@ -573,7 +568,7 @@ Sada, usmerimo pažnju na petlje. Dakle, u Gou imamo samo jednu vrstu petlje, a 
 
 Baš kao i `if` naredba, `for` petlja, ne zahteva nikakve zagrade () za razliku od drugih jezika.
 
-##### Definicija for petlja
+##### Definicija for petlje
 
 Počnimo sa osnovnim `for` ciklusom.
 ```
@@ -672,7 +667,7 @@ func myFunction(p1 string) string {
 	return msg
 }
 ```
-##### Višestruki povratak
+### Višestruki povratak
 Zašto vraćati jednu vrednost istovremeno, kada možemo više? Go takođe podržava višestruko vraćanje!
 ```
 func main() {
@@ -685,7 +680,7 @@ func myFunction(p1 string) (string, int) {
 	return msg, 10
 }
 ```
-##### Imenovani povratak
+### Imenovani povratak
 Još jedna sjajna funkcija je `named return`, gde se povratna vrednost može imenovati i tretirati kao sopstvene promenljive funkcije.
 ```
 func myFunction(p1 string) (s string, i int) {
@@ -846,14 +841,13 @@ Funkcije se takođe mogu koristiti sa generičkim tipovima, ali ćemo o njima ra
 
 # Moduli
 
-### Šta su moduli?
-Jednostavno definisano, `modul` je kolekcija Go paketa smeštenih u stablu datoteka sa `go.mod` datotekom u korenu, pod uslovom da je direktorijum van `$GOPATH/src`.
+`modul` je kolekcija Go paketa smeštenih u stablu datoteka sa `go.mod` datotekom u korenu, pod uslovom da je direktorijum unutar `$GOPATH/src`.
 
-Go moduli su predstavljeni u Go 1.11, koji donosi nativnu podršku za verzije i module. Ranije nam je bila potrebna GO111MODULE=on zastavica da bismo uključili funkcionalnost modula kada je bila eksperimentalna. Ali sada, nakon Go 1.13, režim modula je podrazumevani za sav razvoj.
+Go moduli su predstavljeni u Go 1.11, donose nativnu podršku za verzije i module. Ranije nam je bila potrebna GO111MODULE=on zastavica da bismo uključili funkcionalnost modula kada je bila eksperimentalna. Ali sada, nakon Go 1.13, režim modula je podrazumevani za sav razvoj.
 
 Ali čekajte, šta je `GOPATH`?
 
-`GOPATH` je promenljiva koja definiše koren vašeg radnog prostora i sadrži sledeće direktorijume:
+`GOPATH` je promenljiva koja definiše koren našeg radnog prostora i sadrži sledeće direktorijume:
 
 - `src` : sadrži izvorni kod Go-a organizovan u hijerarhiju.
 - `pkg` : sadrži kompajlirani kod paketa.
@@ -911,16 +905,16 @@ func main() {
 
 Nakon što se `go mod vendor` komanda izvrši, biće kreiran *vendor* direktorijum.
 
-├── go.mod
-├── go.sum
-├── go.work
-├── main.go
-└── vendor
-....├── github.com
-....│....└── rs
-....│........└── zerolog
-....│............└── ...
-....└── modules.txt
+├─ go.mod 
+├─ go.sum
+├─ go.work
+├─ main.go
+└─ vendor
+..├─ github.com
+..│..└─ rs
+..│....└─ zerolog
+..│....└─ ..
+..└─ modules.txt
 
 # Paketi
 
@@ -1172,7 +1166,8 @@ Sada, da bismo ovo pokrenuli, jednostavno treba da ga izvršimo.
 
 Da, to je jednostavno tako!
 
-##### Promenljive okruženja značajne za compile-time
+### Promenljive okruženja značajne za compile-time
+
 Sada, hajde da razgovaramo o nekim važnim varijablama vremena izgradnje, počevši od:
 
     $GOOS i $GOARCH
@@ -1213,7 +1208,6 @@ Evo primera kako se koristi:
 
 # Pointeri
 
-### Šta su, pointeri?
 Jednostavno definisano, `pointer` je promenljiva koja se koristi za čuvanje memorijske adrese druge promenljive.
 
 Može se deklarisati ovako:
@@ -1239,7 +1233,8 @@ Hmm, ovo štampa nil, ali šta je nil? Dakle, nil je unapred deklarisani identif
 
 Ovo je baš kao ono što smo naučili u odeljku o promenljivim i tipovima podataka, gde smo videli da neinicijalizovani `int` ima nultu vrednost `0`, a `bool` ima `false` i tako dalje.
 
-### Referenciranje 
+### Referenciranje (uzimanje adrese)
+
 U redu, sada hajde da dodelimo vrednost pointeru.
 ```
 package main
@@ -1258,7 +1253,7 @@ Koristimo `&` operator da bismo preuzeli memorijsku adresu promenljive. Ovo se n
 
 Referenca je vrednost memorijske adrese promenljive *a*.
 
-### Dereferenciranje
+### Dereferenciranje (uzimanje vrednosti)
 
 Takođe možemo koristiti `*` operator da bismo preuzeli vrednost sačuvanu u promenljivoj na koju pointer pokazuje. Ovo se naziva i *dereferenciranje promenljive*.
 
@@ -1301,6 +1296,7 @@ func main() {
 Mislim da je ovo prilično uredno!
 
 ### Pointeri kao argumenti funkcije
+
 Pointeri se takođe mogu koristiti kao argumenti za funkciju kada treba da prosledimo neke podatke referencom.
 
 Evo jednog primera:
@@ -1310,6 +1306,7 @@ myFunction(&a)
 
 func myFunction(ptr *int) {}
 ```
+
 ##### Funkcija new
 
 Drugi način inicijalizacije pointera je korišćenje `new` funkcije koja uzima tip kao argument, alocira dovoljno memorije da smesti vrednost tog tipa i vraća pointer na nju.
@@ -1530,7 +1527,7 @@ func main() {
 	fmt.Println("Anonymous:", a)
 }
 ```
-### Pristupanje poljima
+### Pristupanje poljima struktura
 
 Hajde da malo sredimo naš primer i vidimo kako možemo pristupiti pojedinačnim poljima.
 ```
@@ -1807,6 +1804,7 @@ func main() {
 }
 ```
 ### Zašto metode umesto funkcija?
+
 Dakle, pitanje je, zašto koristiti metode umesto funkcija?
 
 Kao i uvek, nema posebnog odgovora na ovo, i ni na koji način jedno nije bolje od drugog. Umesto toga, trebalo bi ih koristiti na odgovarajući način kada se situacija pojavi.
@@ -1817,15 +1815,11 @@ Pošto je metoda vezana za određeni tip, možemo imati ista imena metoda za vi�
 
 Ali na kraju, to bi moglo da se svede na preferencije, kao što je "pozivi metoda su mnogo lakši za čitanje i razumevanje od poziva funkcija" ili obrnuto.
 
-# Nizovi i isečci
-
-### Nizovi
-
-##### Šta je niz?
+# Nizovi
 
 Niz je kolekcija elemenata istog tipa fiksne veličine. Elementi niza se čuvaju sekvencijalno i može im se pristupiti pomoću njihovih index.
 
-##### Deklaracija niza
+### Deklaracija niza
 
 Niz možemo deklarisati na sledeći način:
 ```
@@ -1845,7 +1839,7 @@ func main() {
 
 Podrazumevano, svi elementi niza su inicijalizovani nultom vrednošću odgovarajućeg tipa niza.
 
-##### Inicijalizacija
+### Inicijalizacija
 
 Takođe možemo inicijalizovati niz koristeći `array literal`.
 ```
@@ -1865,7 +1859,7 @@ Možemo čak i da napravimo skraćenu deklaraciju.
 ...
 arr := [4]int{1, 2, 3, 4}
 ```
-##### Pristup članovima niza
+### Pristup članovima niza
 
 I slično kao i u drugim jezicima, elementima možemo pristupiti koristeći `index` jer su sačuvani sekvencijalno.
 ```
@@ -1878,7 +1872,7 @@ func main() {
 	$ go run main.go
 	1
 
-##### Iteriranje preko niza
+### Iteriranje niza
 
 Dakle, postoji više načina za iteraciju kroz nizove.
 
@@ -1991,13 +1985,13 @@ func main() {
 	fmt.Println(b) // Output: [Monday Tue Wed Thu Fri Sat Sun]
 }
 ```
-### Isečci
+# Isečci
 
 Znam šta misliš, nizovi su korisni, ali pomalo nefleksibilni zbog ograničenja koje izaziva njihova fiksna veličina.
 
 Ovo nas dovodi do isečka, pa šta je onda isečak"?
 
-`Isečak` je segment niza. Isečci se nadovezuju na nizove i pružaju veću snagu, fleksibilnost i praktičnost.
+`Isečak` je segment niza. Isečci se nadovezuju na nizove i pružaju veću snagu,fleksibilnost i praktičnost.
 
 Isečak se sastoji od tri stvari:
 
@@ -2030,7 +2024,7 @@ Da vidimo kako možemo deklarisati isečak.
 ```
 var s []T
 ```
-Kao što vidimo, ne moramo da navodimo nikakvu dužinu. Hajde da deklarišemo isečak celih brojeva i vidimo kako to funkcioniše.
+Kao što vidimo, ne moramo da navodimo nikakvu dužinu. Hajde da deklarišemo isečak stringova i vidimo kako to funkcioniše.
 ```
 func main() {
 	var s []string
@@ -2046,10 +2040,11 @@ Dakle, za razliku od nizova, nulta vrednost isečka je `nil`.
 
 ### Inicijalizacija
 
-Postoji više načina za inicijalizaciju našeg segmenta. Jedan od načina je korišćenje ugrađene `make` funkcije.
-```
-make([]T, len, cap) []T
+Postoji više načina za inicijalizaciju našeg isečka. Jedan od načina je korišćenje ugrađene `make` funkcije.
 
+	make([]T, len, cap) []T
+
+```
 func main() {
 	var s = make([]string, 0, 0)
 
@@ -2059,21 +2054,21 @@ func main() {
 	$ go run main.go
 	[]
 
-Slično nizovima, možemo koristiti literal isečke da inicijalizujemo naš isečku.
-
+Slično nizovima, možemo koristiti `literal slice` da inicijalizujemo naš isečak.
+```
 func main() {
 	var s = []string{"Go", "TypeScript"}
 
 	fmt.Println(s)
 }
+```
+	$ go run main.go
+	[Go TypeScript]
 
-$ go run main.go
-[Go TypeScript]
+Drugi način je kreiranje isečka iz niza. Pošto je isečak segment niza, možemo kreirati isečak od indeksa `low` do indeksa `high` na sledeći način:
 
-Drugi način je kreiranje isečka iz niza. Pošto je isečak segment niza, možemo kreirati isečak od indeksa lowdo highna sledeći način.
-
-a[low:high]
-
+	a[low:high]
+```
 func main() {
 	var a = [4]string{
 		"C++",
@@ -2091,39 +2086,40 @@ func main() {
 	fmt.Println("Slice 2:", s2)
 	fmt.Println("Slice 3:", s3)
 }
+```
+	$ go run main.go
+	Array: [C++ Go Java TypeScript]
+	Slice 1: [C++ Go]
+	Slice 2: [C++ Go Java]
+	Slice 3: [Java TypeScript]
 
-$ go run main.go
-Array: [C++ Go Java TypeScript]
-Slice 1: [C++ Go]
-Slice 2: [C++ Go Java]
-Slice 3: [Java TypeScript]
-
-Nedostatak niskog indeksa podrazumeva 0, a nedostatak gornjeg indeksa podrazumeva dužinu osnovnog niza ( len(a)).
+Nedostatak `low` indeksa podrazumeva 0, a nedostatak `high` indeksa podrazumeva dužinu osnovnog niza (`len(a)`).
 
 Ono što treba napomenuti je da možemo kreirati isečak i iz drugih isečaka, a ne samo iz nizova.
-
+```
 var a = []string{
 	"C++",
 	"Go",
 	"Java",
 	"TypeScript",
 }
+```
+### Iteracija
 
-Iteracija
+Možemo iterirati kroz isečak na isti način kao što iterirate kroz niz, koristeći petlju `for` sa `len` funkcijom ili `range` ključnom reči.
 
-Možemo iterirati kroz isečak na isti način kao što iterirate kroz niz, koristeći petlju for sa lenfunkcijom ili rangeključnom reči.
-Funkcije
+### Funkcije 
 
-Pa, sada, hajde da pričamo o ugrađenim funkcijama za sečenje koje su dostupne u Go-u.
+Pa, sada, hajde da pričamo o ugrađenim funkcijama za isecanje koje su dostupne u Go-u.
 
-kopija
+##### Copy
 
-Funkcija copy()kopira elemente iz jednog sloja u drugi. Prihvata 2 sloja, odredište i izvor. Takođe vraća broj kopiranih elemenata.
+Funkcija `copy()` kopira elemente iz jednog isečka u drugi. Prihvata 2 isečka, odredište i izvor. Takođe vraća broj kopiranih elemenata.
 
-func copy(dst, src []T) int
+	func copy(dst, src []T) int
 
 Da vidimo kako možemo da ga koristimo.
-
+```
 func main() {
 	s1 := []string{"a", "b", "c", "d"}
 	s2 := make([]string, len(s1))
@@ -2134,67 +2130,65 @@ func main() {
 	fmt.Println("Dst:", s2)
 	fmt.Println("Elements:", e)
 }
+```
+	$ go run main.go
+	Src: [a b c d]
+	Dst: [a b c d]
+	Elements: 4
 
-$ go run main.go
-Src: [a b c d]
-Dst: [a b c d]
-Elements: 4
+Kao što se i očekivalo, naša 4 elementa iz izvornog isečka su kopirana u odredišni sečak.
 
-Kao što se i očekivalo, naša 4 elementa iz izvornog sloja su kopirana u odredišni sloj.
+##### Append
 
-dodati
-
-Sada, pogledajmo kako možemo dodati podatke našem sloju koristeći ugrađenu appendfunkciju koja dodaje nove elemente na kraj datog sloja.
+Sada, pogledajmo kako možemo dodati podatke isečku koristeći ugrađenu append funkciju koja dodaje nove elemente na kraj datog isečka.
 
 Prihvata isečak i promenljiv broj argumenata. Zatim vraća novi isečak koji sadrži sve elemente.
 
-append(slice []T, elems ...T) []T
+	append(slice []T, elems ...T) []T
 
 Hajde da to pokušamo na primeru dodavanjem elemenata našem isečku.
-
+```
 func main() {
 	s1 := []string{"a", "b", "c", "d"}
-
 	s2 := append(s1, "e", "f")
 
 	fmt.Println("s1:", s1)
 	fmt.Println("s2:", s2)
 }
-
-$ go run main.go
-s1: [a b c d]
-s2: [a b c d e f]
+```
+	$ go run main.go
+	s1: [a b c d]
+	s2: [a b c d e f]
 
 Kao što vidimo, novi elementi su dodani i vraćen je novi isečak.
 
-Ali ako dati segment nema dovoljan kapacitet za nove elemente, onda se dodeljuje novi osnovni niz sa većim kapacitetom.
+Ali ako dati isečak nema dovoljan kapacitet za nove elemente, onda se dodeljuje novi osnovni niz sa većim kapacitetom.
 
 Svi elementi iz osnovnog niza postojećeg isečka se kopiraju u ovaj novi niz, a zatim se dodaju novi elementi.
-Nekretnine
 
-Na kraju, hajde da razgovaramo o nekim svojstvima isečki.
+### Svojstva isečaka
 
-isečke su referentni tipovi, za razliku od nizova.
+Na kraju, hajde da razgovaramo o nekim svojstvima isečaka.
+
+Isečci su referentni tipovi, za razliku od nizova.
 
 To znači da će modifikovanje elemenata isečka modifikovati odgovarajuće elemente u referenciranom nizu.
-
+```
 package main
 
 import "fmt"
 
 func main() {
 	a := [7]string{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
-
 	s := a[0:2]
-
 	s[0] = "Sun"
 
 	fmt.Println(a) // Output: [Sun Tue Wed Thu Fri Sat Sun]
 	fmt.Println(s) // Output: [Sun Tue]
 }
-
-isečke se mogu koristiti i sa varijadnim tipovima.
-
+```
+Isečci se mogu koristiti i sa varijadičkim tipovima.
+```
 package main
 
 import "fmt"
@@ -2213,79 +2207,77 @@ func add(values ...int) int {
 
 	return sum
 }
+```
+# Mape
 
-Mape
-
-Dakle, Go pruža ugrađeni tip mape, i naučićemo kako da ga koristimo.
-
-Ali, pitanje je šta su mape? I zašto su nam potrebne?
-
-мапе
-
-Pa, mapa je neuređena kolekcija parova ključ-vrednost. Ona preslikava ključeve u vrednosti. Ključevi su jedinstveni unutar mape, dok vrednosti možda nisu.
+Mapa je neuređena kolekcija parova `key-value`. Ona preslikava ključeve u vrednosti. Ključevi su jedinstveni unutar mape, dok vrednosti možda nisu.
 
 Koristi se za brzo pretraživanje, pronalaženje i brisanje podataka na osnovu ključeva. To je jedna od najčešće korišćenih struktura podataka.
-Deklaracija
+
+### Deklaracija
 
 Počnimo sa deklaracijom.
 
 Mapa se deklariše korišćenjem sledeće sintakse:
 
-var m map[K]V
+	var m map[K]V
 
-Gde Kje ključni tip, a Vje vrednosni tip.
+Gde je K tip ključa, a V je tip vrednosti.
 
-Na primer, evo kako možemo deklarisati mapu stringključeva i intvrednosti.
-
+Na primer, evo kako možemo deklarisati mapu string ključeva i int vrednosti.
+```
 func main() {
 	var m map[string]int
 
 	fmt.Println(m)
 }
+```
+	$ go run main.go
+	nil
 
-$ go run main.go
-nil
+Kao što vidimo, nulta vrednost mape je `nil`.
 
-Kao što vidimo, nulta vrednost mape je nil.
+Mapa `nil` nema ključeve. Štaviše, svaki pokušaj dodavanja ključeva mapi `nil` rezultiraće greškom tokom izvršavanja.
 
-Mapa nilnema ključeve. Štaviše, svaki pokušaj dodavanja ključeva mapi nilrezultiraće greškom tokom izvršavanja.
-Inicijalizacija
+PS. Ovako deklarisana mapa ne služi ničemu, jer nema svoj alocirani prostor, zbog toga se njoj ne može dodati ni jedan par `key:value`. Jedino se može ići sa `new` funkcijom, dobiti alokacija i potom to dodeliti ovako deklarisanoj mapi.
+
+### Inicijalizacija
 
 Postoji više načina za inicijalizaciju mape.
 
-funkcija napraviti
+##### Funkcija make
 
-Možemo koristiti ugrađenu makefunkciju koja dodeljuje memoriju za referencirane tipove podataka i inicijalizuje njihove osnovne strukture podataka.
-
+Možemo koristiti ugrađenu `make` funkciju koja dodeljuje memoriju za referencirane tipove podataka i inicijalizuje njihove osnovne strukture podataka.
+```
 func main() {
 	var m = make(map[string]int)
 
 	fmt.Println(m)
 }
+```
+	$ go run main.go
+	map[]
 
-$ go run main.go
-map[]
-
-literal mape
+##### Map literal
 
 Drugi način je korišćenje literala mape.
-
+```
 func main() {
 	var m = map[string]int{
 		"a": 0,
-    "b": 1,
+		"b": 1,
 	}
 
 	fmt.Println(m)
 }
-
+```
 Imajte na umu da je završni zarez obavezan.
 
-$ go run main.go
-map[a:0 b:1]
+	$ go run main.go
+	map[a:0 b:1]
 
 Kao i uvek, možemo koristiti i naše prilagođene tipove.
-
+```
 type User struct {
 	Name string
 }
@@ -2298,21 +2290,21 @@ func main() {
 
 	fmt.Println(m)
 }
-
+```
 Možemo čak i ukloniti tip vrednosti i Go će to shvatiti!
-
+```
 var m = map[string]User{
 	"a": {"Peter"},
 	"b": {"Seth"},
 }
+```
+	$ go run main.go
+	map[a:{Peter} b:{Seth}]
 
-$ go run main.go
-map[a:{Peter} b:{Seth}]
-
-Dodaj
+### Dodavanje vrednosti na mapu
 
 Sada, hajde da vidimo kako možemo dodati vrednost našoj mapi.
-
+```
 func main() {
 	var m = map[string]User{
 		"a": {"Peter"},
@@ -2323,80 +2315,78 @@ func main() {
 
 	fmt.Println(m)
 }
+```
+	$ go run main.go
+	map[a:{Peter} b:{Seth} c:{Steve}]
 
-$ go run main.go
-map[a:{Peter} b:{Seth} c:{Steve}]
-
-Preuzmi
+### Preuzmimanje vrednosti sa mape
 
 Takođe možemo da preuzmemo naše vrednosti sa mape pomoću ključa.
-
+```
 ...
 c := m["c"]
 fmt.Println("Key c:", c)
-
-$ go run main.go
-key c: {Steve}
-
+```
+	$ go run main.go
+	key c: {Steve}
 Šta ako koristimo ključ koji nije prisutan na mapi?
-
+```
 ...
 d := m["d"]
 fmt.Println("Key d:", d)
+```
+Da, pogodili ste! Dobićemo nultu vrednost tipa vrednosti mape.
 
-Da, pogodili ste! dobićemo nultu vrednost tipa vrednosti mape.
+	$ go run main.go
+	Key c: {Steve}
+	Key d: {}
 
-$ go run main.go
-Key c: {Steve}
-Key d: {}
+### Provera prisutnosti ključa 
 
-Postoji
-
-Kada preuzmete vrednost dodeljenu datom ključu, vraća se i dodatna bulova vrednost. Bulova promenljiva će biti trueako ključ postoji, a falseu suprotnom.
+Kada preuzmete vrednost dodeljenu datom ključu, vraća se i dodatna bulova vrednost. Bulova promenljiva će biti `true` ako ključ postoji, a `false` u suprotnom.
 
 Hajde da ovo pokušamo na jednom primeru:
-
+```
 ...
 c, ok := m["c"]
 fmt.Println("Key c:", c, ok)
 
 d, ok := m["d"]
 fmt.Println("Key d:", d, ok)
+```
+	$ go run main.go
+	Key c: {Steve} Present: true
+	Key d: {} Present: false
 
-$ go run main.go
-Key c: {Steve} Present: true
-Key d: {} Present: false
-
-Ažuriranje
+### Ažuriranje mape
 
 Takođe možemo ažurirati vrednost ključa jednostavnim ponovnim dodeljivanjem ključa.
-
+```
 ...
 m["a"] = "Roger"
+```
+	$ go run main.go
+	map[a:{Roger} b:{Seth} c:{Steve}]
 
-$ go run main.go
-map[a:{Roger} b:{Seth} c:{Steve}]
+### Brisanje iz mape
 
-Obriši
-
-Ili, možemo obrisati ključ koristeći ugrađenu deletefunkciju.
+Ili, možemo obrisati ključ koristeći ugrađenu `delete` funkciju.
 
 Evo kako izgleda sintaksa:
 
-...
-delete(m, "a")
+	delete(m, "a")
 
 Prvi argument je mapa, a drugi je ključ koji želimo da obrišemo.
 
-Funkcija delete()ne vraća nikakvu vrednost. Takođe, ne radi ništa ako ključ ne postoji u mapi.
+Funkcija `delete()` ne vraća nikakvu vrednost. Takođe, ne radi ništa ako ključ ne postoji u mapi.
 
-$ go run main.go
-map[a:{Roger} c:{Steve}]
+	$ go run main.go
+	map[a:{Roger} c:{Steve}]
 
-Iteracija
+### Iteracija mape
 
-Slično nizovima ili isečkama, možemo iterirati kroz mape pomoću rangeključne reči .
-
+Slično nizovima ili isečcima, možemo iterirati kroz mape pomoću `range` ključne reči.
+```
 package main
 
 import "fmt"
@@ -2413,21 +2403,22 @@ func main() {
 		fmt.Println("Key: %s, Value: %v", key, value)
 	}
 }
-
-$ go run main.go
-Key: c, Value: {Steve}
-Key: a, Value: {Peter}
-Key: b, Value: {Seth}
+```
+	$ go run main.go
+	Key: c, Value: {Steve}
+	Key: a, Value: {Peter}
+	Key: b, Value: {Seth}
 
 Imajte na umu da je mapa neuređena kolekcija i stoga nije garantovano da će redosled iteracije mape biti isti svaki put kada je iteriramo.
-Nekretnine
+
+### Svojstava mapa
 
 Na kraju, hajde da pričamo o svojstvima mape.
 
 Mape su referentni tipovi, što znači da kada dodelimo mapu novoj promenljivoj, obe se odnose na istu osnovnu strukturu podataka.
 
 Stoga će promene koje izvrši jedna promenljiva biti vidljive drugoj.
-
+```
 package main
 
 import "fmt"
@@ -2445,59 +2436,53 @@ func main() {
 	m2 := m1
 	m2["c"] = User{"Steve"}
 
-	fmt.Println(m1) // Output: map[a:{Peter} b:{Seth} c:{Steve}]
-	fmt.Println(m2) // Output: map[a:{Peter} b:{Seth} c:{Steve}]
+	fmt.Println(m1) 
+	fmt.Println(m2) 
 }
+```
+	map[a:{Peter} b:{Seth} c:{Steve}]
+	map[a:{Peter} b:{Seth} c:{Steve}]
 
-Interfejsi
-
-U ovom odeljku, hajde da pričamo o interfejsima.
-Šta je interfejs?
+# Interfejsi
 
 Dakle, interfejs u ​​Gou je apstraktni tip koji je definisan pomoću skupa potpisa metoda. Interfejs definiše ponašanje za slične tipove objekata.
 
 Ovde je ponašanje ključni pojam o kome ćemo uskoro razgovarati.
 
-Hajde da pogledamo jedan primer da bismo ovo bolje razumeli.
+Jedan od najboljih primera interfejsa iz stvarnog sveta je utičnica. Zamislite da treba da povežemo različite uređaje na utičnicu (u zidu).
 
-Jedan od najboljih primera interfejsa iz stvarnog sveta je utičnica. Zamislite da treba da povežemo različite uređaje na utičnicu.
-
-без интерфејса
+### Bez interfejsa
 
 Hajde da pokušamo da ovo implementiramo. Evo tipova uređaja koje ćemo koristiti.
-
+```
 type mobile struct {
 	brand string
 }
-
 type laptop struct {
 	cpu string
 }
-
 type toaster struct {
 	amount int
 }
-
 type kettle struct {
 	quantity string
 }
-
 type socket struct{}
-
-Sada, hajde da definišemo Drawmetodu na tipu, recimo mobile. Ovde ćemo jednostavno ispisati svojstva tipa.
-
+```
+Sada, hajde da definišemo *Draw* metodu na tipu, recimo `mobile`. Ovde ćemo jednostavno ispisati svojstva tipa.
+```
 func (m mobile) Draw(power int) {
 	fmt.Printf("%T -> brand: %s, power: %d", m, m.brand, power)
 }
-
-Odlično, sada ćemo definisati Plugmetodu na sockettipu koja prihvata naš mobiletip kao argument.
-
+```
+Odlično, sada ćemo definisati *Plug* metodu na `socket` tipu koja prihvata naš `mobile` tip kao argument.
+```
 func (socket) Plug(device mobile, power int) {
 	device.Draw(power)
 }
-
-Hajde da pokušamo da "povežemo" ili "priključimo" tip mobilenašem sockettipu u mainfunkciji.
-
+```
+Hajde da pokušamo da "povežemo" ili "priključimo" tip `mobile` našem `socket` tipu u *main* funkciji.
+```
 package main
 
 import "fmt"
@@ -2508,128 +2493,115 @@ func main() {
 	s := socket{}
 	s.Plug(m, 10)
 }
-
+```
 I ako ovo pokrenemo, videćemo sledeće.
 
-$ go run main.go
-main.mobile -> brand: Apple, power: 10
+	$ go run main.go
+	main.mobile -> brand: Apple, power: 10
 
-Ovo je zanimljivo, ali recimo da sada želimo da povežemo naš laptoptip.
-
+Ovo je zanimljivo, ali recimo da sada želimo da povežemo naš `laptop` tip.
+```
 package main
-
 import "fmt"
 
 func main() {
 	m := mobile{"Apple"}
 	l := laptop{"Intel i9"}
-
 	s := socket{}
-
 	s.Plug(m, 10)
 	s.Plug(l, 50) // Error: cannot use l as mobile value in argument
 }
-
+```
 Kao što vidimo, ovo će izbaciti grešku.
 
-Šta bi trebalo sada da uradimo? Definišemo drugi metod? Kao na primer PlugLaptop?
+Šta bi trebalo sada da uradimo? Definišemo drugi metod? Kao na primer PlugLaptop? Naravno, ali onda svaki put kada dodamo novi tip uređaja, moraćemo da dodamo i novu metodu tipu `socket`, a to nije idealno.
 
-Naravno, ali onda svaki put kada dodamo novi tip uređaja, moraćemo da dodamo i novu metodu tipu soketa, a to nije idealno.
+Tu `interface` dolazi do izražaja. U suštini, želimo da definišemo ugovor koji se u budućnosti mora sprovesti.
 
-Tu interfacedolazi do izražaja . U suštini, želimo da definišemo ugovor koji se u budućnosti mora sprovesti.
+Možemo jednostavno definisati interfejs kao što je `PowerDrawer` i koristiti ga u našoj *Plug* funkciji da bismo dozvolili bilo koji uređaj koji zadovoljava kriterijume, a to je da tip mora imati Drawmetod koji odgovara potpisu koji interfejs zahteva.
 
-Možemo jednostavno definisati interfejs kao što je PowerDraweri koristiti ga u našoj Plugfunkciji da bismo dozvolili bilo koji uređaj koji zadovoljava kriterijume, a to je da tip mora imati Drawmetod koji odgovara potpisu koji interfejs zahteva.
+I u svakom slučaju, `socket` ne mora ništa da zna o našem uređaju i može jednostavno da pozove *Draw* metodu.
 
-I u svakom slučaju, soket ne mora ništa da zna o našem uređaju i može jednostavno da pozove Drawmetodu.
+### Sa interfejsom
 
-интерфејс
+Sada hajde da pokušamo da implementiramo naš `PowerDrawer` interfejs. Evo kako će izgledati.
 
-Sada hajde da pokušamo da implementiramo naš PowerDrawerinterfejs. Evo kako će izgledati.
+Konvencija je da se u imenu koristi sufiks `"-er"` . I kao što smo ranije pomenuli, interfejs treba samo da opisuje očekivano ponašanje. Što je u našem slučaju *Draw* metoda.
 
-Konvencija je da se u imenu koristi sufiks "-er" . I kao što smo ranije pomenuli, interfejs treba samo da opisuje očekivano ponašanje . Što je u našem slučaju Drawmetoda.
-
-имплементација интерфејса
-
+##### Implementacija interfejsa
+```
 type PowerDrawer interface {
 	Draw(power int)
 }
-
-Sada, moramo ažurirati našu Plugmetodu da prihvati uređaj koji implementira PowerDrawerinterfejs kao argument.
-
+```
+Sada, moramo ažurirati našu *Plug* metodu da prihvati uređaj koji implementira `PowerDrawer` interfejs kao argument.
+```
 func (socket) Plug(device PowerDrawer, power int) {
 	device.Draw(power)
 }
-
-A da bismo zadovoljili interfejs, možemo jednostavno dodati Drawmetode svim tipovima uređaja.
-
+```
+A da bismo zadovoljili interfejs, možemo jednostavno dodati Draw metode svim tipovima uređaja.
+```
 type mobile struct {
 	brand string
 }
-
 func (m mobile) Draw(power int) {
 	fmt.Printf("%T -> brand: %s, power: %d\n", m, m.brand, power)
 }
-
 type laptop struct {
 	cpu string
 }
-
 func (l laptop) Draw(power int) {
 	fmt.Printf("%T -> cpu: %s, power: %d\n", l, l.cpu, power)
 }
-
 type toaster struct {
 	amount int
 }
-
 func (t toaster) Draw(power int) {
 	fmt.Printf("%T -> amount: %d, power: %d\n", t, t.amount, power)
 }
-
 type kettle struct {
 	quantity string
 }
-
 func (k kettle) Draw(power int) {
 	fmt.Printf("%T -> quantity: %s, power: %d\n", k, k.quantity, power)
 }
-
+```
 Sada možemo povezati sve naše uređaje sa utičnicom pomoću našeg interfejsa!
-
+```
 func main() {
 	m := mobile{"Apple"}
 	l := laptop{"Intel i9"}
 	t := toaster{4}
 	k := kettle{"50%"}
-
 	s := socket{}
-
 	s.Plug(m, 10)
 	s.Plug(l, 50)
 	s.Plug(t, 30)
 	s.Plug(k, 25)
 }
-
+```
 I funkcioniše baš onako kako smo očekivali.
 
-$ go run main.go
-main.mobile -> brand: Apple, power: 10
-main.laptop -> cpu: Intel i9, power: 50
-main.toaster -> amount: 4, power: 30
-main.kettle -> quantity: Half Empty, power: 25
+	$ go run main.go
+	main.mobile -> brand: Apple, power: 10
+	main.laptop -> cpu: Intel i9, power: 50
+	main.toaster -> amount: 4, power: 30
+	main.kettle -> quantity: Half Empty, power: 25
 
 Ali zašto se ovo smatra tako moćnim konceptom?
 
-Pa, interfejs nam može pomoći da razdvojimo naše tipove. Na primer, pošto imamo interfejs, ne moramo da ažuriramo našu socketimplementaciju. Možemo jednostavno definisati novi tip uređaja pomoću Drawmetode.
+Pa, interfejs nam može pomoći da razdvojimo naše tipove. Na primer, pošto imamo interfejs, ne moramo da ažuriramo našu `socket` implementaciju. Možemo jednostavno definisati novi tip uređaja pomoću *Draw* metode.
 
-Za razliku od drugih jezika, Go interfejsi su implicitno implementirani , tako da nam nije potrebno nešto poput implementsključne reči. To znači da tip automatski zadovoljava interfejs kada ima "sve metode" interfejsa.
-Prazan interfejs
+Za razliku od drugih jezika, Go interfejsi su implicitno implementirani, tako da nam nije potrebno nešto poput `implements` ključne reči. To znači da tip automatski zadovoljava interfejs kada ima "sve metode" interfejsa.
 
-Zatim, hajde da pričamo o praznom interfejsu. Prazan interfejs može da poprimi vrednost bilo kog tipa.
+### Prazan interfejs
+
+Prazan interfejs može da poprimi vrednost bilo kog tipa.
 
 Evo kako to deklarišemo.
 
-var x interface{}
+	var x interface{}
 
 Ali zašto nam je to potrebno?
 
@@ -2637,59 +2609,58 @@ Prazni interfejsi se mogu koristiti za rukovanje vrednostima nepoznatih tipova.
 
 Neki primeri su:
 
-    Čitanje heterogenih podataka iz API-ja.
-    Promenljive nepoznatog tipa, kao u fmt.Printlnfunkciji.
+- Čitanje heterogenih podataka iz API-ja.
+- Promenljive nepoznatog tipa, kao u `fmt.Println` funkciji.
 
-Da bismo koristili vrednost tipa empty interface{}, možemo koristiti tvrdnju tipa ili prekidač tipa da bismo odredili tip vrednosti.
-Tvrdnja tipa
+Da bismo koristili vrednost tipa interface{}, možemo koristiti tvrdnju tipa ili prekidač tipa da bismo odredili tip vrednosti.
+
+### Tvrdnja tipa
 
 Tvrdnja tipa pruža pristup osnovnoj konkretnoj vrednosti vrednosti interfejsa.
 
 Na primer:
-
+```
 func main() {
 	var i interface{} = "hello"
-
-	s := i.(string)
+	
+	s := i.(string)		// <<=== tvrdnja tipa
 	fmt.Println(s)
 }
-
+```
 Ova izjava tvrdi da vrednost interfejsa sadrži konkretan tip i dodeljuje osnovnu vrednost tipa promenljivoj.
 
 Takođe možemo testirati da li vrednost interfejsa sadrži određeni tip.
 
 Tvrdnja tipa može vratiti dve vrednosti:
 
-    Prva je osnovna vrednost.
-    Druga je bulova vrednost koja izveštava da li je tvrdnja uspešna.
-
-s, ok := i.(string)
+- Prva je osnovna vrednost.
+- Druga je bulova vrednost koja izveštava da li je tvrdnja uspešna.
+```
+s, ok := i.(string) 	// << ==== tvrdnja tiša u onliku zarez, ok 
 fmt.Println(s, ok)
+```
+Ovo nam može pomoći da testiramo da li vrednost interfejsa sadrži određeni tip ili ne. Na neki način, ovo je slično načinu na koji čitamo vrednosti sa mape.
 
-Ovo nam može pomoći da testiramo da li vrednost interfejsa sadrži određeni tip ili ne.
-
-Na neki način, ovo je slično načinu na koji čitamo vrednosti sa mape.
-
-A ako to nije slučaj, onda okće biti false i vrednost će biti nula vrednost tipa, i neće doći do panike.
-
+A ako je `ok` jednako `false` i vrednost će biti nula vrednost tipa, i neće doći do panike.
+```
 f, ok := i.(float64)
 fmt.Println(f, ok)
-
+```
 Ali ako interfejs ne sadrži tip, izjava će izazvati paniku.
-
+```
 f = i.(float64)
 fmt.Println(f) // Panic!
+```
+	$ go run main.go
+	hello
+	hello true
+	0 false
+	panic: interface conversion: interface {} is string, not float64
 
-$ go run main.go
-hello
-hello true
-0 false
-panic: interface conversion: interface {} is string, not float64
+### Prekidač tipa
 
-Prekidač tipa
-
-Ovde switchse može koristiti iskaz za određivanje tipa promenljive tipa empty interface{}.
-
+switch se može koristiti kao iskaz za određivanje tipa promenljive tipa interface{}.
+```
 var t interface{}
 t = "hello"
 
@@ -2703,85 +2674,75 @@ case int:
 default:
 	fmt.Printf("unexpected: %T\n", t)
 }
+```
+I ako ovo pokrenemo, možemo proveriti da imamo string tip.
 
-I ako ovo pokrenemo, možemo proveriti da imamo stringtip.
+	$ go run main.go
+	string: hello
 
-$ go run main.go
-string: hello
+### Svojstva interfejsa
 
-Nekretnine
+##### Nulta vrednost
 
-Hajde da razgovaramo o nekim svojstvima interfejsa.
-Nulta vrednost
-
-Nulta vrednost interfejsa je nil.
-
+Nulta vrednost interfejsa je `nil`.
+```
 package main
-
 import "fmt"
 
 type MyInterface interface {
 	Method()
 }
-
 func main() {
 	var i MyInterface
 
 	fmt.Println(i) // Output: <nil>
 }
+```
 
-Ugrađivanje
+##### Ugrađivanje
 
 Možemo ugrađivati interfejse poput struktura. Na primer:
-
+```
 type interface1 interface {
     Method1()
 }
-
 type interface2 interface {
     Method2()
 }
-
 type interface3 interface {
     interface1
     interface2
 }
-
-Vrednosti
+```
+##### Poređenje interfejsa
 
 Vrednosti interfejsa su uporedive.
-
+```
 package main
-
 import "fmt"
 
 type MyInterface interface {
 	Method()
 }
-
 type MyType struct{}
-
 func (MyType) Method() {}
 
 func main() {
 	t := MyType{}
 	var i MyInterface = MyType{}
-
 	fmt.Println(t == i)
 }
-
-Vrednosti interfejsa
+```
+##### Vrednosti interfejsa
 
 U suštini, vrednost interfejsa se može smatrati torkom koja se sastoji od vrednosti i konkretnog tipa.
-
+```
 package main
-
 import "fmt"
 
 type MyInterface interface {
 	Method()
 }
-
 type MyType struct {
 	property int
 }
@@ -2790,45 +2751,41 @@ func (MyType) Method() {}
 
 func main() {
 	var i MyInterface
-
 	i = MyType{10}
-
-	fmt.Printf("(%v, %T)\n", i, i) // Output: ({10}, main.MyType)
+	fmt.Printf("(%v, %T)\n", i, i) 	// Output: ({10}, main.MyType)
 }
-
+```
 Time smo pokrili interfejse u Go-u.
 
 To je zaista moćna funkcija, ali zapamtite, "Što je interfejs veći, to je apstrakcija slabija" - Rob Pajk.
-Greške
 
-U ovom tutorijalu, hajde da pričamo o postupanju sa greškama.
+# Greške
 
-Primetite kako sam rekao greške, a ne izuzetke, jer u Go-u nema obrade izuzetaka.
-
-Umesto toga, možemo jednostavno vratiti ugrađeni errortip koji je tip interfejsa.
-
+Primetite kako sam rekao greške, a ne izuzetci, jer u Go-u nema obrade izuzetaka. Umesto toga, možemo jednostavno vratiti ugrađeni `error` tip koji je tip interfejsa.
+```
 type error interface {
     Error() string
 }
+```
+Uskoro ćemo se vratiti na ovo. Prvo, pokušajmo da razumemo osnove. 
 
-Uskoro ćemo se vratiti na ovo. Prvo, pokušajmo da razumemo osnove.
-
-Dakle, deklarišimo jednostavnu Dividefunkciju koja, kao što ime sugeriše, deli ceo broj asa b.
-
+Dakle, deklarišimo jednostavnu *Divide* funkciju koja, kao što ime sugeriše, deli ceo broj *a* sa *b*.
+```
 func Divide(a, b int) int {
 	return a/b
 }
+```
+Sada želimo da vratimo grešku, recimo, da sprečimo deljenje nulom. To nas dovodi do konstrukcije greške.
 
-Odlično. Sada želimo da vratimo grešku, recimo, da sprečimo deljenje nulom. To nas dovodi do konstrukcije greške.
-Greške u konstruisanju
+### Konstrukcija grešaka
 
 Postoji više načina da se to uradi, ali ćemo pogledati dva najčešća.
-errorspaket
 
-Prvi je korišćenjem Newfunkcije koju pruža errorspaket.
+##### errors paket
 
+Prvi je korišćenjem `New` funkcije koju pruža `errors` paket.
+```
 package main
-
 import "errors"
 
 func main() {}
@@ -2837,16 +2794,14 @@ func Divide(a, b int) (int, error) {
 	if b == 0 {
 		return 0, errors.New("cannot divide by zero")
 	}
-
 	return a/b, nil
 }
+```
+Obratite pažnju kako vraćamo `error` sa rezultatom. A ako nema greške, jednostavno vraćamo ` nil` jer je to `nulta vrednost` greške, jer je na kraju krajeva, to interfejs.
 
-Obratite pažnju kako vraćamo `an` errorsa rezultatom. A ako nema greške, jednostavno vraćamo ` niljer je `nulta vrednost` greške, jer je na kraju krajeva, to interfejs.
-
-Ali kako da to rešimo? Dakle, za to ćemo pozvati Dividefunkciju u našoj mainfunkciji.
-
+Ali kako da to rešimo? Dakle, za to ćemo pozvati `Divide` funkciju u našoj `main` funkciji.
+```
 package main
-
 import (
 	"errors"
 	"fmt"
@@ -2854,50 +2809,47 @@ import (
 
 func main() {
 	result, err := Divide(4, 0)
-
 	if err != nil {
 		fmt.Println(err)
 		// Do something with the error
 		return
 	}
-
-	fmt.Println(result)
 	// Use the result
+	fmt.Println(result)
 }
 
 func Divide(a, b int) (int, error) {...}
+```
+	$ go run main.go
+	cannot divide by zero
 
-$ go run main.go
-cannot divide by zero
+Kao što vidite, jednostavno proveravamo da li je greška `nil` i u skladu sa tim gradimo našu logiku. Ovo se smatra prilično idiomatskim u Go jeziku i videćete da se često koristi.
 
-Kao što vidite, jednostavno proveravamo da li je greška u pitanju nili u skladu sa tim gradimo našu logiku. Ovo se smatra prilično idiomatskim u Go jeziku i videćete da se često koristi.
+##### fmt.Errorf funkcija
 
-Drugi način da konstruišemo naše greške je korišćenje fmt.Errorffunkcije.
+Drugi način da konstruišemo naše greške je korišćenje `fmt.Errorf` funkcije.
 
-Ova funkcija je slična fmt.Sprintfi omogućava nam da formatiramo grešku. Ali umesto vraćanja stringa, vraća grešku.
+Ova funkcija je slična `fmt.Sprintf` i omogućava nam da formatiramo grešku. Ali umesto vraćanja stringa, vraća grešku.
 
 Često se koristi da doda kontekst ili detalj našim greškama.
-
-...
+```
 func Divide(a, b int) (int, error) {
 	if b == 0 {
 		return 0, fmt.Errorf("cannot divide %d by zero", a)
 	}
-
 	return a/b, nil
 }
-
+```
 I trebalo bi da funkcioniše slično.
 
-$ go run main.go
-cannot divide 4 by zero
+	$ go run main.go
+	cannot divide 4 by zero
 
-Greške Sentinela
+##### Očekivane greške
 
-Još jedna važna tehnika u Gou je definisanje očekivanih grešaka kako bi se one mogle eksplicitno proveriti u drugim delovima koda. One se ponekad nazivaju sentinel greškama.
-
+Još jedna važna tehnika u Gou je definisanje očekivanih grešaka kako bi se one mogle eksplicitno proveriti u drugim delovima koda. One se ponekad nazivaju `sentinel` greškama.
+```
 package main
-
 import (
 	"errors"
 	"fmt"
@@ -2911,20 +2863,16 @@ func Divide(a, b int) (int, error) {
 	if b == 0 {
 		return 0, ErrDivideByZero
 	}
-
 	return a/b, nil
 }
+```
+U jeziku Go, smatra se konvencionalnim da se ispred promenljive stavlja prefiks `Err`. Na primer, `ErrNotFound`.
 
-U jeziku Go, smatra se konvencionalnim da se ispred promenljive stavlja prefiks Err. Na primer, ErrNotFound.
+Ali koja je poenta?  Dakle, ovo postaje korisno kada treba da izvršimo drugu granu koda ako se naiđe na određenu vrstu greške.
 
-Ali koja je poenta?
-
-Dakle, ovo postaje korisno kada treba da izvršimo drugu granu koda ako se naiđe na određenu vrstu greške.
-
-Na primer, sada možemo eksplicitno proveriti koja se greška dogodila korišćenjem errors.Isfunkcije.
-
+Na primer, sada možemo eksplicitno proveriti koja se greška dogodila korišćenjem `errors.Is` funkcije.
+```
 package main
-
 import (
 	"errors"
 	"fmt"
@@ -2932,52 +2880,44 @@ import (
 
 func main() {
 	result, err := Divide(4, 0)
-
 	if err != nil {
 		switch {
-    case errors.Is(err, ErrDivideByZero):
-        fmt.Println(err)
-				// Do something with the error
-    default:
-        fmt.Println("no idea!")
-    }
-
+		case errors.Is(err, ErrDivideByZero):
+			fmt.Println(err)
+			// Do something with the error
+		default:
+			fmt.Println("no idea!")
+		}
 		return
 	}
-
-	fmt.Println(result)
-	// Use the result
+	fmt.Println(result)	// Use the result
 }
 
 func Divide(a, b int) (int, error) {...}
+```
+	$ go run main.go
+	cannot divide by zero
 
-$ go run main.go
-cannot divide by zero
-
-Prilagođene greške
+##### Prilagođene greške
 
 Ova strategija pokriva većinu slučajeva upotrebe za obradu grešaka. Ali ponekad su nam potrebne dodatne funkcionalnosti kao što su dinamičke vrednosti unutar naših grešaka.
 
-Ranije smo videli da errorje to samo interfejs. Dakle, u osnovi, bilo šta može biti "a" errorsve dok implementira Error()metodu koja vraća poruku o grešci kao string.
+Ranije smo videli da je error samo interfejs. Dakle, u osnovi, bilo šta može biti `error` sve dok implementira `Error()` metodu koja vraća poruku o grešci kao string.
 
-Dakle, hajde da definišemo našu prilagođenu DivisionErrorstrukturu koja će sadržati kod greške i poruku.
-
+Dakle, hajde da definišemo našu prilagođenu `DivisionError` strukturu koja će sadržati kod greške i poruku.
+```
 package main
-
 import (
 	"errors"
 	"fmt"
 )
-
 type DivisionError struct {
 	Code int
 	Msg  string
 }
-
 func (d DivisionError) Error() string {
 	return fmt.Sprintf("code %d: %s", d.Code, d.Msg)
 }
-
 func main() {...}
 
 func Divide(a, b int) (int, error) {
@@ -2987,18 +2927,15 @@ func Divide(a, b int) (int, error) {
 			Msg:  "cannot divide by zero",
 		}
 	}
-
 	return a/b, nil
 }
-
-Ovde ćemo koristiti errors.Asumesto errors.Isfunkcije da bismo konvertovali grešku u ispravan tip.
-
+```
+Ovde ćemo koristiti `errors.As` umesto `errors.Is` funkcije da bismo konvertovali grešku u ispravan tip.
+```
 func main() {
 	result, err := Divide(4, 0)
-
 	if err != nil {
 		var divErr DivisionError
-
 		switch {
 		case errors.As(err, &divErr):
 			fmt.Println(divErr)
@@ -3006,445 +2943,416 @@ func main() {
 		default:
 			fmt.Println("no idea!")
 		}
-
 		return
 	}
-
-	fmt.Println(result)
-	// Use the result
+	fmt.Println(result)	// Use the result
 }
-
 func Divide(a, b int) (int, error) {...}
+```
+	$ go run main.go
+	code 2000: cannot divide by zero
 
-$ go run main.go
-code 2000: cannot divide by zero
+Ali koja je razlika između funkcija `errors.Is` i `errors.As`?
 
-Ali koja je razlika između errors.Isi errors.As?
+Razlika je u tome što ova `As` funkcija proverava da li greška ima određeni tip, za razliku od `Is` funkcije koja ispituje da li je u pitanju određeni objekat greške.
 
-Razlika je u tome što ova funkcija proverava da li greška ima određeni tip, za razliku od Isfunkcije koja ispituje da li je u pitanju određeni objekat greške.
-
-Takođe možemo koristiti tvrdnje tipa, ali to nije poželjno.
-
+Takođe možemo koristiti tvrdnju tipa, ali to nije poželjno.
+```
 func main() {
 	result, err := Divide(4, 0)
-
 	if e, ok := err.(DivisionError); ok {
 		fmt.Println(e.Code, e.Msg) // Output: 2000 cannot divide by zero
 		return
 	}
-
 	fmt.Println(result)
 }
+```
+Na kraju, reći ću da je obrada grešaka u Gou prilično drugačija u poređenju sa tradicionalnim `try/catch` idiomom u drugim jezicima. Ali je veoma moćna jer podstiče programera da zapravo obradi grešku na eksplicitan način, što takođe poboljšava čitljivost.
 
-Na kraju, reći ću da je obrada grešaka u Gou prilično drugačija u poređenju sa tradicionalnim try/catchidiomom u drugim jezicima. Ali je veoma moćna jer podstiče programera da zapravo obradi grešku na eksplicitan način, što takođe poboljšava čitljivost.
-Panika i oporavak
+# Panic i recover
 
 Dakle, ranije smo saznali da je idiomatski način rešavanja abnormalnih uslova u Go programu korišćenje grešaka. Iako su greške dovoljne za većinu slučajeva, postoje neke situacije u kojima program ne može da nastavi sa radom.
 
-U tim slučajevima možemo koristiti ugrađenu panicfunkciju.
-Panika
+U tim slučajevima možemo koristiti ugrađenu `panic` funkciju.
 
-func panic(interface{})
+### Panic funkcija
 
-Panika je ugrađena funkcija koja zaustavlja normalno izvršavanje trenutne funkcije goroutine. Kada funkcija pozove panic, normalno izvršavanje funkcije se odmah zaustavlja i kontrola se vraća pozivaocu. Ovo se ponavlja dok se program ne završi sa porukom panike i tragom steka.
+	func panic(interface{})
 
-Napomena: O tome ćemo razgovarati goroutineskasnije u kursu.
+`Panic` je ugrađena funkcija koja zaustavlja normalno izvršavanje trenutne goroutine. Kada funkcija pozove panic, normalno izvršavanje funkcije se odmah zaustavlja i kontrola se vraća pozivaocu. Ovo se ponavlja dok se program ne završi sa porukom panike i tragom steka.
 
-Dakle, da vidimo kako možemo da koristimo panicfunkciju.
+**Napomena**: O *goroutine* ćemo razgovarati skasnije u kursu.
 
+Dakle, da vidimo kako možemo da koristimo panic funkciju.
+```
 package main
 
 func main() {
 	WillPanic()
 }
-
 func WillPanic() {
 	panic("Woah")
 }
+```
+I ako ovo pokrenemo, možemo videti `panic` u akciji.
 
-I ako ovo pokrenemo, možemo videti panicu akciji.
-
-$ go run main.go
-panic: Woah
+	$ go run main.go
+	panic: Woah
 
 goroutine 1 [running]:
+```
 main.WillPanic(...)
-        .../main.go:8
+    .../main.go:8
 main.main()
-        .../main.go:4 +0x38
+    .../main.go:4 +0x38
 exit status 2
-
+```
 Kao što se i očekivalo, naš program je ispisao poruku panike, nakon čega je usledio trag steka, a zatim je prekinut.
 
 Dakle, pitanje je šta učiniti kada se dogodi neočekivana panika?
-Oporavi
 
-Pa, moguće je povratiti kontrolu nad programom koji izaziva paniku koristeći ugrađenu recoverfunkciju, zajedno sa deferključnom reči .
+### Recover funkcija
 
-func recover() interface{}
+Moguće je povratiti kontrolu nad programom koji izaziva paniku koristeći ugrađenu `recover` funkciju, zajedno sa `defer` ključnom reči.
 
-Hajde da pokušamo primer kreiranjem handlePanicfunkcije. A zatim je možemo pozvati koristeći defer.
+	func recover() interface{}
 
+Hajde da pokušamo primer kreiranjem `handlePanic` funkcije. A zatim je možemo pozvati koristeći defer.
+```
 package main
-
 import "fmt"
 
 func main() {
 	WillPanic()
 }
-
 func handlePanic() {
 	data := recover()
 	fmt.Println("Recovered:", data)
 }
-
 func WillPanic() {
 	defer handlePanic()
-
 	panic("Woah")
 }
-
-$ go run main.go
-Recovered: Woah
+```
+	$ go run main.go
+	Recovered: Woah
 
 Kao što vidimo, naša panika je oporavljena i sada naš program može da nastavi sa izvršavanjem.
 
-Na kraju, pomenuću da panicse recovermože smatrati sličnim try/catchidiomu u drugim jezicima. Ali jedan važan faktor je da treba da izbegavamo paniku i da se oporavljamo i koristimo greške kad god je to moguće.
+Na kraju, pomenuću da se `panic` i `recover` mogu smatrati sličnim `try/catch` idiomu u drugim jezicima. Ali jedan važan faktor je da treba da izbegavamo paniku i da se oporavljamo i koristimo greške kad god je to moguće.
 
 Ako je tako, onda nas to dovodi do pitanja, kada bi trebalo da koristimo panic?
-Slučajevi upotrebe
+
+### Slučajevi upotrebe panic funkcije
 
 Postoje dva validna slučaja upotrebe za panic:
 
-    Nepopravljiva greška
+##### Nepopravljiva greška
 
 Što može biti situacija u kojoj program jednostavno ne može da nastavi svoje izvršavanje.
 
 Na primer, čitanje konfiguracione datoteke što je važno za pokretanje programa, jer nema šta drugo da se uradi ako samo čitanje datoteke ne uspe.
 
-    Greška programera
+##### Greška programera
 
-Ovo je najčešća situacija. Na primer, dereferenciranje pointera kada je vrednost nilizazvalo bi paniku.
-Testiranje
+Ovo je najčešća situacija. Na primer, dereferenciranje pointera kada je vrednost `nil` izazvalo bi paniku.
 
-U ovom tutorijalu ćemo govoriti o testiranju u Go-u. Dakle, hajde da počnemo sa jednostavnim primerom.
+# Testiranje
 
-Napravili smo mathpaket koji sadrži Addfunkciju koja, kao što i samo ime sugeriše, sabira dva cela broja.
-
+U ovom tutorijalu ćemo govoriti o testiranju u Go-u. Dakle, hajde da počnemo sa jednostavnim primerom. Napravili smo `math` paket koji sadrži `Add` funkciju koja, kao što i samo ime sugeriše, sabira dva cela broja.
+```
 package math
-
 func Add(a, b int) int {
 	return a + b
 }
-
-Koristi se u našem mainpaketu ovako.
-
+```
+Koristi se u našem `main` paketu ovako:
+```
 package main
-
 import (
 	"example/math"
 	"fmt"
 )
-
 func main() {
 	result := math.Add(2, 2)
 	fmt.Println(result)
 }
-
+```
 I, ako ovo pokrenemo, trebalo bi da vidimo rezultat.
 
-$ go run main.go
-4
+	$ go run main.go
+	4
 
-Sada želimo da testiramo našu Addfunkciju. Dakle, u programskom jeziku Go deklarišemo test datoteke sa _testsufiksom u nazivu datoteke. Dakle, za naš add.go, kreiraćemo test kao add_test.go. Struktura našeg projekta bi trebalo da izgleda ovako.
+Sada želimo da testiramo našu `Add` funkciju. Dakle, u programskom jeziku Go deklarišemo test datoteke sa `_test` sufiksom u nazivu datoteke. Dakle, za naš `add.go`, kreiraćemo test kao `add_test.go`. Struktura našeg projekta bi trebalo da izgleda ovako:
 
-.
-├── go.mod
-├── main.go
-└── math
-    ├── add.go
-    └── add_test.go
+├── go.mod<br>
+├── main.go<br>
+└── math<br>
+....├── add.go<br>
+....└── add_test.go
 
-Počećemo korišćenjem math_testpaketa i njegovim uvozom testingiz standardne biblioteke. Tako je! Testiranje je ugrađeno u Go, za razliku od mnogih drugih jezika.
+Počećemo korišćenjem `math_test` paketa i njegovim uvozom `testing` iz standardne biblioteke. Testiranje je ugrađeno u Go, za razliku od mnogih drugih jezika.
 
-Ali čekajte... zašto moramo da koristimo math_testkao naš paket, zar ne možemo jednostavno da koristimo isti mathpaket?
+Ali čekajte... zašto moramo da koristimo `math_test` kao naš paket, zar ne možemo jednostavno da koristimo isti `math` paket?
 
 Pa da, možemo napisati naš test u istom paketu ako želimo, ali lično mislim da nam rad u odvojenom paketu pomaže da pišemo testove na odvojeniji način.
 
-Sada možemo da kreiramo našu TestAddfunkciju. Ona će uzimati argument tipa testing.Tkoji će nam pružiti korisne metode.
-
+Sada možemo da kreiramo našu `TestAdd`funkciju. Ona će uzimati argument tipa `testing.T` koji će nam pružiti korisne metode.
+```
 package math_test
-
 import "testing"
 
 func TestAdd(t *testing.T) {}
+```
+Pre nego što dodamo bilo kakvu logiku za testiranje, pokušaćemo da je pokrenemo. Ali ovog puta, ne možemo koristiti `go run` komandu, umesto toga ćemo koristiti `go test` komandu.
 
-Pre nego što dodamo bilo kakvu logiku za testiranje, pokušaćemo da je pokrenemo. Ali ovog puta, ne možemo koristiti go runkomandu, umesto toga ćemo koristiti go testkomandu.
+	$ go test ./math
+	ok      example/math 0.429s
 
-$ go test ./math
-ok      example/math 0.429s
+Ovde ćemo imati ime našeg paketa koje je `math`, ali možemo koristiti i relativnu putanju ./.. za testiranje svih paketa.
 
-Ovde ćemo imati ime našeg paketa koje je math, ali možemo koristiti i relativnu putanju ./...za testiranje svih paketa.
-
-$ go test ./...
-?       example [no test files]
-ok      example/math 0.348s
+	$ go test ./..
+	?       example [no test files]
+	ok      example/math 0.348s
 
 A ako Go ne pronađe nijedan test u paketu, obavestiće nas.
 
-Odlično, hajde da napišemo test kod. Da bismo to uradili, proverićemo naš rezultat sa očekivanom vrednošću i ako se ne poklapaju, možemo koristiti t.Failmetodu da ne prođemo test.
-
+Odlično, hajde da napišemo test kod. Da bismo to uradili, proverićemo naš rezultat sa očekivanom vrednošću i ako se ne poklapaju, možemo koristiti `t.Fail` metodu da ne prođemo test.
+```
 package math_test
-
 import "testing"
 
 func TestAdd(t *testing.T) {
 	got := math.Add(1, 1)
 	expected := 2
-
 	if got != expected {
 		t.Fail()
 	}
 }
-
+```
 Odlično! Izgleda da je naš test prošao.
 
-$ go test math
-ok      example/math    0.412s
+	$ go test math
+	ok      example/math    0.412s
 
 Da vidimo i šta se dešava ako ne prođemo test, za to možemo jednostavno promeniti očekivani rezultat.
-
+```
 package math_test
-
 import "testing"
 
 func TestAdd(t *testing.T) {
 	got := math.Add(1, 1)
 	expected := 3
-
 	if got != expected {
 		t.Fail()
 	}
 }
+```
+	$ go test ./math
+	ok      example/math    (cached)
 
-$ go test ./math
-ok      example/math    (cached)
+Ako ovo vidite, ne brinite. Radi optimizacije, naši testovi su keširani. Možemo koristiti `go clean` komandu da obrišemo keš memoriju, a zatim ponovo pokrenemo test.
 
-Ako ovo vidite, ne brinite. Radi optimizacije, naši testovi su keširani. Možemo koristiti go cleankomandu da obrišemo keš memoriju, a zatim ponovo pokrenemo test.
-
-$ go clean -testcache
-$ go test ./math
---- FAIL: TestAdd (0.00s)
-FAIL
-FAIL    example/math    0.354s
-FAIL
+	$ go clean -testcache
+	$ go test ./math
+	--- FAIL: TestAdd (0.00s)
+	FAIL
+	FAIL    example/math    0.354s
+	FAIL
 
 Dakle, ovako će izgledati neuspeh na testu.
-Testovi vođeni tabelama
+
+### Testovi vođeni tabelama
 
 Ovo nas dovodi do testova vođenih tabelama. Ali šta su oni tačno?
 
-Dakle, ranije smo imali argumente funkcija i očekivane promenljive koje smo upoređivali da bismo utvrdili da li su naši testovi prošli ili ne. Ali šta ako sve to definišemo u jednom segmentu i ponovimo ga? Ovo će učiniti naše testove malo fleksibilnijim i pomoći nam da lakše pokrenemo više slučajeva.
+Dakle, ranije smo imali argumente funkcija i očekivane promenljive koje smo upoređivali da bismo utvrdili da li su naši testovi prošli ili ne. Ali šta ako sve to definišemo u jednom isečku i ponovimo ga? Ovo će učiniti naše testove malo fleksibilnijim i pomoći nam da lakše pokrenemo više slučajeva.
 
-Ne brinite, naučićemo ovo na primeru. Zato ćemo početi definisanjem naše addTestCasestrukture.
-
+Ne brinite, naučićemo ovo na primeru. Zato ćemo početi definisanjem naše `addTestCase` strukture.
+```
 package math_test
-
 import (
 	"example/math"
 	"testing"
 )
-
 type addTestCase struct {
 	a, b, expected int
 }
-
 var testCases = []addTestCase{
 	{1, 1, 3},
 	{25, 25, 50},
 	{2, 1, 3},
 	{1, 10, 11},
 }
-
 func TestAdd(t *testing.T) {
-
 	for _, tc := range testCases {
 		got := math.Add(tc.a, tc.b)
-
 		if got != tc.expected {
 			t.Errorf("Expected %d but got %d", tc.expected, got)
 		}
 	}
 }
+```
+Obratite pažnju kako smo deklarisali `addTestCase` malim slovom. Tačno, ne želimo da ga eksportujemo jer nije korisno van naše logike testiranja. Hajde da pokrenemo naš test.
 
-Obratite pažnju kako smo deklarisali addTestCasemalim slovom. Tačno, ne želimo da ga eksportujemo jer nije korisno van naše logike testiranja. Hajde da pokrenemo naš test.
-
-$ go run main.go
---- FAIL: TestAdd (0.00s)
-    add_test.go:25: Expected 3 but got 2
-FAIL
-FAIL    example/math    0.334s
-FAIL
+	$ go run main.go
+	--- FAIL: TestAdd (0.00s)
+	    add_test.go:25: Expected 3 but got 2
+	FAIL
+	FAIL    example/math    0.334s
+	FAIL
 
 Izgleda da su nam testovi otkazali, hajde da ih popravimo ažuriranjem naših test slučajeva.
-
+```
 var testCases = []addTestCase{
 	{1, 1, 2},
 	{25, 25, 50},
 	{2, 1, 3},
 	{1, 10, 11},
 }
-
+```
 Odlično, radi!
 
-$ go run main.go
-ok      example/math    0.589s
+	$ go run main.go
+	ok      example/math    0.589s
 
-Pokrivenost koda
+### Pokrivenost koda
 
 Na kraju, hajde da pričamo o pokrivenosti koda. Prilikom pisanja testova, često je važno znati koliki deo vašeg stvarnog koda testovi pokrivaju. Ovo se generalno naziva pokrivenošću koda.
 
-Da bismo izračunali i izvezli pokrivenost za naš test, možemo jednostavno koristiti -coverprofileargument sa go testkomandom.
+Da bismo izračunali i izvezli pokrivenost za naš test, možemo jednostavno koristiti `-coverprofile` argument sa `go test` komandom.
 
-$ go test ./math -coverprofile=coverage.out
-ok      example/math    0.385s  coverage: 100.0% of statements
+	$ go test ./math -coverprofile=coverage.out
+	ok      example/math    0.385s  coverage: 100.0% of statements
 
-Izgleda da imamo odličnu pokrivenost. Hajde da proverimo i izveštaj koristeći go tool coverkomandu koja nam daje detaljan izveštaj.
+Izgleda da imamo odličnu pokrivenost. Hajde da proverimo i izveštaj koristeći `go tool cover` komandu koja nam daje detaljan izveštaj.
 
-$ go tool cover -html=coverage.out
-
-покривеност
+	$ go tool cover -html=coverage.out
 
 Kao što vidimo, ovo je mnogo čitljiviji format. A najbolje od svega je što je ugrađen direktno u standardne alate.
-Testiranje nejasnoća
 
-Na kraju, pogledajmo fuz testiranje koje je predstavljeno u Go verziji 1.18.
+### Testiranje nejasnoća
+
+Na kraju, pogledajmo `fuzzing testiranje` koje je predstavljeno u Go verziji 1.18.
 
 Fazing je vrsta automatizovanog testiranja koja kontinuirano manipuliše ulazima u program kako bi pronašla greške.
 
 Go fuzzing koristi smernice za pokrivanje kako bi inteligentno prošao kroz kod koji se fazira kako bi pronašao i prijavio greške korisniku.
 
-Pošto može doći do graničnih slučajeva koje ljudi često propuste, fuz testiranje može biti posebno vredno za pronalaženje grešaka i bezbednosnih propusta.
+Pošto može doći do graničnih slučajeva koje ljudi često propuste, `fuzzing` testiranje može biti posebno vredno za pronalaženje grešaka i bezbednosnih propusta.
 
 Hajde da pokušamo sa primerom:
-
+```
 func FuzzTestAdd(f *testing.F) {
 	f.Fuzz(func(t *testing.T, a, b int) {
 		math.Add(a , b)
 	})
 }
+```
+Ako ovo pokrenemo, videćemo da će se automatski kreirati test slučajevi. Pošto je `Add` funkcija prilično jednostavna, testovi će proći.
 
-Ako ovo pokrenemo, videćemo da će se automatski kreirati test slučajevi. Pošto Addje naša funkcija prilično jednostavna, testovi će proći.
+	$ go test -fuzz FuzzTestAdd example/math
+	fuzz: elapsed: 0s, gathering baseline coverage: 0/192 completed
+	fuzz: elapsed: 0s, gathering baseline coverage: 192/192 completed, now fuzzing with 8 workers
+	fuzz: elapsed: 3s, execs: 325017 (108336/sec), new interesting: 11 (total: 202)
+	fuzz: elapsed: 6s, execs: 680218 (118402/sec), new interesting: 12 (total: 203)
+	fuzz: elapsed: 9s, execs: 1039901 (119895/sec), new interesting: 19 (total: 210)
+	fuzz: elapsed: 12s, execs: 1386684 (115594/sec), new interesting: 21 (total: 212)
+	PASS
+	ok      foo 12.692s
 
-$ go test -fuzz FuzzTestAdd example/math
-fuzz: elapsed: 0s, gathering baseline coverage: 0/192 completed
-fuzz: elapsed: 0s, gathering baseline coverage: 192/192 completed, now fuzzing with 8 workers
-fuzz: elapsed: 3s, execs: 325017 (108336/sec), new interesting: 11 (total: 202)
-fuzz: elapsed: 6s, execs: 680218 (118402/sec), new interesting: 12 (total: 203)
-fuzz: elapsed: 9s, execs: 1039901 (119895/sec), new interesting: 19 (total: 210)
-fuzz: elapsed: 12s, execs: 1386684 (115594/sec), new interesting: 21 (total: 212)
-PASS
-ok      foo 12.692s
-
-Ali ako ažuriramo našu Addfunkciju slučajnim graničnim slučajem tako da će program paničiti ako b + 10je veće od a.
-
+Ali ako ažuriramo našu `Add` funkciju slučajnim graničnim slučajem tako da će program paničiti ako je b + 10 veće od a.
+```
 func Add(a, b int) int {
 	if a > b + 10 {
 		panic("B must be greater than A")
 	}
-
 	return a + b
 }
+```
+A ako ponovo pokrenemo test, ovaj granični slučaj će biti uhvaćen `fuzz` testiranjem.
 
-A ako ponovo pokrenemo test, ovaj granični slučaj će biti uhvaćen fuz testiranjem.
+	$ go test -fuzz FuzzTestAdd example/math
+	warning: starting with empty corpus
+	fuzz: elapsed: 0s, execs: 0 (0/sec), new interesting: 0 (total: 0)
+	fuzz: elapsed: 0s, execs: 1 (25/sec), new interesting: 0 (total: 0)
+	--- FAIL: FuzzTestAdd (0.04s)
+	    --- FAIL: FuzzTestAdd (0.00s)
+	        testing.go:1349: panic: B must be greater than A
 
-$ go test -fuzz FuzzTestAdd example/math
-warning: starting with empty corpus
-fuzz: elapsed: 0s, execs: 0 (0/sec), new interesting: 0 (total: 0)
-fuzz: elapsed: 0s, execs: 1 (25/sec), new interesting: 0 (total: 0)
---- FAIL: FuzzTestAdd (0.04s)
-    --- FAIL: FuzzTestAdd (0.00s)
-        testing.go:1349: panic: B is greater than A
+Mislim da je ovo zaista sjajna karakteristika Go 1.18. Više o `fuzz` testiranju možete saznati sa zvaničnog Go bloga.
 
-Mislim da je ovo zaista sjajna karakteristika Go 1.18. Više o fuzz testiranju možete saznati sa zvaničnog Go bloga .
-Generički lekovi
+### Generici
 
 U ovom odeljku ćemo saznati o generičkim funkcijama, dugo očekivanoj funkciji koja je objavljena sa verzijom 1.18 jezika Go.
-Šta su generički lekovi?
 
 Generici znače parametrizovane tipove. Jednostavno rečeno, generici omogućavaju programerima da pišu kod gde se tip može navesti kasnije jer tip nije odmah relevantan.
 
 Hajde da pogledamo jedan primer da bismo ovo bolje razumeli.
 
-Za naš primer, imamo jednostavne funkcije sumiranja za različite tipove kao što su int, float64i string. Pošto prepisivanje metoda nije dozvoljeno u Go-u, obično moramo da kreiramo nove funkcije.
-
+Za naš primer, imamo jednostavne funkcije sumiranja za različite tipove kao što su `int`, `float64` i `string`. Pošto `overload` metoda nije dozvoljeno u Go-u, obično moramo da kreiramo nove funkcije.
+```
 package main
-
 import "fmt"
 
 func sumInt(a, b int) int {
 	return a + b
 }
-
 func sumFloat(a, b float64) float64 {
 	return a + b
 }
-
 func sumString(a, b string) string {
 	return a + b
 }
-
 func main() {
 	fmt.Println(sumInt(1, 2))
 	fmt.Println(sumFloat(4.0, 2.0))
 	fmt.Println(sumString("a", "b"))
 }
-
+```
 Kao što vidimo, osim tipova, ove funkcije su prilično slične.
 
 Da vidimo kako možemo definisati generičku funkciju.
-
+```
 func fnName[T constraint]() {
 	...
 }
+```
+Ovde je `T` naš parametar tipa i `constraint` biće interfejs koji dozvoljava bilo kom tipu da implementira taj interfejs. Ovo je zbunjujuće. Dakle, hajde da počnemo da gradimo našu generičku `sum` funkciju.
 
-Ovde Tje naš parametar tipa i constraintbiće interfejs koji dozvoljava bilo kom tipu da implementira taj interfejs.
-
-Znam, znam, ovo je zbunjujuće. Dakle, hajde da počnemo da gradimo našu generičku sumfunkciju.
-
-Ovde ćemo koristiti Tkao parametar tipa sa praznim prostorom interface{}kao ograničenjem.
-
+Ovde ćemo koristiti `T` kao parametar tipa sa praznim interfejsom `interface{}` kao ograničenjem.
+```
 func sum[T interface{}](a, b T) T {
 	fmt.Println(a, b)
 }
-
-Takođe, počevši od Go 1.18 možemo koristiti any, što je manje-više ekvivalentno praznom interfejsu.
-
+```
+Takođe, počevši od Go 1.18 možemo koristiti `any`, što je manje-više ekvivalentno praznom interfejsu.
+```
 func sum[T any](a, b T) T {
 	fmt.Println(a, b)
 }
-
+```
 Sa parametrima tipa dolazi do potrebe za prosleđivanjem argumenata tipa, što može učiniti naš kod opširnim.
-
+```
 sum[int](1, 2) // explicit type argument
 sum[float64](4.0, 2.0)
 sum[string]("a", "b")
-
+```
 Srećom, Go 1.18 dolazi sa zaključivanjem tipova što nam pomaže da pišemo kod koji poziva generičke funkcije bez eksplicitnih tipova.
-
+```
 sum(1, 2)
 sum(4.0, 2.0)
 sum("a", "b")
-
+```
 Hajde da ovo pokrenemo i vidimo da li radi.
 
-$ go run main.go
-1 2
-4 2
-a b
+	$ go run main.go
+	1 2
+	4 2
+	a b
 
-Sada, hajde da ažuriramo sumfunkciju da bismo dodali naše promenljive.
-
+Sada, hajde da ažuriramo sum funkciju da bismo dodali naše promenljive.
+```
 func sum[T any](a, b T) T {
 	return a + b
 }
@@ -3452,116 +3360,108 @@ func sum[T any](a, b T) T {
 fmt.Println(sum(1, 2))
 fmt.Println(sum(4.0, 2.0))
 fmt.Println(sum("a", "b"))
+```
+Ali sada ako ovo pokrenemo, dobićemo grešku da operator `+` nije definisan u ograničenju.
 
-Ali sada ako ovo pokrenemo, dobićemo grešku da operator +nije definisan u ograničenju.
+	$ go run main.go
+	./main.go:6:9: invalid operation: operator + not defined on a (variable of type T constrained by any)
 
-$ go run main.go
-./main.go:6:9: invalid operation: operator + not defined on a (variable of type T constrained by any)
+Iako ograničenje tipa `any` generalno funkcioniše, ono ne podržava operatore.
 
-Iako ograničenje tipa anygeneralno funkcioniše, ono ne podržava operatore.
-
-Dakle, hajde da definišemo sopstveno prilagođeno ograničenje koristeći interfejs. Naš interfejs treba da definiše skup tipova koji sadrži int, floati string.
+Dakle, hajde da definišemo sopstveno prilagođeno ograničenje koristeći interfejs. Naš interfejs treba da definiše skup tipova koji sadrži `int`, `float` i `string`.
 
 слагање
 
-Evo kako SumConstraintizgleda naš interfejs.
-
+Evo kako izgleda naš `SumConstraint` interfejs.
+```
 type SumConstraint interface {
 	int | float64 | string
 }
-
 func sum[T SumConstraint](a, b T) T {
 	return a + b
 }
-
 func main() {
 	fmt.Println(sum(1, 2))
 	fmt.Println(sum(4.0, 2.0))
 	fmt.Println(sum("a", "b"))
 }
-
+```
 I ovo bi trebalo da funkcioniše kako se očekuje.
 
-$ go run main.go
-3
-6
-ab
+	$ go run main.go
+	3
+	6
+	ab
 
-Takođe možemo koristiti constraintspaket koji definiše skup korisnih ograničenja koja se koriste sa parametrima tipa.
-
+Takođe možemo koristiti `constraints` paket koji definiše skup korisnih ograničenja koja se koriste sa parametrima tipa.
+```
 type Signed interface {
 	~int | ~int8 | ~int16 | ~int32 | ~int64
 }
-
 type Unsigned interface {
 	~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr
 }
-
 type Integer interface {
 	Signed | Unsigned
 }
-
 type Float interface {
 	~float32 | ~float64
 }
-
 type Complex interface {
 	~complex64 | ~complex128
 }
-
 type Ordered interface {
 	Integer | Float | ~string
 }
+```
+Za to ćemo morati da instaliramo `constraints` paket.
 
-Za to ćemo morati da instaliramo constraintspaket.
-
-$ go get golang.org/x/exp/constraints
-go: added golang.org/x/exp v0.0.0-20220414153411-bcd21879b8fd
-
+	$ go get golang.org/x/exp/constraints
+	go: added golang.org/x/exp v0.0.0-20220414153411-bcd21879b8fd
+```
 import (
 	"fmt"
-
 	"golang.org/x/exp/constraints"
 )
-
 func sum[T constraints.Ordered](a, b T) T {
 	return a + b
 }
-
 func main() {
 	fmt.Println(sum(1, 2))
 	fmt.Println(sum(4.0, 2.0))
 	fmt.Println(sum("a", "b"))
 }
-
-Ovde koristimo Orderedograničenje.
-
+```
+Ovde koristimo `Ordered` ograničenje.
+```
 type Ordered interface {
 	Integer | Float | ~string
 }
-
-~je novi token dodat u Go, a izraz ~stringoznačava skup svih tipova čiji je osnovni tip string.
+```
+`~` je novi token dodat u Go, a izraz `~string` označava skup svih tipova čiji je osnovni tip string.
 
 I dalje radi kako se očekuje.
 
-$ go run main.go
-3
-6
-ab
+	$ go run main.go
+	3
+	6
+	ab
 
 Generici su neverovatna karakteristika jer omogućavaju pisanje apstraktnih funkcija koje mogu drastično smanjiti dupliranje koda u određenim slučajevima.
-Kada koristiti generičke lekove
 
-Dakle, kada koristiti generičke lekove? Možemo uzeti sledeće slučajeve upotrebe kao primer:
+### Kada koristiti generike
 
-    Funkcije koje rade na nizovima, isečkama, mapama i kanalima.
-    Strukture podataka opšte namene kao što su stek ili povezana lista.
-    Da bi se smanjilo dupliranje koda.
+Dakle, kada koristiti generike? Možemo uzeti sledeće slučajeve upotrebe kao primer:
 
-Na kraju, dodaću da, iako su generički izrazi odličan dodatak jeziku, treba ih koristiti štedljivo.
+- Funkcije koje rade na nizovima, isečcima, mapama i kanalima.
+- Strukture podataka opšte namene kao što su stek ili povezana lista.
+- Da bi se smanjilo dupliranje koda.
+
+Na kraju, dodaću da iako su generički izrazi odličan dodatak jeziku, treba ih koristiti štedljivo.
 
 I, savetuje se da počnete sa jednostavnim i da pišete generički kod tek kada smo napisali veoma sličan kod najmanje 2 ili 3 puta.
-Konkurencija
+
+# Konkurencija
 
 U ovoj lekciji ćemo naučiti o konkurentnosti, što je jedna od najmoćnijih karakteristika Go jezika.
 
@@ -3616,7 +3516,7 @@ Kofmanovi uslovi
 
 Postoje četiri uslova, poznata kao Kofmanovi uslovi, i svi oni moraju biti zadovoljeni da bi došlo do zastoja.
 
-    Uzajamno isključenje
+Uzajamno isključenje
 
 Kontinuirani proces drži barem jedan resurs u bilo kom trenutku, što ga čini nedeljivim.
 
@@ -3624,7 +3524,7 @@ Na dijagramu ispod, postoji jedna instanca Resursa 1 i nju drži samo Proces 1.
 
 међусобно искључивање
 
-    Čekaj i sačekaj
+Čekaj i sačekaj
 
 Kontinuirani proces drži resurs i čeka na dodatni resurs.
 
@@ -3632,7 +3532,7 @@ Na dijagramu datom ispod, Proces 2 drži Resurs 2 i Resurs 3 i zahteva Resurs 1 
 
 чекати
 
-    Bez prevencije
+Bez prevencije
 
 Resurs koji drži konkurentni proces ne može biti oduzet od strane sistema. Može ga osloboditi samo proces koji ga drži.
 
@@ -3640,13 +3540,14 @@ Na dijagramu ispod, Proces 2 ne može da preuzme Resurs 1 iz Procesa 1. On će b
 
 без превенције
 
-    Kružno čekanje
+Kružno čekanje
 
 Proces čeka resurs koji drži drugi proces, koji čeka resurs koji drži treći proces, i tako dalje, sve dok poslednji proces ne čeka resurs koji drži prvi proces. Dakle, formira se kružni lanac.
 
 Na dijagramu ispod, Procesu 1 je dodeljen Resurs2 i on zahteva Resurs 1. Slično tome, Procesu 2 je dodeljen Resurs 1 i on zahteva Resurs 2. Ovo formira kružnu petlju čekanja.
 
 кружно чекање
+
 Žive brave
 
 Lajvlok procesi su procesi koji aktivno izvršavaju istovremene operacije, ali ove operacije ne čine ništa da pomeraju stanje programa napred.
@@ -3671,9 +3572,9 @@ Važno je znati da to nisu stvarne OS niti i da se sama glavna funkcija izvršav
 Jedna nit može da pokreće hiljade gorutina koristeći Go raspoređivač vremena izvršavanja koji koristi kooperativno zakazivanje. To podrazumeva da ako je trenutna gorutina blokirana ili je završena, raspoređivač će premestiti ostale gorutine u drugu nit operativnog sistema. Stoga postižemo efikasnost u zakazivanju gde nijedna rutina nije blokirana zauvek.
 
 Možemo pretvoriti bilo koju funkciju u gorutinu jednostavnim korišćenjem goključne reči.
-
+```
 go fn(x, y, z)
-
+```
 Pre nego što napišemo bilo koji kod, važno je ukratko razmotriti model fork-join-a.
 Model račvastog spajanja
 
@@ -3682,57 +3583,52 @@ Go koristi ideju modela fork-join konkurentnosti koji stoji iza gorutina. Model 
 форк-јоин
 
 Sada, hajde da napišemo malo koda i kreiramo sopstvenu gorutinu.
-
+```
 package main
-
 import "fmt"
 
 func speak(arg string) {
 	fmt.Println(arg)
 }
-
 func main() {
 	go speak("Hello World")
 }
-
+```
 Ovde speakpoziv funkcije ima prefiks goključne reči . Ovo će joj omogućiti da se pokreće kao zasebna gorutina. I to je to, upravo smo kreirali našu prvu gorutinu. Toliko je jednostavno!
 
 Odlično, hajde da pokrenemo ovo:
 
-$ go run main.go
+	$ go run main.go
 
 Zanimljivo je da izgleda da se naš program nije potpuno pokrenuo jer mu nedostaje deo izlaza. To je zato što je naša glavna gorutina izašla i nije čekala gorutinu koju smo kreirali.
 
 Šta ako nateramo naš program da čeka koristeći time.Sleepfunkciju?
-
+```
 func main() {
 	...
 	time.Sleep(1 * time.Second)
 }
-
-$ go run main.go
-Hello World
+```
+	$ go run main.go
+	Hello World
 
 Eto, sada možemo videti naš kompletan rezultat.
 
 U redu, ovo funkcioniše, ali nije idealno. Pa kako da ovo poboljšamo?
 
 Pa, najzahtevniji deo korišćenja gorutina je znati kada će se zaustaviti. Važno je znati da se gorutine izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan.
-Kanali
 
-U ovoj lekciji ćemo učiti o kanalima.
-Pa šta su kanali?
+# Kanali
 
-Pa, jednostavno definisano, kanal je komunikaciona cev između gorutina. Stvari ulaze na jedan kraj, a izlaze na drugi istim redosledom dok se kanal ne zatvori.
+Jednostavno definisano, kanal je komunikaciona cev između gorutina. Stvari ulaze na jedan kraj, a izlaze na drugi istim redosledom dok se kanal ne zatvori.
 
-канал
+Kanali u Go-u su zasnovani na komunikaciji sekvencijalnih procesa (CSP).
 
-Kao što smo ranije saznali, kanali u Go-u su zasnovani na komunikaciji sekvencijalnih procesa (CSP).
-Kreiranje kanala
+### Kreiranje kanala
 
 Sada kada razumemo šta su kanali, hajde da vidimo kako ih možemo deklarisati.
 
-var ch chan T
+	var ch chan T
 
 Ovde ispred našeg tipa, Tkoji je tip podataka vrednosti koju želimo da pošaljemo i primimo, dodajemo ključnu reč chankoja predstavlja kanal.
 
