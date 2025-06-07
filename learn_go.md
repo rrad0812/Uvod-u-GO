@@ -905,16 +905,16 @@ func main() {
 
 Nakon što se `go mod vendor` komanda izvrši, biće kreiran *vendor* direktorijum.
 
-├─ go.mod 
-├─ go.sum
-├─ go.work
-├─ main.go
-└─ vendor
-..├─ github.com
-..│..└─ rs
-..│....└─ zerolog
-..│....└─ ..
-..└─ modules.txt
+├─ go.mod <br>
+├─ go.sum <br>
+├─ go.work <br>
+├─ main.go <br>
+└─ vendor <br>
+...├─ github.com <br>
+....|....└─ rs <br>
+....|........└─ zerolog <br>
+....|........└─ .. <br>
+...└─ modules.txt <br>
 
 # Paketi
 
