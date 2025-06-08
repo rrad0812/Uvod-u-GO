@@ -6,7 +6,7 @@ Zdravo, dobrodošli na kurs i hvala što želite da učite Go. Nadam se da će v
 ### Šta je Go?
 Go (takođe poznat kao Golang) je programski jezik razvijen u kompaniji Gugl 2007. godine, a otvorenog koda objavljen 2009. godine.
 
-Go se fokusira se na jednostavnost, pouzdanost i efikasnost. Dizajniran je da kombinuje efikasnost, brzinu i bezbednost statički tipiziranog i kompajliranog jezika sa lakoćom programiranja dinamičkog jezika kako bi programiranje ponovo bilo zabavno.
+Go se fokusira se na jednostavnost, pouzdanost i efikasnost. Dizajniran je da kombinuje efikasnost, brzinu i bezbednost statički tipiziranog i kompajliranog jezika sa lakoćom programiranja dinamičkog jezika, kako bi programiranje ponovo bilo zabavno.
 
 Na neki način, želi da kombinuje najbolje delove Pajtona i C++-a kako bi mogao da izgradi pouzdane sisteme koji mogu da iskoriste prednosti višejezgarnih procesora.
 
@@ -14,24 +14,28 @@ Na neki način, želi da kombinuje najbolje delove Pajtona i C++-a kako bi mogao
 
 Pre nego što počnemo sa ovim kursom, hajde da razgovaramo o tome zašto bi trebalo da naučimo Go.
 
-##### Lako se uči
-Go je prilično lak za učenje i ima podržavajuću i aktivnu zajednicu.
+- **Lako se uči**
+	
+	Go je prilično lak za učenje i ima podržavajuću i aktivnu zajednicu.
 
-A pošto je višenamenski jezik, možete ga koristiti za stvari poput 
-- razvoja bekenda, 
-- računarstva u oblaku i, u skorije vreme, 
-- nauke o podacima.
+	A pošto je višenamenski jezik, možete ga koristiti za stvari poput 
+	- razvoja bek-enda, 
+	- računarstva u oblaku i, u skorije vreme, 
+	- nauke o podacima.
 
-##### Brz i pouzdan
-Što ga čini veoma pogodnim za distribuirane sisteme. Projekti kao što su **Kubernetes** i **Docker** su napisani u Go-u.
+- **Brz i pouzdan**
 
-##### Jednostavan, ali moćan
-Sam jezik je koncizan. Go ima samo **25** ključnih reči što ga čini lakim za čitanje, pisanje i održavanje. 
+	Što ga čini veoma pogodnim za distribuirane sisteme. 
+	
+	Projekti kao što su **Kubernetes** i **Docker** su napisani u Go-u.
 
-Ali nemojte da vas jednostavnost zavara, Go ima nekoliko moćnih funkcija koje ćemo kasnije naučiti na kursu.
+- **Jednostavan, ali moćan**
 
-##### Mogućnosti za karijeru
-Go brzo raste i usvajaju ga kompanije svih veličina. A sa tim dolaze i nove dobro plaćene mogućnosti za posao.
+	Sam jezik je koncizan. Go ima samo **25** ključnih reči što ga čini lakim za čitanje, pisanje i održavanje.  Ali nemojte da vas jednostavnost zavara, Go ima nekoliko moćnih funkcija koje ćemo kasnije naučiti na kursu.
+
+- **Mogućnosti za karijeru**
+
+	Go brzo raste i usvajaju ga kompanije svih veličina. A sa tim dolaze i nove dobro plaćene mogućnosti za posao.
 
 Nadam se da Vas je ovo zainteresovalo za Go. Hajde da počnemo sa ovim kursom.
 
@@ -39,16 +43,20 @@ Nadam se da Vas je ovo zainteresovalo za Go. Hajde da počnemo sa ovim kursom.
 U ovom tutorijalu, instaliraćemo Go i podesiti naš uređivač koda.
 
 ##### Preuzimanje
+
 Možemo instalirati Go iz odeljka za preuzimanja.
 
 ##### Instalacija
+
 Ova uputstva su sa zvanične web stranice.
 
 1. **MacOS**
-Otvorite datoteku paketa koju ste preuzeli i pratite uputstva da biste instalirali Go. Paket instalira Go distribuciju na `/usr/local/go`. Paket bi trebalo da smesti `/usr/local/go/bin` direktorijum u vašu PATH promenljivu okruženja. Možda ćete morati da ponovo pokrenete sve otvorene terminalne sesije da bi promena stupila na snagu.
+	
+	Otvorite datoteku paketa koju ste preuzeli i pratite uputstva da biste instalirali Go. Paket instalira Go distribuciju na `/usr/local/go`. Paket bi trebalo da smesti `/usr/local/go/bin` direktorijum u vašu PATH promenljivu okruženja. Možda ćete morati da ponovo pokrenete sve otvorene terminalne sesije da bi promena stupila na snagu.
 
 2. **Linux** 
-Uklonite sve prethodne instalacije Goa brisanjem `/usr/local/go` direktorijuma (ako postoji), a zatim raspakujte arhivu koju ste upravo preuzeli u `/usr/local`, kreirajući novo Go stablo `/usr/local/go`:
+
+	Uklonite sve prethodne instalacije Goa brisanjem `/usr/local/go` direktorijuma (ako postoji), a zatim raspakujte arhivu koju ste upravo preuzeli u `/usr/local`, kreirajući novo Go stablo `/usr/local/go`:
 
         $ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
 
@@ -66,11 +74,12 @@ Uklonite sve prethodne instalacije Goa brisanjem `/usr/local/go` direktorijuma (
         $ source $HOME/.profile.
 
 3. **Windows**
-Otvorite MSI datoteku koju ste preuzeli i pratite uputstva za instaliranje Go-a.
+
+	Otvorite MSI datoteku koju ste preuzeli i pratite uputstva za instaliranje Go-a.
 
     Podrazumevano, instalater će instalirati program "Idi u Program Files" ili "Program Files" (x86). Lokaciju možete promeniti po potrebi. 
-    
-    Nakon instalacije, moraćete da zatvorite i ponovo otvorite sve otvorene komandne linije kako bi se promene u okruženju koje je napravio instalater odrazile u komandnoj liniji.
+	
+	Nakon instalacije, moraćete da zatvorite i ponovo otvorite sve otvorene komandne linije kako bi se promene u okruženju koje je napravio instalater odrazile u komandnoj liniji.
 
 Proverite da li ste instalirali Go tako što ćete otvoriti komandnu liniju i otkucati sledeću komandu:
 
@@ -79,16 +88,19 @@ Proverite da li ste instalirali Go tako što ćete otvoriti komandnu liniju i ot
 Potvrdite da komanda ispisuje instaliranu verziju programa Go.
 
 ##### Uređivač koda
+
 U ovom kursu ću koristiti **VS Code**, a možete ga preuzeti odavde.
 
 Slobodno koristite bilo koji drugi uređivač koda koji vam odgovara.
 
 ##### Go VS Code extension
+
 Obavezno instalirajte i Go ekstenziju koja olakšava rad sa Go-om u VS Code-u.
 
 To je to što se tiče instalacije i podešavanja Go-a, hajde da započnemo kurs i napišemo naš prvi "Hello, World!" program.
 
 ### Hello world
+
 Možemo početi inicijalizacijom modula. Za to možemo koristiti `go mod` komandu.
 
     $ go mod init example
@@ -109,8 +121,6 @@ func main() {
 Ako se pitate, paket `fmt` je deo je standardne Go biblioteke, koja je skup osnovnih paketa koje pruža jezik.
 
 ### Struktura Go programa
-Sada, hajde da brzo analiziramo šta smo ovde uradili, odnosno strukturu Go
-programa.
 
 Prvo, definisali smo paket `main`.
 ```
@@ -130,14 +140,15 @@ Zapamtite, cilj je ovde da vodite mentalnu belešku, a kasnije tokom kursa ćemo
 
 Konačno, da bismo pokrenuli naš kod, možemo jednostavno koristiti `go run` komandu.
 
-    $ go run main.go
-    Hello World!
+	$ go run main.go
+	Hello World!
 
 # Promenljive
+
 Počnimo sa deklarisanjem promenljive.
 
 1. **Deklaracija bez inicijalizacije**:
-    ```
+	```
     var foo string
     ```
 2. **Deklaracija sa inicijalizacijom**:
@@ -154,18 +165,21 @@ Počnimo sa deklarisanjem promenljive.
     )
     ```
 4. **Deklaracija sa zaključenim tipom**
-Tip je izostavljen, ali će biti zaključen:
+
+	Tip je izostavljen, ali će biti zaključen:
     ```
     var foo = "What's my type?"
     ```
 5. **Skraćena deklaracija**
-Skraćena deklaracija, ovde izostavljamo var ključnu reč, a tip je uvek implicitan. Ovako ćemo videti promenljive koje se deklarišu većinu vremena. Takođe koristimo walrus operator dodele `:=` za deklaraciju plus dodelu.
+	
+	Skraćena deklaracija, ovde izostavljamo i var ključnu reč, a tip je uvek implicitan. Ovako ćemo videti promenljive koje se deklarišu većinu vremena. Takođe koristimo walrus operator dodele `:=` za deklaraciju plus dodelu.
     ```
     foo := "Shorthand!"
     ```
-    **Napomena**: Skraćena deklaracija rade sami unutar tela funkcije.
+    **Napomena**: Skraćena deklaracija rade samo unutar tela funkcije.
 
 ### Konstante
+
 Takođe možemo deklarisati konstante pomoću `const` ključne reči. Koje, kao što ime sugeriše, konstante predstavljaju fiksne vrednosti koje se ne mogu ponovo dodeliti.
 ```
 const constant = "This is a constant"
@@ -179,34 +193,34 @@ var a = 10
 const b = a // ❌ a (variable of type int) is not constant (InvalidConstInit)
 ```
 # Tipovi podataka
-Sada hajde da pogledamo neke osnovne tipove podataka dostupne u Gou.
 
 ### String
+
 U jeziku Go, string je niz bajtova. Deklarišu se ili pomoću dvostrukih navodnika ili povratnih navodnika koji omogućuju da se string proteže preko više redova.
 ```
 var name string = "My name is Go"
-
 var bio string = `I am statically typed.
     I was designed at Google.`
 ```
 ### Bool
+
 Sledeći tip je bool koji se koristi za čuvanje bulovih vrednosti. Može imati dve moguće vrednosti - `true` ili `false`.
 ```
 var value bool = false
 var isItTrue bool = true
 ```
 ##### bool operatori
-Možemo koristiti sledeće operatore na bulovim tipovima
+Možemo koristiti sledeće operatore na bulovim tipovima:
 
-| Tip 	  |  Sintaksa
+ Tip      |  Sintaksa    
 ----------|--------------
-Logično   |   && \|\| ! 
-Jednakost |	  == !=
+Logično   |   && \|\| !  
+Jednakost |	  == !=   
 
 ### Numerički tipovi
-Sada, hajde da pričamo o numeričkim tipovima.
 
 ##### Označeni i neoznačeni celi brojevi
+
 Go ima nekoliko ugrađenih tipova celih brojeva različitih veličina za čuvanje označenih i neoznačenih celih brojeva.
 
 Veličina generičkih tipova int i uint zavisi od platforme. To znači da je širina 32 bita na 32-bitnom sistemu i 64 bita na 64-bitnom sistemu.
@@ -231,13 +245,14 @@ var ui64 uint64 = 9223372036854775807 // 0 to 2^64
 var uiptr uintptr                     // Integer representation of a memory address
 ```
 
-Ako ste primetili, postoji i `uintptrtyp` neoznačenog celobrojnog pointera, koji je celobrojna reprezentacija memorijske adrese. Ne preporučuje se njegova upotreba, tako da ne moramo da brinemo o tome.
+Ako ste primetili, postoji i `uintptr` tip neoznačenog celobrojnog pointera, koji je celobrojna reprezentacija memorijske adrese. Ne preporučuje se njegova upotreba, tako da ne moramo da brinemo o tome.
 
-##### Pa koji bi tip celog broja trebalo da koristimo?
+**Pa koji bi tip celog broja trebalo da koristimo?**
 
 Preporučuje se da kad god nam je potrebna celobrojna vrednost, koristimo samo `int` osim ako nemamo konkretan razlog za korišćenje nekog od tipova celog broja ili neoznačenog celog broja.
 
-### Bajt i runa
+### Byte i rune
+
 Golang ima dva dodatna celobrojna tipa koja se zovu `byte` i `rune` koji su alijasi za tipove podataka `uint8` i `int32`, respektivno.
 ```
 type byte = uint8	// alias
@@ -249,6 +264,7 @@ var b byte = 'a'
 var r rune = '🍕'
 ```
 ### Pokretni zarez
+
 Zatim, imamo tipove sa pokretnim zarezom koji se koriste za čuvanje brojeva sa decimalnom komponentom.
 
 Go ima dva tipa pokretnog zareza `float32` i `float64`. Oba tipa prate standard IEEE-754.
@@ -259,6 +275,7 @@ var f32 float32 = 1.7812 // IEEE-754 32-bit
 var f64 float64 = 3.1415 // IEEE-754 64-bit
 ```
 ##### Numerički operatori
+
 Go pruža nekoliko operatora za izvršavanje operacija nad numeričkim tipovima.
 
 | Tip 					| Sintaksa
@@ -270,6 +287,7 @@ Povećanje/smanjenje 	| ++ --
 Dodela	 				| = += -= *= /= %= <<= >>= &= |= ^=
 
 ### Kompleksni brojevi
+
 U Gou postoje dva kompleksna tipa, `complex128`, gde su i realni i imaginarni delovi `float64` i `complex64`, gde su realni i imaginarni delovi `float32`.
 
 Kompleksne brojeve možemo definisati ili koristeći ugrađenu funkciju `complex` ili kao literale.
@@ -278,17 +296,17 @@ var c1 complex128 = complex(10, 1)
 var c2 complex64 = 12 + 4i
 ```
 ### Nulte vrednosti
-Sada hajde da razgovaramo o nultim vrednostima. Dakle, u programskom jeziku Go, svakoj promenljivoj deklarisanoj bez eksplicitne početne vrednosti dodeljuje se njena nulta vrednost. 
+
+U programskom jeziku Go, svakoj promenljivoj deklarisanoj bez eksplicitne početne vrednosti dodeljuje se njena nulta vrednost. 
+
 Na primer, deklarišimo neke promenljive:
 ```
 var i int
 var f float64
 var b bool
 var s string
-
 fmt.Printf("%v %v %v %q\n", i, f, b, s)
 ```
-
     $ go run main.go
     0 0 false ""
 
@@ -297,6 +315,7 @@ Dakle, kao što vidimo, vrednosti `int` i `float` se dodeljuju kao `0`, `bool` k
 Ovo je odlično, ali šta su ti simboli procenta u našoj `Printf` funkciji? Kao što ste već pretpostavili, oni se koriste za formatiranje izlaza i o njima ćemo saznati više kasnije.
 
 ### Konverzija tipa
+
 Sada kada smo videli kako tipovi podataka funkcionišu, hajde da vidimo kako se vrši konverzija tipova.
 ```
 i := 42
@@ -314,6 +333,7 @@ I kao što vidimo, ispisuje se tip kao float64 i uint.
 Imajte na umu da se ovo razlikuje od parsiranja.
 
 ### Alias tipa
+
 Alias tipa je uveden od verzije Go 1.9. On omogućava programerima da obezbede alternativno ime za postojeći tip i da ga koriste naizmenično sa osnovnim tipom.
 ```
 package main
@@ -327,7 +347,8 @@ func main() {
 }
 ```
 ### Definisani tipovi
-Na kraju, definisani tipovi, za razliku od aliasa tipova ne koriste znak
+
+Definisani tipovi, za razliku od aliasa tipova ne koriste znak
 jednakosti.
 ```
 package main
@@ -340,11 +361,11 @@ func main() {
 	fmt.Printf("%T - %s", str, str) // Output: main.MyDefined - I am defined
 }
 ```
-Ali čekajte... koja je razlika?
+Koja je razlika?
 
 Dakle, definisani tipovi rade više od pukog davanja imena tipu. Prvo definišu novi imenovani tip od osnovnog tipa. Međutim, ovaj definisani tip se razlikuje od bilo kog drugog tipa, uključujući i njegov osnovni tip.
 
-Stoga se ne može koristiti naizmenično sa osnovnim tipom kao alias tipa. U početku je malo zbunjujuće, nadam se da će ovaj primer razjasniti stvari.
+Stoga se definisani tip ne može koristiti naizmenično sa osnovnim tipom kao alias tipa. U početku je malo zbunjujuće, nadam se da će ovaj primer razjasniti stvari.
 ```
 package main
 import "fmt"
@@ -368,6 +389,7 @@ func main() {
 Kao što vidimo, ne možemo koristiti definisani tip naizmenično sa osnovnim tipom, za razliku od aliasa tipa.
 
 ### Formatiranje stringova
+
 `fmt` paket sadrži mnogo funkcija. Da bismo uštedeli vreme, razmotrićemo najčešće korišćene funkcije. Počnimo sa `fmt.Print` našom glavnom funkcijom.
 ```
 ...
@@ -411,7 +433,7 @@ Kao što vidimo, to `%s` je zamenjeno našom *name* promenljivom.
 
 Ali pitanje je šta jes `%s` i šta znači?
 
-Dakle, `%s` je jedan od *glagola anotacije* i oni govore funkciji kako da formatira argumente. Pomoću njih možemo kontrolisati stvari poput širine, tipova i preciznosti, a ima ih mnogo.
+Dakle, `%s` je jedan od *glagola annotacije* i oni govore funkciji kako da formatira argumente. Pomoću njih možemo kontrolisati stvari poput širine, tipova i preciznosti, a ima ih mnogo.
 
 Sada, hajde da brzo pogledamo još nekoliko primera. Ovde ćemo pokušati daizračunamo procenat i ispišemo ga u konzolu.
 ```
@@ -423,8 +445,7 @@ fmt.Printf("%f", percent)
     $ go run main.go
     77.777778
 
-Recimo da želimo preciznost od 2 mesta, to možemo uraditi i korišćenjem 
-`%.2f`.
+Recimo da želimo preciznost od 2 mesta, to možemo uraditi i korišćenjem `%.2f`.
 
 Takođe, da bismo dodali znak procenta, moraćemo da ga izbegnemo.
 ```
@@ -463,15 +484,13 @@ fmt.Println(msg)
 ```
 Odlično! Ali ovo je samo vrh ledenog brega... zato obavezno pogledajte dokumentaciju za `fmt` paket.
 
-Za one koji dolaze sa C/C++ pozadinom, ovo bi trebalo da deluje prirodno, ali ako dolazite, recimo, sa Pythona ili Javascripta, ovo bi u početku moglo biti malo čudno. Ali je veoma moćno i videćete da se ova funkcionalnost koristiprilično intenzivno.
+Za one koji dolaze sa C/C++ pozadinom, ovo bi trebalo da deluje prirodno, ali ako dolazite, recimo, sa Pythona ili Javascripta, ovo bi u početku moglo biti malo čudno. Ali je veoma moćno i videćete da se ova funkcionalnost koristi prilično intenzivno.
 
 # Kontrola toka
 
-Hajde da pričamo o kontroli protoka, počevši od if/else.
-
 ### if/else
-Ovo funkcioniše manje-više isto kao što očekujete, ali izraz ne mora biti
-okružen zagradama ().
+
+Ovo funkcioniše manje-više isto kao što očekujete, ali izraz ne mora biti okružen zagradama ().
 ```
 func main() {
 	x := 10
@@ -490,7 +509,7 @@ func main() {
 
 ##### Kompaktno if
 
-Takođe možemo sažeti naše if naredbe.
+Takođe možemo sažeti naše if izjave.
 ```
 func main() {
 	if x := 10; x > 5 {
@@ -501,16 +520,17 @@ func main() {
 **Napomena**: Ovaj obrazac je prilično čest.
 
 ### Switch
+
 Zatim, imamo switch izjavu, što je često kraći način za pisanje uslovne logike.
 
-U programskom jeziku Go, komanda `switch` pokreće samo prvi slučaj čija je vrednost jednaka uslovnom izrazu, a ne sve slučajeve koji slede. Stoga, za razliku od drugih jezika, `break` izjava se automatski dodaje na kraj svakog
-slučaja.
+U programskom jeziku Go, izjava `switch` pokreće samo prvi slučaj čija je vrednost jednaka uslovnom izrazu, a ne sve slučajeve koji slede. Stoga, za razliku od drugih jezika, `break` izjava se automatski dodaje na kraj svakog slučaja.
 
-To znači da switch procenjuje slučajeve od vrha do dna, zaustavljajući se kada je slučaj uspešan. Pogledajmo primer:
+To znači da switch procenjuje slučajeve od vrha do dna, zaustavljajući se kada je slučaj uspešan. 
+
+Pogledajmo primer:
 ```
 func main() {
 	day := "monday"
-
 	switch day {
 	case "monday":
 		fmt.Println("time to work!")
@@ -536,7 +556,7 @@ Switch takođe podržava skraćene deklaracije poput ove:
 	}
 ```
 Takođe možemo koristiti `fallthrough` ključnu reč da prenesemo kontrolu na sledeći slučaj čak i ako se trenutni slučaj možda nije podudarao.
-
+```
 	switch day := "monday"; day {
 	case "monday":
 		fmt.Println("time to work!")
@@ -546,8 +566,8 @@ Takođe možemo koristiti `fallthrough` ključnu reč da prenesemo kontrolu na s
 	default:
 		fmt.Println("browse memes")
 	}
-
-I ako ovo pokrenemo, videćemo da nakon prvog podudaranja slučaja, naredba `switch` nastavlja na sledeći slučaj zbog `fallthrough` ključne reči.
+```
+I ako ovo pokrenemo, videćemo da nakon prvog podudaranja slučaja, izjava `switch` nastavlja na sledeći slučaj zbog `fallthrough` ključne reči.
 
     $ go run main.go
     time to work!
@@ -564,9 +584,8 @@ switch {
 }
 ```
 ### Petlje
-Sada, usmerimo pažnju na petlje. Dakle, u Gou imamo samo jednu vrstu petlje, a to je `for` petlja.
 
-Baš kao i `if` naredba, `for` petlja, ne zahteva nikakve zagrade () za razliku od drugih jezika.
+U Gou imamo samo jednu vrstu petlje, a to je `for` petlja.  Baš kao i `if` izjava, `for` petlja, ne zahteva nikakve zagrade () za razliku od drugih jezika.
 
 ##### Definicija for petlje
 
@@ -581,11 +600,12 @@ func main() {
 Osnovna for petlja ima tri komponente odvojene tačka-zarezom:
 
 - `init` izjava       : koja se izvršava pre prve iteracije.
-- `conitions` izraz   : koji se izračunava pre svake iteracije.
+- `conditions` izraz   : koji se izračunava pre svake iteracije.
 - `post` izjava       : koja se izvršava na kraju svake iteracije.
 
 ##### Break i continue
-Kao što se i očekivalo, Go takođe podržava i `break` i `continue` naredbe za kontrolu petlje. Hajde da pokušamo sa brzim primerom:
+
+Go takođe podržava i `break` i `continue` izjave za kontrolu petlje. Hajde da pokušamo sa brzim primerom:
 ```
 func main() {
 	for i := 0; i < 10; i++ {
@@ -593,7 +613,6 @@ func main() {
 			continue
 		}
 		fmt.Println(i)
-
 		if i > 5 {
 			break
 		}
@@ -601,9 +620,9 @@ func main() {
 	fmt.Println("We broke out!")
 }
 ```
-Dakle, `continue` naredba se koristi kada želimo da preskočimo preostali deo petlje, a `break` naredba se koristi kada želimo da izađemo iz petlje.
+Dakle, `continue` izjava se koristi kada želimo da preskočimo preostali deo petlje, a `break` izjava se koristi kada želimo da izađemo iz petlje.
 
-Takođe, `init` i `post` naredbe for petlje su opcione, tako da možemo da nateramo našu `for` petlju da se ponaša kao `while` petlja.
+Takođe, `init` i `post` izjave for petlje su opcione, tako da možemo da nateramo našu `for` petlju da se ponaša kao `while` petlja.
 ```
 func main() {
 	i := 0
@@ -615,7 +634,8 @@ func main() {
 **Napomena**: možemo ukloniti i dodatne tačke-zareze da bismo je učinili malo čistijim.
 
 ##### Beskonačna petlja
-Konačno, ako izostavimo uslov petlje, ona se ponavlja zauvek, tako da sebeskonačna petlja može kompaktno izraziti ovako:
+
+Konačno, ako izostavimo uslov petlje, ona se ponavlja zauvek, tako da se beskonačna petlja može kompaktno izraziti ovako:
 ```
 func main() {
 	for {
@@ -655,6 +675,7 @@ Kao što vidimo, ispisuje našu poruku. Takođe možemo da napravimo skraćenu d
 func myNextFunction(p1, p2 string) {}
 ```
 ### Vraćanje vrednosti
+
 Sada hajde da vratimo vrednost iz funkcije.
 ```
 func main() {
@@ -668,7 +689,8 @@ func myFunction(p1 string) string {
 }
 ```
 ### Višestruki povratak
-Zašto vraćati jednu vrednost istovremeno, kada možemo više? Go takođe podržava višestruko vraćanje!
+
+Go takođe podržava višestruko vraćanje!
 ```
 func main() {
 	s, i := myFunction("Hello")
@@ -681,7 +703,8 @@ func myFunction(p1 string) (string, int) {
 }
 ```
 ### Imenovani povratak
-Još jedna sjajna funkcija je `named return`, gde se povratna vrednost može imenovati i tretirati kao sopstvene promenljive funkcije.
+
+Još jedna sjajna funkcija je `named return`, gde se povratna vrednost može imenovati i tretirati kao sopstvena promenljiva funkcije.
 ```
 func myFunction(p1 string) (s string, i int) {
 	s = fmt.Sprintf("%s function", p1)
@@ -694,6 +717,7 @@ Obratite pažnju kako smo dodali `return` iskaz bez ikakvih argumenata, ovo je t
 Reći ću da, iako je ova funkcija zanimljiva, molim vas da je koristite pažljivo jer bi to moglo smanjiti čitljivost većih funkcija.
 
 ### Funkcije kao vrednosti
+
 Zatim, hajde da pričamo o funkcijama kao vrednostima, u Go-u su funkcije građani prve prve klase i možemo ih koristiti kao vrednosti. Dakle, hajde da sredimo našu funkciju i isprobamo je!
 ```
 func myFunction() {
@@ -714,6 +738,7 @@ func myFunction() {
 Obratite pažnju kako to izvršavamo koristeći zagradu na kraju.
 
 ### Zatvaranja
+
 Zašto bismo se tu zaustavili? Hajde da vratimo funkciju i tako kreiramo nešto što se zove zatvaranje. Jednostavna definicija može biti da je zatvaranje funkcija koja referencira promenljive izvan svog tela.
  
 Zatvaranja su leksički ograničena, što znači da funkcije mogu pristupiti vrednostima u opsegu prilikom definisanja funkcije.
@@ -759,6 +784,7 @@ Baš kul, zar ne? Takođe, ne brinite o `range` ključnoj reči, o tome ćemo ka
 **Zanimljivost**: `fmt.Println` je varijadička funkcija, zato smo joj mogli proslediti više vrednosti.
 
 ### Init
+
 U Gou, `init` je posebna funkcija životnog ciklusa aplikacije koja se izvršava pre `main` funkcije.
 
 Slično kao `main`, `init` funkcija ne prima nikakve argumente niti vraća bilo kakvu vrednost. Pogledajmo kako to funkcioniše na primeru.
@@ -824,7 +850,6 @@ Možemo koristiti više odloženih funkcija, ovo nas dovodi do onoga što je poz
 func main() {
 	defer fmt.Println("I am finished")
 	defer fmt.Println("Are you?")
-
 	fmt.Println("Doing some work...")
 }
 ```
@@ -833,9 +858,9 @@ func main() {
     Are you?
     I am finished
 
-Kao što vidimo, `defer` naredbe se slažu i izvršavaju po principu `LIFO steka`.
+Kao što vidimo, `defer` izjave se slažu i izvršavaju po principu `LIFO steka`.
 
-Dakle, `defer` je neverovatno koristan i često se koristi za čišćenje ili rukovanje greškama.
+Dakle, `defer` je neverovatno koristna i često se koristi za čišćenje ili rukovanje greškama.
 
 Funkcije se takođe mogu koristiti sa generičkim tipovima, ali ćemo o njima razgovarati kasnije u kursu.
 
@@ -844,8 +869,6 @@ Funkcije se takođe mogu koristiti sa generičkim tipovima, ali ćemo o njima ra
 `modul` je kolekcija Go paketa smeštenih u stablu datoteka sa `go.mod` datotekom u korenu, pod uslovom da je direktorijum unutar `$GOPATH/src`.
 
 Go moduli su predstavljeni u Go 1.11, donose nativnu podršku za verzije i module. Ranije nam je bila potrebna GO111MODULE=on zastavica da bismo uključili funkcionalnost modula kada je bila eksperimentalna. Ali sada, nakon Go 1.13, režim modula je podrazumevani za sav razvoj.
-
-Ali čekajte, šta je `GOPATH`?
 
 `GOPATH` je promenljiva koja definiše koren našeg radnog prostora i sadrži sledeće direktorijume:
 
@@ -918,7 +941,6 @@ Nakon što se `go mod vendor` komanda izvrši, biće kreiran *vendor* direktorij
 
 # Paketi
 
-### Šta su paketi?
 Paket nije ništa drugo do direktorijum koji sadrži jednu ili više Go izvornih datoteka ili drugih Go paketa.
 
 To znači da svaka Go datoteka sa izvornim kodom mora pripadati paketu, a deklaracija paketa se vrši na vrhu svake datoteke sa izvornim kodom na sledeći način:
@@ -996,6 +1018,7 @@ func main() {
 }
 ```
 ### Spoljne zavisnosti
+
 U programu Go, nismo ograničeni samo na rad sa lokalnim paketima, već možemo instalirati i eksterne pakete koristeći go install komandu kao što smo ranije videli.
 
 Dakle, hajde da preuzmemo jednostavan paket za evidentiranje github.com/rs/zerolog/log.
@@ -1208,7 +1231,7 @@ Evo primera kako se koristi:
 
 # Pointeri
 
-Jednostavno definisano, `pointer` je promenljiva koja se koristi za čuvanje memorijske adrese druge promenljive.
+`pointer` je promenljiva koja se koristi za čuvanje memorijske adrese druge promenljive.
 
 Može se deklarisati ovako:
 ```
@@ -1229,9 +1252,7 @@ func main() {
     $ go run main.go
     nil
 
-Hmm, ovo štampa nil, ali šta je nil? Dakle, nil je unapred deklarisani identifikator u Go-u koji predstavlja nultu vrednost za pointere, interfejse, kanale, mape i isečke.
-
-Ovo je baš kao ono što smo naučili u odeljku o promenljivim i tipovima podataka, gde smo videli da neinicijalizovani `int` ima nultu vrednost `0`, a `bool` ima `false` i tako dalje.
+Hmm, ovo štampa `nil`, ali šta je `nil`? Dakle, `nil` je unapred deklarisani identifikator u Go-u koji predstavlja nultu vrednost za `pointere`, `interfejse`, `kanale`, `mape` i `isečke`. Ovo je baš kao ono što smo naučili u odeljku o promenljivim i tipovima podataka, gde smo videli da neinicijalizovani `int` ima nultu vrednost `0`, a `bool` ima `false` i tako dalje.
 
 ### Referenciranje (uzimanje adrese)
 
@@ -1283,7 +1304,6 @@ func main() {
 	var p *int = &a
 	fmt.Println("before", a)
 	fmt.Println("address:", p)
-
 	*p = 20
 	fmt.Println("after:", a)
 }
@@ -1320,7 +1340,6 @@ import "fmt"
 func main() {
 	p := new(int)
 	*p = 100
-
 	fmt.Println("value", *p)
 	fmt.Println("address", p)
 }
@@ -1334,18 +1353,14 @@ func main() {
 Evo jedne zanimljive ideje... možemo li da napravimo pointer ka pointeru? Odgovor je da! Da, možemo.
 ```
 package main
-
 import "fmt"
 
 func main() {
 	p := new(int)
 	*p = 100
-
 	p1 := &p
-
 	fmt.Println("P value", *p, " address", p)
 	fmt.Println("P1 value", *p1, " address", p)
-
 	fmt.Println("Dereferenced value", **p1)
 }
 ```
@@ -1354,9 +1369,9 @@ func main() {
     P1 value 0xc0000be000  address 0xc0000be000
     Dereferenced value 100
 
-Obratite pažnju kako vrednost p1odgovara adresi od p.
+Obratite pažnju kako vrednost *p1* odgovara adresi od *p*.
 
-Takođe, važno je znati da pointeri u Go-u ne podržavaju pointerku aritmetiku kao u C-u ili C++-u.
+Takođe, važno je znati da pointeri u Go-u ne podržavaju pointersku aritmetiku kao u C-u ili C++-u.
 ```
 p1 := p * 2 // Compiler Error: invalid operation
 ```
@@ -1366,9 +1381,7 @@ p := &a
 p1 := &a
 fmt.Println(p == p1)
 ```
-Ali zašto?
-
-To nas dovodi do pitanja od milion dolara, zašto su nam potrebni saveti?
+Zašto su nam potrebni pointeri?
 
 Pa, nema definitivnog odgovora na to, a pointeri su samo još jedna korisna funkcija koja nam pomaže da efikasno mutiramo naše podatke bez kopiranja velike količine podataka.
 
@@ -1376,7 +1389,7 @@ Na kraju, dodaću da ako dolazite iz jezika koji nema pojam pointera, ne paniči
 
 # Strukture
 
-Dakle, struct je korisnički definisan tip koji sadrži kolekciju imenovanih polja. U osnovi, koristi se za grupisanje povezanih podataka zajedno u jednu jedinicu.
+Dakle, `struct` je korisnički definisan tip koji sadrži kolekciju imenovanih polja. U osnovi, koristi se za grupisanje povezanih podataka zajedno u jednu jedinicu.
 
 Ako dolazite iz objektno orijentisanog okruženja, zamislite strukture kao lagane klase koje podržavaju **kompoziciju**, ali ne i **nasleđivanje**.
 
@@ -1386,7 +1399,7 @@ Možemo definisati struct ovako:
 ```
 type Person struct {}
 ```
-Koristimo `type` ključnu reč da bismo uveli novi tip, nakon čega sledi ime, a zatim struct ključna reč da bismo naznačili da definišemo strukturu.
+Koristimo `type` ključnu reč da bismo uveli novi tip, nakon čega sledi ime tipa, a zatim `struct` ključna reč da bismo naznačili da definišemo strukturu.
 
 Sada, hajde da joj dodamo neka polja:
 ```
@@ -1396,7 +1409,7 @@ type Person struct {
 	Age       int
 }
 ```
-A ako polja imaju isti tip, možemo ih i sakupiti.
+A ako polja imaju isti tip, možemo ih i napisati u kompaktnoj formi:
 ```
 type Person struct {
 	FirstName, LastName string
@@ -1405,7 +1418,7 @@ type Person struct {
 ```
 ### Deklarisanje i inicijalizacija
 
-Sada kada imamo strukturu, možemo je deklarisati isto kao i druge tipove podataka.
+Sada kada imamo definisanu strukturu, možemo deklarisati njenu instancu isto kao i za druge tipove podataka.
 ```
 func main() {
 	var p1 Person
@@ -1415,9 +1428,9 @@ func main() {
 	$ go run main.go
 	Person 1: {  0}
 
-Kao što vidimo, sva polja strukture su inicijalizovana svojim nultim vrednostima. Dakle, FirstName i LastNamesu postavljeni na "" prazan string, a Age je postavljeno na 0.
+Kao što vidimo, sva polja strukture su inicijalizovana svojim nultim vrednostima. Dakle, FirstName i LastName su postavljeni na "" - prazan string, a Age je postavljeno na 0.
 
-Takođe strukturu možemo inicijalizovati kao `struct literal`.
+Takođe strukturu možemo inicijalizovati sa `struct literal`-om.
 ```
 func main() {
 	var p1 Person
@@ -1426,7 +1439,7 @@ func main() {
 	fmt.Println("Person 2:", p2)
 }
 ```
-Radi čitljivosti, možemo razdvojiti novim redom, ali će to takođe zahtevati završni zarez.
+Radi čitljivosti, možemo razdvojiti polja literala novim redom, ali će to zahtevati završni zarez.
 ```
 	var p2 = Person{
 		FirstName: "Karan",
@@ -1438,7 +1451,7 @@ Radi čitljivosti, možemo razdvojiti novim redom, ali će to takođe zahtevati 
     Person 1: {  0}
     Person 2: {Karan Pratap Singh 22}
 
-Takođe možemo inicijalizovati samo podskup polja.
+Takođe možemo inicijalizovati podskup polja.
 ```
 func main() {
 	var p1 Person
@@ -1453,9 +1466,9 @@ func main() {
 
 	var p3 = Person{
 		FirstName: "Tony",
-		LastName:  "Stark"`
-    }
-    fmt.Println("Person 3:", p3)
+		LastName:  "Stark"`,
+	}
+	fmt.Println("Person 3:", p3)
 }
 ```
     $ go run main.go
@@ -1463,7 +1476,7 @@ func main() {
     Person 2: {Karan Pratap Singh 22}
     Person 3: {Tony Stark 0}
 
-Kao što vidimo, polje za godine osobe 3 je podrazumevano podešeno na nultu vrednost. 
+Kao što vidimo, polje *age* osobe 3 je podrazumevano podešeno na nultu vrednost. 
 
 ### Inicijalizacija strukture poljima bez imena
 
@@ -2212,7 +2225,7 @@ func add(values ...int) int {
 
 Mapa je neuređena kolekcija parova `key-value`. Ona preslikava ključeve u vrednosti. Ključevi su jedinstveni unutar mape, dok vrednosti možda nisu.
 
-Koristi se za brzo pretraživanje, pronalaženje i brisanje podataka na osnovu ključeva. To je jedna od najčešće korišćenih struktura podataka.
+Mape se koriste za brzo pretraživanje, pronalaženje i brisanje podataka na osnovu ključeva. To je jedna od najčešće korišćenih struktura podataka.
 
 ### Deklaracija
 
@@ -2310,9 +2323,7 @@ func main() {
 		"a": {"Peter"},
 		"b": {"Seth"},
 	}
-
 	m["c"] = User{"Steve"}
-
 	fmt.Println(m)
 }
 ```
@@ -2388,7 +2399,6 @@ Funkcija `delete()` ne vraća nikakvu vrednost. Takođe, ne radi ništa ako klju
 Slično nizovima ili isečcima, možemo iterirati kroz mape pomoću `range` ključne reči.
 ```
 package main
-
 import "fmt"
 
 func main() {
@@ -2396,9 +2406,7 @@ func main() {
 		"a": {"Peter"},
 		"b": {"Seth"},
 	}
-
 	m["c"] = User{"Steve"}
-
 	for key, value := range m {
 		fmt.Println("Key: %s, Value: %v", key, value)
 	}
@@ -2415,7 +2423,7 @@ Imajte na umu da je mapa neuređena kolekcija i stoga nije garantovano da će re
 
 Na kraju, hajde da pričamo o svojstvima mape.
 
-Mape su referentni tipovi, što znači da kada dodelimo mapu novoj promenljivoj, obe se odnose na istu osnovnu strukturu podataka.
+Mape su `referentni` tipovi, što znači da kada dodelimo mapu novoj promenljivoj, obe se odnose na istu osnovnu strukturu podataka.
 
 Stoga će promene koje izvrši jedna promenljiva biti vidljive drugoj.
 ```
@@ -2445,9 +2453,7 @@ func main() {
 
 # Interfejsi
 
-Dakle, interfejs u ​​Gou je apstraktni tip koji je definisan pomoću skupa potpisa metoda. Interfejs definiše ponašanje za slične tipove objekata.
-
-Ovde je ponašanje ključni pojam o kome ćemo uskoro razgovarati.
+Interfejs u ​​Gou je apstraktni tip koji je definisan pomoću skupa potpisa metoda. Interfejs definiše ponašanje za slične tipove objekata. Ovde je ponašanje ključni pojam o kome ćemo uskoro razgovarati.
 
 Jedan od najboljih primera interfejsa iz stvarnog sveta je utičnica. Zamislite da treba da povežemo različite uređaje na utičnicu (u zidu).
 
@@ -3162,11 +3168,9 @@ Ako ovo vidite, ne brinite. Radi optimizacije, naši testovi su keširani. Može
 
 Dakle, ovako će izgledati neuspeh na testu.
 
-### Testovi vođeni tabelama
+### Testovi vođeni isečkom
 
-Ovo nas dovodi do testova vođenih tabelama. Ali šta su oni tačno?
-
-Dakle, ranije smo imali argumente funkcija i očekivane promenljive koje smo upoređivali da bismo utvrdili da li su naši testovi prošli ili ne. Ali šta ako sve to definišemo u jednom isečku i ponovimo ga? Ovo će učiniti naše testove malo fleksibilnijim i pomoći nam da lakše pokrenemo više slučajeva.
+Ranije smo imali argumente funkcija i očekivane promenljive koje smo upoređivali da bismo utvrdili da li su naši testovi prošli ili ne. Ali šta ako sve to definišemo u jednom isečku i iteriramo ga? Ovo će učiniti naše testove malo fleksibilnijim i pomoći nam da lakše pokrenemo više slučajeva.
 
 Ne brinite, naučićemo ovo na primeru. Zato ćemo početi definisanjem naše `addTestCase` strukture.
 ```
@@ -3231,11 +3235,11 @@ Izgleda da imamo odličnu pokrivenost. Hajde da proverimo i izveštaj koristeći
 
 Kao što vidimo, ovo je mnogo čitljiviji format. A najbolje od svega je što je ugrađen direktno u standardne alate.
 
-### Testiranje nejasnoća
+### Fuzzing testiranje
 
-Na kraju, pogledajmo `fuzzing testiranje` koje je predstavljeno u Go verziji 1.18.
+`fuzzing testiranje` koje je predstavljeno u Go verziji 1.18.
 
-Fazing je vrsta automatizovanog testiranja koja kontinuirano manipuliše ulazima u program kako bi pronašla greške.
+Fuzzing je vrsta automatizovanog testiranja koja kontinuirano manipuliše ulazima u program kako bi pronašla greške.
 
 Go fuzzing koristi smernice za pokrivanje kako bi inteligentno prošao kroz kod koji se fazira kako bi pronašao i prijavio greške korisniku.
 
@@ -3282,9 +3286,9 @@ A ako ponovo pokrenemo test, ovaj granični slučaj će biti uhvaćen `fuzz` tes
 
 Mislim da je ovo zaista sjajna karakteristika Go 1.18. Više o `fuzz` testiranju možete saznati sa zvaničnog Go bloga.
 
-### Generici
+# Generici
 
-U ovom odeljku ćemo saznati o generičkim funkcijama, dugo očekivanoj funkciji koja je objavljena sa verzijom 1.18 jezika Go.
+U ovom odeljku ćemo saznati o genericima, dugo očekivanoj mogućnosti koja je objavljena sa verzijom 1.18 jezika Go.
 
 Generici znače parametrizovane tipove. Jednostavno rečeno, generici omogućavaju programerima da pišu kod gde se tip može navesti kasnije jer tip nije odmah relevantan.
 
@@ -3304,6 +3308,7 @@ func sumFloat(a, b float64) float64 {
 func sumString(a, b string) string {
 	return a + b
 }
+
 func main() {
 	fmt.Println(sumInt(1, 2))
 	fmt.Println(sumFloat(4.0, 2.0))
@@ -3318,7 +3323,7 @@ func fnName[T constraint]() {
 	...
 }
 ```
-Ovde je `T` naš parametar tipa i `constraint` biće interfejs koji dozvoljava bilo kom tipu da implementira taj interfejs. Ovo je zbunjujuće. Dakle, hajde da počnemo da gradimo našu generičku `sum` funkciju.
+Ovde je `T` naš parametar tipa i `constraint` biće interfejs koji dozvoljava nekom tipu da implementira taj interfejs. Ovo je zbunjujuće. Dakle, hajde da počnemo da gradimo našu generičku `sum` funkciju.
 
 Ovde ćemo koristiti `T` kao parametar tipa sa praznim interfejsom `interface{}` kao ograničenjem.
 ```
@@ -3351,7 +3356,7 @@ Hajde da ovo pokrenemo i vidimo da li radi.
 	4 2
 	a b
 
-Sada, hajde da ažuriramo sum funkciju da bismo dodali naše promenljive.
+Sada, hajde da ažuriramo sum funkciju da bismo sabrali naše promenljive.
 ```
 func sum[T any](a, b T) T {
 	return a + b
@@ -3461,126 +3466,98 @@ Na kraju, dodaću da iako su generički izrazi odličan dodatak jeziku, treba ih
 
 I, savetuje se da počnete sa jednostavnim i da pišete generički kod tek kada smo napisali veoma sličan kod najmanje 2 ili 3 puta.
 
-# Konkurencija
+# Konkurentnost
 
-U ovoj lekciji ćemo naučiti o konkurentnosti, što je jedna od najmoćnijih karakteristika Go jezika.
-
-Dakle, hajde da počnemo sa pitanjem Šta je "konkurentnost" ?
-Šta je konkurentnost
-
-Konkurentnost, po definiciji, je sposobnost razlaganja računarskog programa ili algoritma na pojedinačne delove, koji se mogu izvršavati nezavisno.
-
-Konačni ishod konkurentnog programa je isti kao i kod programa koji je izvršan sekvencijalno.
+Konkurentnost je jedna od najmoćnijih karakteristika Go jezika. Konkurentnost, po definiciji, je sposobnost razlaganja računarskog programa ili algoritma na pojedinačne delove, koji se mogu izvršavati nezavisno. Konačni ishod konkurentnog programa je isti kao i kod programa koji je izvršan sekvencijalno.
 
 Koristeći konkurentnost, možemo postići iste rezultate za manje vremena, čime se povećavaju ukupne performanse i efikasnost naših programa.
-Konkurencija naspram paralelizma
 
-конкурентност-на-паралелизам
+### Konkurentnost naspram paralelizma
 
 Mnogi ljudi mešaju konkurentnost sa paralelizmom jer oba donekle podrazumevaju istovremeno izvršavanje koda, ali to su dva potpuno različita koncepta.
 
-Konkurencija je zadatak istovremenog pokretanja i upravljanja višestrukim izračunavanjima, dok je paralelizam zadatak istovremenog pokretanja višestrukih izračunavanja.
+Konkurencija je zadatak pokretanja i upravljanja višestrukim izračunavanjima u isto vreme, dok je zadatak paralelizam pokretanja višestrukih istovremeno.
 
-Jednostavan citat Roba Pajka prilično sumira sve.
+Jednostavan citat Roba Pajka prilično sumira sve: "Konkurentnost je rad sa mnogo stvari odjednom. Paralelizam je rad mnogo stvari odjednom."
 
-"Konkurentnost je rad sa mnogo stvari odjednom. Paralelizam je rad sa mnogo stvari odjednom."
+Ali konkurentnost u Gou je više od same sintakse. Da bismo iskoristili moć Goa, prvo moramo da razumemo kako Go pristupa konkurentnom izvršavanju koda. 
 
-Ali konkurentnost u Gou je više od same sintakse. Da bismo iskoristili moć Goa, prvo moramo da razumemo kako Go pristupa konkurentnom izvršavanju koda. Go se oslanja na model konkurentnosti koji se zove CSP (Communicating Sequential Processes - komunikacija sekvencijalnih procesa).
-Komunikacija sekvencijalnih procesa (CSP)
+Go se oslanja na model konkurentnosti koji se zove CSP (Communicating Sequential Processes - komunikacija sekvencijalnih procesa).
+
+### Komunikacija sekvencijalnih procesa (CSP)
 
 Komunikacija sekvencijalnih procesa (CSP) je model koji je predstavio Toni Hoar 1978. godine, a koji opisuje interakcije između konkurentnih procesa. Napravio je proboj u računarstvu, posebno u oblasti konkurentnosti.
 
 Jezici poput Go i Erlang su bili veoma inspirisani konceptom komunikacije sekvencijalnih procesa (CSP).
 
-Konkurencija je teška, ali CSP nam omogućava da damo bolju strukturu našem konkurentnom kodu i pruža model za razmišljanje o konkurentnosti na način koji to čini malo lakšim. Ovde su procesi nezavisni i komuniciraju deljenjem kanala između njih.
+Konkurencija je teška, ali CSP nam omogućava da damo bolju strukturu našem konkurentnom kodu i pruža model za razmišljanje o konkurentnosti na način koji to čini malo lakšim. Ovde su konkurentni procesi nezavisni i komuniciraju deljenjem kanala između njih.
 
-csp
+Kasnije u kursu ćemo naučiti kako Golang to implementira koristeći `gorutine` i `kanale`.
 
-Kasnije u kursu ćemo naučiti kako Golang to implementira koristeći gorutine i kanale.
-Osnovni koncepti
+### Osnovni koncepti
 
-Sada, hajde da se upoznamo sa nekim osnovnim konceptima konkurentnosti.
-Trka podataka
+##### Trka podataka
 
-Trka podataka nastaje kada procesi moraju istovremeno da pristupe istom resursu.
+Trka podataka nastaje kada procesi moraju konkuretno da pristupe istom resursu.
+Na primer, jedan proces čita, dok drugi istovremeno piše u potpuno isti resurs.
 
-Na primer, jedan proces čita dok drugi istovremeno piše u potpuno isti resurs.
-Uslovi trke
+##### Uslovi trke
 
 Do trke dolazi kada vreme ili redosled događaja utiče na ispravnost dela koda.
-Zastoji
+
+##### Zastoj
 
 Zastoj se javlja kada su svi procesi blokirani dok čekaju jedan drugog i program ne može dalje da se izvršava.
 
-Kofmanovi uslovi
+##### Kofmanovi uslovi
 
-Postoje četiri uslova, poznata kao Kofmanovi uslovi, i svi oni moraju biti zadovoljeni da bi došlo do zastoja.
+Postoje četiri uslova, poznata kao `Kofmanovi uslovi`, i svi oni moraju biti zadovoljeni da bi došlo do zastoja.
 
-Uzajamno isključenje
+- **Uzajamno isključivi**
 
-Kontinuirani proces drži barem jedan resurs u bilo kom trenutku, što ga čini nedeljivim.
+	Kontinuirani proces drži barem jedan resurs u bilo kom trenutku, što ga čini nedeljivim.
 
-Na dijagramu ispod, postoji jedna instanca Resursa 1 i nju drži samo Proces 1.
+- **Drži i čeka**
 
-међусобно искључивање
+	Kontinuirani proces drži resurs i čeka na dodatni resurs.
 
-Čekaj i sačekaj
+- **Bez mogućnosti konkurencije**
 
-Kontinuirani proces drži resurs i čeka na dodatni resurs.
+	Resurs koji drži konkurentni proces ne može biti oduzet od strane OS. Može ga osloboditi samo proces koji ga drži.
 
-Na dijagramu datom ispod, Proces 2 drži Resurs 2 i Resurs 3 i zahteva Resurs 1 koji drži Proces 1.
+- **Kružno čekanje**
 
-чекати
+	Proces čeka resurs koji drži drugi proces, koji čeka resurs koji drži treći proces, i tako dalje, sve dok poslednji proces ne čeka resurs koji drži prvi proces. Dakle, formira se kružni lanac čekanja na resurse.
 
-Bez prevencije
+##### Žive brave
 
-Resurs koji drži konkurentni proces ne može biti oduzet od strane sistema. Može ga osloboditi samo proces koji ga drži.
+`Livelock` procesi su procesi koji aktivno izvršavaju konkurentne operacije, ali ove operacije ne čine ništa da pomeraju stanje programa napred.
 
-Na dijagramu ispod, Proces 2 ne može da preuzme Resurs 1 iz Procesa 1. On će biti oslobođen samo kada ga Proces 1 dobrovoljno prepusti nakon što je njegovo izvršavanje završeno.
-
-без превенције
-
-Kružno čekanje
-
-Proces čeka resurs koji drži drugi proces, koji čeka resurs koji drži treći proces, i tako dalje, sve dok poslednji proces ne čeka resurs koji drži prvi proces. Dakle, formira se kružni lanac.
-
-Na dijagramu ispod, Procesu 1 je dodeljen Resurs2 i on zahteva Resurs 1. Slično tome, Procesu 2 je dodeljen Resurs 1 i on zahteva Resurs 2. Ovo formira kružnu petlju čekanja.
-
-кружно чекање
-
-Žive brave
-
-Lajvlok procesi su procesi koji aktivno izvršavaju istovremene operacije, ali ove operacije ne čine ništa da pomeraju stanje programa napred.
-Gladovanje
+##### Gladovanje
 
 Do gladovanja dolazi kada je proces lišen neophodnih resursa i nije u stanju da završi svoju funkciju.
 
 Gladovanje može se desiti zbog zastoja ili neefikasnih algoritama za zakazivanje procesa. Da bismo rešili problem gladovanja, moramo da primenimo bolje algoritme za raspodelu resursa koji osiguravaju da svaki proces dobije svoj pravedan deo resursa.
-Gorutine
 
-U ovoj lekciji ćemo učiti o Gorutinama.
+### Gorutine
 
-Ali pre nego što započnemo našu diskusiju, želeo bih da podelim jednu važnu poslovicu o Gou.
+Pre nego što započnemo našu diskusiju, želeo bih da podelim jednu važnu poslovicu o Gou: "Ne komunicirajte deljenjem memorije, delite memoriju komunikacijom." - Rob Pajk
 
-"Ne komuniciraj deljenjem sećanja, delite sećanje komunikacijom." - Rob Pajk
-Šta je gorutina?
+`Gorutina` je lagana nit izvršavanja kojom upravlja Go runtime i u suštini nam omogućava da pišemo asinhroni kod na sinhroni način.
 
-Gorutina je lagana nit izvršavanja kojom upravlja Go runtime i u suštini nam omogućava da pišemo asinhroni kod na sinhroni način.
+Važno je znati da `gorutine` nisu stvarne OS niti i da se sama `main` funkcija izvršava kao gorutina.
 
-Važno je znati da to nisu stvarne OS niti i da se sama glavna funkcija izvršava kao gorutina.
+Jedna nit OS-a može da pokreće hiljade gorutina koristeći Go raspoređivač vremena izvršavanja koji koristi kooperativno zakazivanje. To podrazumeva da ako je trenutna gorutina blokirana ili je završena, raspoređivač će premestiti ostale gorutine u drugu nit operativnog sistema. Stoga postižemo efikasnost u zakazivanju gde nijedna rutina nije blokirana zauvek.
 
-Jedna nit može da pokreće hiljade gorutina koristeći Go raspoređivač vremena izvršavanja koji koristi kooperativno zakazivanje. To podrazumeva da ako je trenutna gorutina blokirana ili je završena, raspoređivač će premestiti ostale gorutine u drugu nit operativnog sistema. Stoga postižemo efikasnost u zakazivanju gde nijedna rutina nije blokirana zauvek.
-
-Možemo pretvoriti bilo koju funkciju u gorutinu jednostavnim korišćenjem goključne reči.
+Možemo pretvoriti bilo koju funkciju u gorutinu jednostavnim korišćenjem `go` ključne reči.
 ```
 go fn(x, y, z)
 ```
 Pre nego što napišemo bilo koji kod, važno je ukratko razmotriti model fork-join-a.
-Model račvastog spajanja
 
-Go koristi ideju modela fork-join konkurentnosti koji stoji iza gorutina. Model fork-join u suštini podrazumeva da se podređeni proces odvaja od svog roditeljskog procesa da bi se pokrenuo istovremeno sa roditeljskim procesom. Nakon završetka izvršavanja, podređeni proces se ponovo spaja sa roditeljskim procesom. Tačka gde se ponovo spaja naziva se tačka spajanja .
+##### Model račvanja-spajanja
 
-форк-јоин
+Go koristi ideju modela `fork-join` konkurentnosti koji stoji iza `gorutina`. Model `fork-join` u suštini podrazumeva da se podređeni proces odvaja od svog roditeljskog procesa da bi se pokrenuo konkurentno sa roditeljskim procesom. Nakon završetka izvršavanja, podređeni proces se ponovo spaja sa roditeljskim procesom. Tačka gde se ponovo spaja naziva se `tačka spajanja`.
 
 Sada, hajde da napišemo malo koda i kreiramo sopstvenu gorutinu.
 ```
@@ -3594,7 +3571,7 @@ func main() {
 	go speak("Hello World")
 }
 ```
-Ovde speakpoziv funkcije ima prefiks goključne reči . Ovo će joj omogućiti da se pokreće kao zasebna gorutina. I to je to, upravo smo kreirali našu prvu gorutinu. Toliko je jednostavno!
+Ovde poziv *speak* funkcije ima prefiks ključne reči `go`. Ovo će joj omogućiti da se pokreće kao zasebna gorutina. I to je to, upravo smo kreirali našu prvu gorutinu. Toliko je jednostavno!
 
 Odlično, hajde da pokrenemo ovo:
 
@@ -3602,7 +3579,7 @@ Odlično, hajde da pokrenemo ovo:
 
 Zanimljivo je da izgleda da se naš program nije potpuno pokrenuo jer mu nedostaje deo izlaza. To je zato što je naša glavna gorutina izašla i nije čekala gorutinu koju smo kreirali.
 
-Šta ako nateramo naš program da čeka koristeći time.Sleepfunkciju?
+Šta ako nateramo naš program da čeka koristeći `time.Sleep` funkciju?
 ```
 func main() {
 	...
@@ -3616,178 +3593,170 @@ Eto, sada možemo videti naš kompletan rezultat.
 
 U redu, ovo funkcioniše, ali nije idealno. Pa kako da ovo poboljšamo?
 
-Pa, najzahtevniji deo korišćenja gorutina je znati kada će se zaustaviti. Važno je znati da se gorutine izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan.
+Najzahtevniji deo korišćenja gorutina je znati kada će se zaustaviti. Važno je razumeti da se gorutine izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan.
 
-# Kanali
+### Kanali
 
-Jednostavno definisano, kanal je komunikaciona cev između gorutina. Stvari ulaze na jedan kraj, a izlaze na drugi istim redosledom dok se kanal ne zatvori.
+Kanal je komunikaciona cev između gorutina. Stvari ulaze na jedan kraj, a izlaze na drugi istim redosledom dok se kanal ne zatvori.
 
 Kanali u Go-u su zasnovani na komunikaciji sekvencijalnih procesa (CSP).
 
-### Kreiranje kanala
+##### Kreiranje kanala
 
 Sada kada razumemo šta su kanali, hajde da vidimo kako ih možemo deklarisati.
 
 	var ch chan T
 
-Ovde ispred našeg tipa, Tkoji je tip podataka vrednosti koju želimo da pošaljemo i primimo, dodajemo ključnu reč chankoja predstavlja kanal.
+Ovde ispred tipa, T koji je tip podataka vrednosti koju želimo da pošaljemo i primimo, dodajemo ključnu reč `chan` koja predstavlja kanal.
 
-Hajde da pokušamo da ispišemo vrednost našeg kanala ctipa string.
-
+Hajde da pokušamo da ispišemo vrednost našeg kanala tipa string.
+```
 func main() {
 	var ch chan string
-
 	fmt.Println(c)
 }
+```
+	$ go run main.go
+	<nil>
 
-$ go run main.go
-<nil>
+Kao što vidimo, nulta vrednost kanala je `nil` i ako pokušamo da pošaljemo podatke preko kanala, naš program će paničiti.
 
-Kao što vidimo, nulta vrednost kanala je nili ako pokušamo da pošaljemo podatke preko kanala, naš program će paničiti.
-
-Dakle, slično kao kod isečki, možemo inicijalizovati naš kanal koristeći ugrađenu makefunkciju.
-
+Dakle, slično kao kod isečaka ili mapa, mramo inicijalizovati kanal koristeći ugrađenu `make` funkciju.
+```
 func main() {
 	ch := make(chan string)
-
 	fmt.Println(c)
 }
+```
+I ako ovo pokrenemo, možemo videti vrednost pointera na alociranu memoriju različitu od `nil`, što znači da je kanal inicijalizovan.
 
-I ako ovo pokrenemo, možemo videti da je naš kanal inicijalizovan.
+	$ go run main.go
+	0x1400010e060
 
-$ go run main.go
-0x1400010e060
-
-Slanje i primanje podataka
+##### Slanje i primanje podataka 
 
 Sada kada imamo osnovno razumevanje kanala, hajde da implementiramo naš prethodni primer koristeći kanale da bismo naučili kako ih možemo koristiti za komunikaciju između naših gorutina.
-
+```
 package main
-
 import "fmt"
 
 func speak(arg string, ch chan string) {
 	ch <- arg // Send
 }
-
 func main() {
 	ch := make(chan string)
-
 	go speak("Hello World", ch)
-
 	data := <-ch // Receive
 	fmt.Println(data)
 }
+```
+Obratite pažnju kako možemo slati podatke koristeći `channel <- data` i primati podatke koristeći `data := <-channel` sintaksu.
 
-Obratite pažnju kako možemo slati podatke koristeći channel<-datai primati podatke koristeći data := <-channelsintaksu.
-
-$ go run main.go
-Hello World
+	$ go run main.go
+	Hello World
 
 Odlično, naš program je tekao kako smo očekivali.
-Baferovani kanali
 
-Takođe imamo baferovane kanale koji prihvataju ograničen broj vrednosti bez odgovarajućeg prijemnika za te vrednosti.
+##### Baferovani kanali
 
-баферовани канал
+Takođe možemo imati baferovane kanale koji prihvataju ograničen broj vrednosti bez odgovarajućeg prijemnika za te vrednosti.
 
-Ova dužina ili kapacitet bafera može se odrediti korišćenjem drugog argumenta funkcije .make
-
+Ova dužina ili kapacitet bafera može se odrediti korišćenjem drugog argumenta funkcije `make`.
+```
 func main() {
 	ch := make(chan string, 2)
-
+	
 	go speak("Hello World", ch)
 	go speak("Hi again", ch)
-
+	
 	data1 := <-ch
 	fmt.Println(data1)
-
+	
 	data2 := <-ch
 	fmt.Println(data2)
 }
+```
+Pošto je ovaj kanal baferovan, možemo poslati ove vrednosti u kanal bez odgovarajućeg konkurentnog prijema. To znači da slanje baferovanom kanalu će biti blokirano samo kada je bafer pun a primanje sa baferovang kanala će biti blokirano samo kada je bafer prazan.
 
-Pošto je ovaj kanal baferovan, možemo poslati ove vrednosti u kanal bez odgovarajućeg istovremenog prijema. To znači da šaljemo blok baferovanom kanalu samo kada je bafer pun i primamo blok kada je bafer prazan.
+Podrazumevano, kanal je nebaferovan i ima kapacitet 0, stoga možemo da izostavimo drugi argument funkcije `make`.
 
-Podrazumevano, kanal je nebaferovan i ima kapacitet 0, stoga izostavljamo drugi argument funkcije make.
-
-Zatim, imamo usmerene kanale.
-Usmereni kanali
+##### Usmereni kanali (unidirectional)
 
 Kada koristimo kanale kao parametre funkcije, možemo da odredimo da li je kanal namenjen samo za slanje ili primanje vrednosti. Ovo povećava bezbednost tipa našeg programa jer podrazumevano kanal može i da šalje i da prima vrednosti.
 
-усмерени канали
-
-U našem primeru, možemo ažurirati speakdrugi argument naše funkcije tako da može poslati samo vrednost.
-
-func speak(arg string, ch chan<- string) {
+U našem primeru, možemo ažurirati funkciju *speak* tako da drugi argument naše funkcije može samo poslati vrednost.
+```
+func speak(arg string, ch chan <- string) {
 	ch <- arg // Send Only
 }
+```
+Ovde se `chan <-` može koristiti samo za slanje vrednosti i doći će do panike ako pokušamo da primimo vrednosti.
 
-Ovde chan<-se može koristiti samo za slanje vrednosti i doći će do panike ako pokušamo da primimo vrednosti.
-Zatvaranje kanala
+##### Zatvaranje kanala
 
-Takođe, baš kao i sa bilo kojim drugim resursom, kada završimo sa našim kanalom, potrebno ga je zatvoriti. To se može postići pomoću ugrađene closefunkcije.
+Takođe, baš kao i sa bilo kojim drugim resursom, kada završimo sa našim kanalom, potrebno ga je zatvoriti. To se može postići pomoću ugrađene `close` funkcije.
 
-Ovde možemo samo da prosledimo naš kanal funkciji close.
-
+Pri zatvaranu, možemo samo da prosledimo naš kanal funkciji `close`.
+```
 func main() {
 	ch := make(chan string, 2)
-
+	
 	go speak("Hello World", ch)
 	go speak("Hi again", ch)
-
+	
 	data1 := <-ch
 	fmt.Println(data1)
-
+	
 	data2 := <-ch
 	fmt.Println(data2)
-
+	
 	close(ch)
 }
-
+```
 Opciono, prijemnici mogu da testiraju da li je kanal zatvoren dodeljivanjem drugog parametra izrazu za prijem.
-
+```
 func main() {
 	ch := make(chan string, 2)
-
+	
 	go speak("Hello World", ch)
 	go speak("Hi again", ch)
-
+	
 	data1 := <-ch
 	fmt.Println(data1)
-
-	data2, ok := <-ch
+	
+	data2, ok := <-ch		// test on closed channel
 	fmt.Println(data2, ok)
-
+	
 	close(ch)
 }
-
-ako okjeste, falseonda nema više vrednosti za primanje i kanal je zatvoren.
+```
+ako je ok false onda nema više vrednosti za primanje i kanal je zatvoren.
 
 Na neki način, ovo je slično načinu na koji proveravamo da li ključ postoji ili ne u mapi.
-Nekretnine
+
+##### Svojstva kanala
 
 Na kraju, hajde da razgovaramo o nekim svojstvima kanala:
 
-    Slanje na nilkanal se blokira zauvek.
-
+**Slanje na `nil` kanal blokira zauvek**
+```
 var c chan string
 c <- "Hello, World!" // Panic: all goroutines are asleep - deadlock!
-
-    Prijem sa nilkanala se blokira zauvek.
-
+```
+**Prijem sa `nil` kanala se blokira zauvek**
+```
 var c chan string
 fmt.Println(<-c) // Panic: all goroutines are asleep - deadlock!
-
-    Slanje na zatvoreni kanal izaziva paniku.
-
+```
+**Slanje na zatvoreni kanal izaziva paniku**
+```
 var c = make(chan string, 1)
 c <- "Hello, World!"
 close(c)
 c <- "Hello, Panic!" // Panic: send on closed channel
-
-    Prijem iz zatvorenog kanala odmah vraća nultu vrednost.
-
+```
+**Prijem iz zatvorenog kanala odmah vraća nultu vrednost**
+```
 var c = make(chan int, 2)
 c <- 5
 c <- 4
@@ -3795,38 +3764,34 @@ close(c)
 for i := 0; i < 4; i++ {
     fmt.Printf("%d ", <-c) // Output: 5 4 0 0
 }
+```
+**Range preko kanala**
 
-    Domet preko kanala.
-
-Takođe možemo koristiti fori rangeza iteraciju kroz vrednosti primljene iz kanala.
-
+Takođe možemo koristiti `for range` za iteraciju kroz vrednosti primljene iz kanala.
+```
 package main
-
 import "fmt"
 
 func main() {
 	ch := make(chan string, 2)
-
+	
 	ch <- "Hello"
 	ch <- "World"
-
+	
 	close(ch)
-
+	
 	for data := range ch {
 		fmt.Println(data)
 	}
 }
+```
+### Select izraz
 
-Izaberite
+Izraz `select` blokira kod i čeka na više operacija kanala istovremeno.
 
-U ovom tutorijalu ćemo naučiti o selectizrazu u Go-u.
-
-Izjava selectblokira kod i čeka na više operacija kanala istovremeno.
-
-Blokira selectdok se jedan od njegovih slučajeva ne može pokrenuti, a zatim izvršava taj slučaj. Nasumično bira jedan ako je više njih spremno.
-
+`select` blokira dok se jedan od njegovih slučajeva ne može pokrenuti, a zatim izvršava taj slučaj. Nasumično bira jedan ako je više njih spremno.
+```
 package main
-
 import (
 	"fmt"
 	"time"
@@ -3856,9 +3821,9 @@ func main() {
 	close(one)
 	close(two)
 }
-
-Slično kao switch, selecttakođe ima podrazumevani slučaj koji se pokreće ako nijedan drugi slučaj nije spreman. Ovo će nam pomoći da šaljemo ili primamo bez blokiranja.
-
+```
+Slično kao `switch`, `select` takođe ima podrazumevani slučaj koji se pokreće ako nijedan drugi slučaj nije spreman. Ovo će nam pomoći da šaljemo ili primamo bez blokiranja.
+```
 func main() {
 	one := make(chan string)
 	two := make(chan string)
@@ -3890,9 +3855,9 @@ func main() {
 	close(one)
 	close(two)
 }
-
-Takođe je važno znati da prazno select {}blokira zauvek.
-
+```
+Takođe je važno znati da prazno select {} blokira zauvek.
+```
 func main() {
 	...
 	select {}
@@ -3900,55 +3865,51 @@ func main() {
 	close(one)
 	close(two)
 }
+```
+### Sync paket
 
-Sinhronizacija paketa
+Kao što smo ranije saznali, `gorutine` se izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan. `sync` paket pruža korisne primitive.
 
-Kao što smo ranije saznali, gorutine se izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan. syncPaket pruža korisne primitive.
-Grupa čekanja
+##### WaitGroup
 
-Grupa čeka da se završi izvršavanje kolekcije gorutina. Glavna gorutina poziva Addda bi podesila broj gorutina koje treba čekati. Zatim se svaka od gorutina pokreće i poziva Donekada se završi. Istovremeno, Waitmože se koristiti za blokiranje dok se sve gorutine ne završe.
-Upotreba
+Grupa čeka da se završi izvršavanje kolekcije gorutina. *Main* gorutina poziva *Add* da bi podesila broj gorutina koje treba čekati. Zatim se svaka od gorutina pokreće i poziva `Done` kada se završi. Istovremeno, `Wait` se može koristiti za blokiranje dok se sve gorutine ne završe.
 
-Možemo koristiti sync.WaitGroupsledeće metode:
+**Upotreba**
 
-    Add(delta int)uzima celobrojnu vrednost koja je u suštini broj gorutina koje WaitGrouptreba da čeka. Ovo mora biti pozvano pre nego što izvršimo gorutinu.
-    Done()se poziva unutar gorutine da signalizira da je gorutina uspešno izvršena.
-    Wait()blokira program dok se sve gorutine koje je odredio Add()ne pozovu Done()iznutra.
+Možemo koristiti `sync.WaitGroup` sledeće metode:
 
-Primer
+`Add(delta int)` uzima celobrojnu vrednost koja je u suštini broj gorutina koje WaitGroup treba da čeka. Ovo mora biti pozvano pre nego što izvršimo gorutinu.
+`Done()` se poziva unutar gorutine da signalizira da je gorutina uspešno izvršena.
+`Wait()` blokira program dok se sve gorutine koje je odredio Add()ne pozovu Done()iznutra.
 
 Hajde da pogledamo jedan primer.
-
+```
 package main
-
 import (
 	"fmt"
 	"sync"
 )
-
 func work() {
 	fmt.Println("working...")
 }
 
 func main() {
 	var wg sync.WaitGroup
-
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
 		work()
 	}()
-
 	wg.Wait()
 }
-
+```
 Ako ovo pokrenemo, možemo videti da naš program radi kako se očekuje.
 
-$ go run main.go
-working...
+	$ go run main.go
+	working...
 
-Takođe možemo WaitGroupdirektno proslediti funkciji.
-
+Takođe možemo `WaitGroup` direktno proslediti funkciji.
+```
 func work(wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Println("working...")
@@ -3956,23 +3917,18 @@ func work(wg *sync.WaitGroup) {
 
 func main() {
 	var wg sync.WaitGroup
-
 	wg.Add(1)
-
 	go work(&wg)
-
 	wg.Wait()
 }
+```
+Ali je važno znati da se `WaitGroup` ne sme kopirati nakon prve upotrebe. A ako se eksplicitno prosleđuje u funkcije, to treba da se uradi pomoću pointera. To je zato što može uticati na naš brojač, što će poremetiti logiku našeg programa.
 
-Ali je važno znati da se a WaitGroup ne sme kopirati nakon prve upotrebe. A ako se eksplicitno prosleđuje u funkcije, to treba da se uradi pomoću pointera. To je zato što može uticati na naš brojač, što će poremetiti logiku našeg programa.
-
-Hajde da povećamo i broj gorutina pozivanjem Addmetode koja čeka 4 gorutine.
-
+Hajde da povećamo i broj gorutina pozivanjem `Add` metode koja čeka 4 gorutine.
+```
 func main() {
 	var wg sync.WaitGroup
-
 	wg.Add(4)
-
 	go work(&wg)
 	go work(&wg)
 	go work(&wg)
@@ -3980,44 +3936,41 @@ func main() {
 
 	wg.Wait()
 }
-
+```
 I kao što se i očekivalo, sve naše gorutine su izvršene.
 
-$ go run main.go
-working...
-working...
-working...
-working...
+	$ go run main.go
+	working...
+	working...
+	working...
+	working...
 
-Muteks
+### Mutex
 
 Mutex je međusobno isključujuća brava koja sprečava druge procese da uđu u kritični deo podataka dok ga neki proces zauzima kako bi se sprečilo nastajanje uslova trke.
-Šta je kritični odeljak?
+
+##### Šta je kritični sekcija?
 
 Dakle, kritična sekcija može biti deo koda koji ne sme da se izvršava od strane više niti istovremeno jer kod sadrži deljene resurse.
-Upotreba
 
-Možemo sync.Mutexkoristiti sledeće metode:
+##### Upotreba
 
-    Lock()stiče ili drži bravu.
-    Unlock()otključava bravu.
-    TryLock()pokušava da zaključa i javlja da li je uspelo.
+Možemo `sync.Mutex` koristiti sledeće metode:
 
-Primer
+- `Lock()` stiče ili drži bravu.
+- `Unlock()` otključava bravu.
+- `TryLock()` pokušava da zaključa i javlja da li je uspelo.
 
-Hajde da pogledamo primer, kreiraćemo Counterstrukturu i dodati Updatemetodu koja će ažurirati internu vrednost.
-
+Hajde da pogledamo primer, kreiraćemo `Counter` strukturu i dodati `Update` metodu koja će ažurirati internu vrednost.
+```
 package main
-
 import (
 	"fmt"
 	"sync"
 )
-
 type Counter struct {
 	value int
 }
-
 func (c *Counter) Update(n int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Printf("Adding %d to %d\n", n, c.value)
@@ -4039,34 +3992,31 @@ func main() {
 	wg.Wait()
 	fmt.Printf("Result is %d", c.value)
 }
-
+```
 Hajde da ovo pokrenemo i vidimo šta će se desiti.
 
-$ go run main.go
-Adding -5 to 0
-Adding 10 to 0
-Adding 19 to 0
-Adding 25 to 0
-Result is 49
+	$ go run main.go
+	Adding -5 to 0
+	Adding 10 to 0
+	Adding 19 to 0
+	Adding 25 to 0
+	Result is 49
 
 To ne izgleda tačno, izgleda kao da je naša vrednost uvek nula, ali smo nekako dobili tačan odgovor.
 
-Pa, to je zato što, u našem primeru, više gorutina ažurira valuepromenljivu. I kao što ste verovatno pretpostavili, ovo nije idealno.
+Pa, to je zato što, u našem primeru, više gorutina ažurira *value* promenljivu. I kao što ste verovatno pretpostavili, ovo nije idealno.
 
-Ovo je savršen slučaj upotrebe za Mutex. Dakle, hajde da počnemo tako što ćemo koristiti sync.Mutexi umotati našu kritičnu sekciju između metoda Lock()i Unlock().
-
+Ovo je savršen slučaj upotrebe za Mutex. Dakle, hajde da počnemo tako što ćemo koristiti `sync`.Mutex umotava našu kritičnu sekciju između metoda `Lock()` i `Unlock()`.
+```
 package main
-
 import (
 	"fmt"
 	"sync"
 )
-
 type Counter struct {
 	m     sync.Mutex
 	value int
 }
-
 func (c *Counter) Update(n int, wg *sync.WaitGroup) {
 	c.m.Lock()
 	defer wg.Done()
@@ -4077,11 +4027,8 @@ func (c *Counter) Update(n int, wg *sync.WaitGroup) {
 
 func main() {
 	var wg sync.WaitGroup
-
 	c := Counter{}
-
 	wg.Add(4)
-
 	go c.Update(10, &wg)
 	go c.Update(-5, &wg)
 	go c.Update(25, &wg)
@@ -4090,42 +4037,44 @@ func main() {
 	wg.Wait()
 	fmt.Printf("Result is %d", c.value)
 }
-
-$ go run main.go
-Adding -5 to 0
-Adding 19 to -5
-Adding 25 to 14
-Adding 10 to 39
-Result is 49
+```
+	$ go run main.go
+	Adding -5 to 0
+	Adding 19 to -5
+	Adding 25 to 14
+	Adding 10 to 39
+	Result is 49
 
 Izgleda da smo rešili problem i rezultat takođe izgleda ispravno.
 
-Napomena: Slično kao kod WaitGroup, Mutex se ne sme kopirati nakon prve upotrebe.
-RWMutex
+**Napomena**: Slično kao kod `WaitGroup`, `Mutex` se ne sme kopirati nakon prve upotrebe.
 
-RWMutex je međusobno isključena brava čitača/pisača. Bravu može da drži proizvoljan broj čitača ili jedan pisac.
+### RWMutex
 
-Drugim rečima, čitaoci ne moraju da čekaju jedni druge. Treba samo da čekaju pisce koji drže katanac.
+RWMutex je međusobno isključujuća brava čitača/pisača. Bravu može da drži proizvoljan broj čitača ili jedan pisac.
 
-sync.RWMutexje stoga poželjnije za podatke koji se uglavnom čitaju, a resurs koji se štedi u poređenju sa je sync.Mutexvreme.
-Upotreba
+Drugim rečima, čitaoci ne moraju da čekaju jedni druge. Treba samo da čekaju pisce koji drže bravu.
 
-Slično kao sync.Mutex, možemo koristiti sync.RWMutexsledeće metode:
+`sync.RWMutex` je stoga poželjnije za podatke koji se uglavnom čitaju, a resurs koji se štedi u poređenju sa `sync.Mutex` je vreme.
 
-    Lock()stiče ili drži bravu.
-    Unlock()otključava bravu.
-    RLock()stiče ili drži zaključavanje za čitanje.
-    RUnlock()otključava za čitanje.
+##### Upotreba
+
+Slično kao `sync.Mutex`, možemo koristiti `sync.RWMutex` sa sledećim metodama:
+
+`Lock()` stiče ili drži bravu.
+`Unlock()` otključava bravu.
+`RLock()` stiče ili drži zaključavanje za čitanje.
+`RUnlock()` otključava za čitanje.
 
 Obratite pažnju kako RWMutex ima dodatne RLockmetode RUnlocku poređenju sa Mutex-om.
-Primer
 
-Dodajmo GetValuemetodu koja će čitati vrednost brojača. Takođe ćemo promeniti sync.Mutexu sync.RWMutex.
+##### Primer
 
-Sada možemo jednostavno koristiti metode RLocki RUnlocktako da čitaoci ne moraju da čekaju jedni druge.
+Dodajmo `GetValue` metodu koja će čitati vrednost brojača. Takođe ćemo promeniti `sync.Mutex` u `sync.RWMutex`.
 
+Sada možemo jednostavno koristiti metode `RLock` i `RUnlock` tako da čitaoci ne moraju da čekaju jedni druge.
+```
 package main
-
 import (
 	"fmt"
 	"sync"
@@ -4136,7 +4085,6 @@ type Counter struct {
 	m     sync.RWMutex
 	value int
 }
-
 func (c *Counter) Update(n int, wg *sync.WaitGroup) {
 	defer wg.Done()
 
@@ -4145,7 +4093,6 @@ func (c *Counter) Update(n int, wg *sync.WaitGroup) {
 	c.value += n
 	c.m.Unlock()
 }
-
 func (c *Counter) GetValue(wg *sync.WaitGroup) {
 	defer wg.Done()
 
@@ -4169,43 +4116,45 @@ func main() {
 
 	wg.Wait()
 }
+```
+	$ go run main.go
+	Get value: 0
+	Adding 10 to 0
+	Get value: 10
+	Get value: 10
 
-$ go run main.go
-Get value: 0
-Adding 10 to 0
-Get value: 10
-Get value: 10
-
-Napomena: I sync.Mutexi sync.RWMuteximplementiraju sync.Lockerinterfejs.
-
+**Napomena**: I `sync.Mutex` i `sync.RWMutex` implementiraju `sync.Locker` interfejs.
+```
 type Locker interface {
     Lock()
     Unlock()
 }
+```
+### Cond
 
-Kond
+Uslovna `sync.Cond` promenljiva može se koristiti za koordiniranje onih gorutina koje žele da dele resurse. Kada se stanje deljenih resursa promeni, može se koristiti za obaveštavanje gorutina ko je blokirao mutex.
 
-Uslovna sync.Condpromenljiva može se koristiti za koordiniranje onih gorutina koje žele da dele resurse. Kada se stanje deljenih resursa promeni, može se koristiti za obaveštavanje gorutina koje je blokirao mutex.
+Svaki `Cond` ima pridruženu bravu (često `*Mutex` ili `*RWMutex`), koja mora biti zaključana pri promeni uslova i pri pozivanju `Wait` metode.
 
-Svaki Cond ima pridruženu bravu (često a *Mutexili *RWMutex), koja mora biti zaključana pri promeni uslova i pri pozivanju Wait metode.
 Ali zašto nam je to potrebno?
 
 Jedan scenario može biti kada jedan proces prima podatke, a drugi procesi moraju da čekaju da ovaj proces primi podatke pre nego što mogu da pročitaju ispravne podatke.
 
-Ako jednostavno koristimo kanal ili mutex, samo jedan proces može da čeka i čita podatke. Ne postoji način da se obaveste drugi procesi da čitaju podatke. Stoga možemo sync.Condda koordiniramo deljene resurse.
-Upotreba
+Ako jednostavno koristimo kanal ili mutex, samo jedan proces može da čeka i čita podatke. Ne postoji način da se obaveste drugi procesi da čitaju podatke. Stoga možemo sa `sync.Cond` da koordiniramo deljene resurse.
 
-sync.Conddolazi sa sledećim metodama:
+##### Upotreba
 
-    NewCond(l Locker)vraća novi Uslov.
-    Broadcast()budi sve gorutine koje čekaju na uslov.
-    Signal()budi jednu gorutinu čekajući uslov ako ga ima.
-    Wait()atomski otključava osnovni mutex zaključavanje.
+sync.Cond dolazi sa sledećim metodama:
 
-Primer
+`NewCond(l Locker)` vraća novi Uslov.
+`Broadcast()` budi sve gorutine koje čekaju na uslov.
+`Signal()` budi jednu gorutinu čekajući uslov ako ga ima.
+`Wait()`atomski otključava osnovni mutex zaključavanja.
 
-Evo primera koji demonstrira interakciju različitih gorutina koristeći Cond.
+##### Primer
 
+Evo primera koji demonstrira interakciju različitih gorutina koristeći `Cond`.
+```
 package main
 
 import (
@@ -4248,28 +4197,30 @@ func main() {
 
 	time.Sleep(4 * time.Second)
 }
+```
+	$ go run main.go
+	Writer starts writing
+	Writer wakes all
+	Reader 2 starts reading
+	Reader 3 starts reading
+	Reader 1 starts reading
 
-$ go run main.go
-Writer starts writing
-Writer wakes all
-Reader 2 starts reading
-Reader 3 starts reading
-Reader 1 starts reading
+Kao što vidimo, čitaoci su bili suspendovani korišćenjem `Wait` metode sve dok pisac nije koristio `Broadcast` metodu da probudi proces.
 
-Kao što vidimo, čitaoci su bili suspendovani korišćenjem Waitmetode sve dok pisac nije koristio Broadcastmetodu da probudi proces.
-Jednom
+### Once
 
-Jednom se osigurava da će se izvršiti samo jedno izvršenje čak i među nekoliko gorutina.
-Upotreba
+Onse osigurava da će se izvršiti samo jedno izvršenje čak i među nekoliko gorutina.
 
-Za razliku od drugih primitiva, sync.Onceima samo jednu metodu:
+##### Upotreba
 
-    Do(f func())poziva funkciju f samo jednom . Ako Dose poziva više puta, samo prvi poziv će pozvati funkciju f.
+Za razliku od drugih primitiva, `sync.Once` ima samo jednu metodu:
 
-Primer
+`Do(f func())` poziva funkciju `f` samo jednom. Ako se `Do` poziva više puta, samo prvi poziv će pozvati funkciju `f`.
+
+##### Primer
 
 Ovo deluje prilično jednostavno, uzmimo primer:
-
+```
 package main
 
 import (
@@ -4299,38 +4250,41 @@ func main() {
 	increments.Wait()
 	fmt.Printf("Count is %d\n", count)
 }
-
-$ go run main.go
-Count is 1
+```
+	$ go run main.go
+	Count is 1
 
 Kao što vidimo, čak i kada smo pokrenuli 100 gorutina, broj se povećao samo jednom.
-Bazen
 
-Pul je skalabilni pul privremenih objekata i takođe je bezbedan za konkurentnost. Bilo koja sačuvana vrednost u pulu može se izbrisati u bilo kom trenutku bez prijema obaveštenja. Pored toga, pod velikim opterećenjem, pul objekata se može dinamički proširiti, a kada se ne koristi ili konkurentnost nije visoka, pul objekata će se smanjiti.
+### Pool
+
+`Pool` je skalabilni `pool` privremenih objekata i takođe je bezbedan za konkurentnost. Bilo koja sačuvana vrednost u `pool`-u može se izbrisati u bilo kom trenutku bez prijema obaveštenja. Pored toga, pod velikim opterećenjem, `pool` objekata se može dinamički proširiti, a kada se ne koristi ili konkurentnost nije visoka, `pool` objekata će se smanjiti.
 
 Ključna ideja je ponovna upotreba objekata kako bi se izbeglo ponovno stvaranje i uništavanje, što će uticati na performanse.
+
 Ali zašto nam je to potrebno?
 
-Svrha bazena je da kešira dodeljene, ali nekorišćene stavke za kasniju ponovnu upotrebu, smanjujući pritisak na sakupljač smeća. To jest, olakšava kreiranje efikasnih, nitno bezbednih lista slobodnih stavki. Međutim, nije pogodan za sve liste slobodnih stavki.
+Svrha pool-a je da kešira dodeljene, ali nekorišćene stavke za kasniju ponovnu upotrebu, smanjujući pritisak na sakupljač smeća. To jest, olakšava kreiranje efikasnih, nitno bezbednih lista slobodnih stavki. Međutim, nije pogodan za sve liste slobodnih stavki.
 
-Odgovarajuća upotreba bazena je upravljanje grupom privremenih stavki koje se tiho dele između i potencijalno ponovo koriste od strane istovremenih nezavisnih klijenata paketa. Bazen pruža način da se troškovi alokacije raspodele na više klijenata.
+Odgovarajuća upotreba `pool-a` je upravljanje grupom privremenih stavki koje se tiho dele između i potencijalno ponovo koriste od strane konkurentno nezavisnih klijenata paketa. Bazen pruža način da se troškovi alokacije raspodele na više klijenata.
 
-Važno je napomenuti da Pool takođe ima svoju cenu u pogledu performansi. Mnogo je sporiji za korišćenje sync.Poolod jednostavne inicijalizacije. Takođe, Pool se ne sme kopirati nakon prve upotrebe.
-Upotreba
+Važno je napomenuti da `pool` takođe ima svoju cenu u pogledu performansi. Mnogo je sporiji za korišćenje `sync.Pooload` jednostavne inicijalizacije. Takođe, `pool` se ne sme kopirati nakon prve upotrebe.
 
-sync.Pooldaje nam sledeće metode:
+##### Upotreba
 
-    Get()bira proizvoljnu stavku iz bazena, uklanja je iz bazena i vraća je pozivaocu.
-    Put(x any)dodaje stavku u pul.
+`sync.Pool` nam daje sledeće metode:
 
-Primer
+- `Get()` bira proizvoljnu stavku iz bazena, uklanja je iz bazena i vraća je pozivaocu.
+
+- `Put(x any)` dodaje stavku u pul.
+
+##### Primer
 
 Sada, pogledajmo jedan primer.
 
-Prvo, kreiraćemo novi sync.Pool, gde opciono možemo da navedemo funkciju koja će generisati vrednost kada pozovemo , Getu suprotnom će vratiti nilvrednost.
-
+Prvo, kreiraćemo novi `sync.Pool`, gde opciono možemo da navedemo funkciju koja će generisati vrednost kada pozovemo `Get` u suprotnom će vratiti `nil` vrednost.
+```
 package main
-
 import (
 	"fmt"
 	"sync"
@@ -4339,7 +4293,6 @@ import (
 type Person struct {
 	Name string
 }
-
 var pool = sync.Pool{
 	New: func() any {
 		fmt.Println("Creating a new person...")
@@ -4360,52 +4313,59 @@ func main() {
 	fmt.Println("Get object from pool again (it's updated):", pool.Get().(*Person))
 	fmt.Println("There is no object in the pool now (new one will be created):", pool.Get().(*Person))
 }
-
+```
 I ako ovo pokrenemo, videćemo zanimljiv izlaz:
 
-$ go run main.go
-Creating a new person...
-Get object from sync.Pool for the first time: &{}
-Put the object back in the pool
-Set object property name: Gopher
-Get object from pool again (it's updated): &{Gopher}
-Creating a new person...
-There is no object in the pool now (new one will be created): &{}
+	$ go run main.go
+	Creating a new person...
+	Get object from sync.Pool for the first time: &{}
+	Put the object back in the pool
+	Set object property name: Gopher
+	Get object from pool again (it's updated): &{Gopher}
+	Creating a new person...
+	There is no object in the pool now (new one will be created): &{}
 
-Obratite pažnju kako smo uradili tvrdnju tipa kada smo pozvali Get.
+**Napomena**:Obratite pažnju kako smo uradili tvrdnju tipa kada smo pozvali Get.
 
 Može se videti da sync.Poolje isključivo privremeni objektni pul, koji je pogodan za čuvanje nekih privremenih objekata koji će se deliti između gorutina.
 Mapa
 
-Mapa je kao standardna, map[any]anyali je bezbedna za istovremenu upotrebu od strane više gorutina bez dodatnog zaključavanja ili koordinacije. Učitavanja, čuvanja i brisanja su raspoređena tokom konstantnog vremena.
+Mapa je kao standardna, `map[any]any` ali je bezbedna za istovremenu upotrebu od strane više gorutina bez dodatnog zaključavanja ili koordinacije. Učitavanja, čuvanja i brisanja su raspoređena tokom konstantnog vremena.
+
 Ali zašto nam je to potrebno?
 
-Tip Mapa je specijalizovan . Većina koda bi trebalo da koristi običnu Go mapu umesto toga, sa odvojenim zaključavanjem ili koordinacijom, radi bolje bezbednosti tipa i kako bi se olakšalo održavanje drugih invarijanti zajedno sa sadržajem mape.
+Tip Map je specijalizovan. Većina koda bi trebalo da koristi običnu Go mapu umesto toga, sa odvojenim zaključavanjem ili koordinacijom, radi bolje bezbednosti tipa i kako bi se olakšalo održavanje drugih invarijanti zajedno sa sadržajem mape.
 
 Tip mape je optimizovan za dva uobičajena slučaja upotrebe:
 
-    Kada se unos za dati ključ upisuje samo jednom, ali čita više puta, kao u keš memorijama koje samo rastu.
-    Kada više gorutina čita, piše i prepisuje zapise za disjunktne skupove ključeva. U ova dva slučaja, upotreba sync.Mapmože značajno smanjiti konkurenciju za zaključavanje u poređenju sa Go mapom uparenom sa odvojenim Mutexili RWMutex.
+- Kada se unos za dati ključ upisuje samo jednom, ali čita više puta, kao u keš memorijama koje   
+  samo rastu.
+- Kada više gorutina čita, piše i prepisuje zapise za disjunktne skupove ključeva. U ova dva  
+  slučaja, upotreba sync.Mapmože značajno smanjiti konkurenciju za zaključavanje u poređenju sa Go mapom uparenom sa odvojenim `Mutex` ili `RWMutex`.
 
 Nulta mapa je prazna i spremna za upotrebu. Mapa se ne sme kopirati nakon prve upotrebe.
-Upotreba
 
-sync.Mapdaje nam sledeće metode:
+##### Upotreba
 
-    Delete()briše vrednost za ključ.
-    Load(key any)vraća vrednost sačuvanu u mapi za ključ, ili nil ako vrednost nije prisutna.
-    LoadAndDelete(key any)briše vrednost za ključ, vraćajući prethodnu vrednost ako postoji. Učitani rezultat izveštava da li je ključ bio prisutan.
-    LoadOrStore(key, value any)vraća postojeću vrednost za ključ ako je prisutan. U suprotnom, čuva i vraća datu vrednost. Učitani rezultat je tačno ako je vrednost učitana, a netačno ako je sačuvana.
-    Store(key, value any)podešava vrednost za ključ.
-    Range(f func(key, value any) bool)poziva fsekvencijalno za svaki ključ i vrednost prisutne u mapi. Ako fvrati vrednost "false", opseg zaustavlja iteraciju.
+sync.Map daje nam sledeće metode:
 
-Napomena: Domet ne mora nužno odgovarati bilo kom konzistentnom snimku sadržaja mape.
-Primer
+- Delete()briše vrednost za ključ.
+- Load(key any)vraća vrednost sačuvanu u mapi za ključ, ili nil ako vrednost nije prisutna.
+- LoadAndDelete(key any)briše vrednost za ključ, vraćajući prethodnu vrednost ako postoji. Učitani 
+  rezultat izveštava da li je ključ bio prisutan.
+- LoadOrStore(key, value any)vraća postojeću vrednost za ključ ako je prisutan. U suprotnom, čuva  
+  i vraća datu vrednost. Učitani rezultat je tačno ako je vrednost učitana, a netačno ako je sačuvana.
+- Store(key, value any)podešava vrednost za ključ.
+- Range(f func(key, value any) bool)poziva fsekvencijalno za svaki ključ i vrednost prisutne u 
+  mapi. Ako fvrati vrednost "false", opseg zaustavlja iteraciju.
 
-Pogledajmo primer. Ovde ćemo pokrenuti nekoliko gorutina koje će istovremeno dodavati i preuzimati vrednosti sa naše mape.
+**Napomena**: `Range` ne mora nužno odgovarati bilo kom konzistentnom snimku sadržaja mape.
 
+##### Primer
+
+Ovde ćemo pokrenuti nekoliko gorutina koje će istovremeno dodavati i preuzimati vrednosti sa naše mape.
+```
 package main
-
 import (
 	"fmt"
 	"sync"
@@ -4436,51 +4396,49 @@ func main() {
 
 	wg.Wait()
 }
-
+```
 Kao što se i očekivalo, naša operacija skladištenja i preuzimanja biće bezbedna za istovremenu upotrebu.
 
-$ go run main.go
-Reading: <nil>
-Writing: value 0
-Writing: value 1
-Writing: value 2
-Writing: value 3
-Writing: value 4
-Reading: value 0
-Reading: value 1
-Reading: value 2
-Reading: value 3
+	$ go run main.go
+	Reading: <nil>
+	Writing: value 0
+	Writing: value 1
+	Writing: value 2
+	Writing: value 3
+	Writing: value 4
+	Reading: value 0
+	Reading: value 1
+	Reading: value 2
+	Reading: value 3
 
-Atomski
+### Atomic
 
-Paket atomic pruža niskonivoske atomske memorijske primitive za cele brojeve i pointere koji su korisni za implementaciju algoritama sinhronizacije.
-Upotreba
+Paket `atomic` pruža niskonivoske atomske memorijske primitive za cele brojeve i pointere koji su korisni za implementaciju algoritama sinhronizacije.
 
-atomicPaket pruža nekoliko funkcija koje obavljaju sledećih 5 operacija za tipove int, uinti uintptr:
+##### Upotreba
 
-    Dodaj
-    Učitaj
-    Prodavnica
-    Zamena
-    Uporedi i zameni
+Paket `atomic` pruža nekoliko funkcija koje obavljaju sledećih 5 operacija za tipove `int`, `uint` i `uintptr`:
 
-Primer
+    Add
+    Load
+    Store
+    Swap
+    Compare and swap
 
-Nećemo moći da pokrijemo sve funkcije ovde. Zato, hajde da pogledamo najčešće korišćene funkcije da bismo AddInt32stekli predstavu.
+##### Primer
 
+Nećemo moći da pokrijemo sve funkcije ovde. Zato, hajde da pogledamo najčešće korišćenu funkciju `AddInt32` da bismo stekli predstavu.
+```
 package main
-
 import (
   "fmt"
 	"sync"
 	"sync/atomic"
 )
-
 func add(w *sync.WaitGroup, num *int32) {
 	defer w.Done()
 	atomic.AddInt32(num, 1)
 }
-
 func main() {
 	var n int32 = 0
 	var wg sync.WaitGroup
@@ -4494,29 +4452,24 @@ func main() {
 
 	fmt.Println("Result:", n)
 }
+```
+Ovde `atomic.AddInt32` garantuje da će rezultat n biti 1000 jer se izvršavanje instrukcija atomskih operacija ne može prekinuti.
 
-Ovde atomic.AddInt32se garantuje da će rezultat nbiti 1000 jer se izvršavanje instrukcija atomskih operacija ne može prekinuti.
+	$ go run main.go
+	Result: 1000
 
-$ go run main.go
-Result: 1000
+### Napredni obrasci konkurentnosti
 
-Napredni obrasci konkurentnosti
+##### Generator
 
-U ovom tutorijalu ćemo razmotriti neke napredne obrasce konkurentnosti u Gou. Često se ovi obrasci koriste u kombinaciji u stvarnom svetu.
-Generator
-
-генератор
-
-Zatim se generator Pattern koristi za generisanje niza vrednosti koje se koriste za proizvodnju nekog izlaza.
+Generator Pattern se koristi za generisanje niza vrednosti koje se koriste za proizvodnju nekog izlaza.
 
 U našem primeru, imamo generatorfunkciju koja jednostavno vraća kanal iz kojeg možemo da čitamo vrednosti.
 
 Ovo funkcioniše na osnovu činjenice da se slanje i prijem blokiraju dok i pošiljalac i primalac nisu spremni. Ovo svojstvo nam je omogućilo da sačekamo dok se ne zatraži sledeća vrednost.
-
+```
 package main
-
 import "fmt"
-
 func main() {
 	ch := generator()
 
@@ -4525,41 +4478,36 @@ func main() {
 		fmt.Println("Value:", value)
 	}
 }
-
 func generator() <-chan int {
 	ch := make(chan int)
-
 	go func() {
 		for i := 0; ; i++ {
 			ch <- i
 		}
 	}()
-
 	return ch
 }
-
+```
 Ako ovo pokrenemo, primetićemo da možemo da konzumiramo vrednosti koje su proizvedene na zahtev.
 
-$ go run main.go
-Value: 0
-Value: 1
-Value: 2
-Value: 3
-Value: 4
+	$ go run main.go
+	Value: 0
+	Value: 1
+	Value: 2
+	Value: 3
+	Value: 4
 
-Ovo je slično ponašanje kao yieldu Javaskriptu i Pajtonu.
+Ovo je slično ponašanje kao `yield` u Javaskriptu i Pajtonu.
+
 Ventilator-in
-
-фан-ин
 
 Šema uključivanja ventilatora kombinuje više ulaza u jedan jedinstveni izlazni kanal. U osnovi, multipleksiramo naše ulaze.
 
 U našem primeru, kreiramo ulaze i1koristeći i2funkciju generateWork. Zatim koristimo našu varijabilnu funkciju fanIn da kombinujemo vrednosti sa ovih ulaza u jedan izlazni kanal iz kojeg možemo da konzumiramo vrednosti.
 
-Napomena: redosled unosa neće biti zagarantovan.
-
+**Napomena**: redosled unosa neće biti zagarantovan.
+```
 package main
-
 import (
 	"fmt"
 	"sync"
@@ -4568,20 +4516,15 @@ import (
 func main() {
 	i1 := generateWork([]int{0, 2, 6, 8})
 	i2 := generateWork([]int{1, 3, 5, 7})
-
 	out := fanIn(i1, i2)
-
 	for value := range out {
 		fmt.Println("Value:", value)
 	}
 }
-
 func fanIn(inputs ...<-chan int) <-chan int {
 	var wg sync.WaitGroup
 	out := make(chan int)
-
 	wg.Add(len(inputs))
-
 	for _, in := range inputs {
 		go func(ch <-chan int) {
 			for {
@@ -4591,47 +4534,38 @@ func fanIn(inputs ...<-chan int) <-chan int {
 					wg.Done()
 					break
 				}
-
 				out <- value
 			}
 		}(in)
 	}
-
 	go func() {
 		wg.Wait()
 		close(out)
 	}()
-
 	return out
 }
-
 func generateWork(work []int) <-chan int {
 	ch := make(chan int)
-
 	go func() {
 		defer close(ch)
-
 		for _, w := range work {
 			ch <- w
 		}
 	}()
-
 	return ch
 }
-
-$ go run main.go
-Value: 0
-Value: 1
-Value: 2
-Value: 6
-Value: 8
-Value: 3
-Value: 5
-Value: 7
+```
+	$ go run main.go
+	Value: 0
+	Value: 1
+	Value: 2
+	Value: 6
+	Value: 8
+	Value: 3
+	Value: 5
+	Value: 7
 
 Raspodela
-
-распрострањеност
 
 Šabloni raspodele nam u suštini omogućavaju da podelimo naš jedan ulazni kanal na više izlaznih kanala. Ovo je koristan šablon za distribuciju radnih elemenata u više uniformnih aktera.
 
@@ -4707,8 +4641,6 @@ Output 3 got: 7
 Output 1 got: 8
 
 Cevovod
-
-цевовод
 
 Šablon cevovoda je niz faza povezanih kanalima, gde je svaka faza grupa gorutina koje izvršavaju istu funkciju.
 
@@ -4896,8 +4828,6 @@ Worker 2 finished job 4
 
 Čekanje u redu
 
-чекање у реду
-
 Šablon čekanja nam omogućava da obrađujemo nviše elemenata istovremeno.
 
 U našem primeru, koristimo baferovani kanal da simuliramo ponašanje reda čekanja. Jednostavno šaljemo praznu strukturu našem queuekanalu i čekamo da je prethodni proces oslobodi kako bismo mogli da nastavimo.
@@ -4994,7 +4924,7 @@ type Context interface {
 	Value(key any) any
 }
 
-Tip Contextima sledeće metode:
+Tip Context ima sledeće metode:
 
     Done() <- chan struct{}vraća kanal koji je zatvoren kada se kontekst otkaže ili kada istekne vreme. Done može vratiti vrednost nilako se kontekst nikada ne može otkazati.
     Deadline() (deadline time.Time, ok bool)vraća vreme kada će kontekst biti otkazan ili će vremenski isteći. Rok vraća okkao falsekada rok nije podešen.
