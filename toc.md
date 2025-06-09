@@ -1,5 +1,4 @@
 
-
 # Uvod u GO
 
 - [Uvod u Go](01_Uvod.md)
@@ -29,11 +28,3 @@
 - [Sync paket](25_Sync_paket.md)
 - [Napredni obrasci konkurentnosti](26_Napredni_obrasci_konkurentnosti.md)
 - [Kontekst](27_Kontekst.md)
-
-
-
-
-
-
-
-
