@@ -3537,7 +3537,7 @@ Do gladovanja dolazi kada je proces lišen neophodnih resursa i nije u stanju da
 
 Gladovanje može se desiti zbog zastoja ili neefikasnih algoritama za zakazivanje procesa. Da bismo rešili problem gladovanja, moramo da primenimo bolje algoritme za raspodelu resursa koji osiguravaju da svaki proces dobije svoj pravedan deo resursa.
 
-### Gorutine
+# Gorutine
 
 Pre nego što započnemo našu diskusiju, želeo bih da podelim jednu važnu poslovicu o Gou: "Ne komunicirajte deljenjem memorije, delite memoriju komunikacijom." - Rob Pajk
 
@@ -3551,11 +3551,11 @@ Možemo pretvoriti bilo koju funkciju u gorutinu jednostavnim korišćenjem `go`
 ```
 go fn(x, y, z)
 ```
-Pre nego što napišemo bilo koji kod, važno je ukratko razmotriti model fork-join-a.
+Pre nego što napišemo bilo koji kod, važno je ukratko razmotriti model `fork-join`.
 
-##### Model račvanja-spajanja
+### Model račvanja-spajanja
 
-Go koristi ideju modela `fork-join` konkurentnosti koji stoji iza `gorutina`. Model `fork-join` u suštini podrazumeva da se podređeni proces odvaja od svog roditeljskog procesa da bi se pokrenuo konkurentno sa roditeljskim procesom. Nakon završetka izvršavanja, podređeni proces se ponovo spaja sa roditeljskim procesom. Tačka gde se ponovo spaja naziva se `tačka spajanja`.
+Go koristi ideju modela `fork-join` konkurentnosti koji stoji iza `gorutina`. Model `fork-join` u suštini podrazumeva da se podređeni proces odvaja od svog roditeljskog procesa da bi se pokrenuo konkurentno sa roditeljskim procesom. Tačka razdvajanja se zove `fork point`. Nakon završetka izvršavanja, podređeni proces se ponovo spaja sa roditeljskim procesom. Tačka gde se ponovo spaja naziva se `join point`.
 
 Sada, hajde da napišemo malo koda i kreiramo sopstvenu gorutinu.
 ```
@@ -3593,13 +3593,13 @@ U redu, ovo funkcioniše, ali nije idealno. Pa kako da ovo poboljšamo?
 
 Najzahtevniji deo korišćenja gorutina je znati kada će se zaustaviti. Važno je razumeti da se gorutine izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan.
 
-### Kanali
+# Kanali
 
 Kanal je komunikaciona cev između gorutina. Stvari ulaze na jedan kraj, a izlaze na drugi istim redosledom dok se kanal ne zatvori.
 
 Kanali u Go-u su zasnovani na komunikaciji sekvencijalnih procesa (CSP).
 
-##### Kreiranje kanala
+### Kreiranje kanala
 
 Sada kada razumemo šta su kanali, hajde da vidimo kako ih možemo deklarisati.
 
@@ -3631,7 +3631,7 @@ I ako ovo pokrenemo, možemo videti vrednost pointera na alociranu memoriju razl
 	$ go run main.go
 	0x1400010e060
 
-##### Slanje i primanje podataka 
+### Slanje i primanje podataka 
 
 Sada kada imamo osnovno razumevanje kanala, hajde da implementiramo naš prethodni primer koristeći kanale da bismo naučili kako ih možemo koristiti za komunikaciju između naših gorutina.
 ```
@@ -3728,7 +3728,7 @@ func main() {
 	close(ch)
 }
 ```
-ako je ok false onda nema više vrednosti za primanje i kanal je zatvoren.
+Ako je ok == false onda nema više vrednosti za primanje i kanal je zatvoren.
 
 Na neki način, ovo je slično načinu na koji proveravamo da li ključ postoji ili ne u mapi.
 
@@ -3783,7 +3783,7 @@ func main() {
 	}
 }
 ```
-### Select izraz
+### Select izraz 
 
 Izraz `select` blokira kod i čeka na više operacija kanala istovremeno.
 
@@ -3926,6 +3926,7 @@ Hajde da povećamo i broj gorutina pozivanjem `Add` metode koja čeka 4 gorutine
 ```
 func main() {
 	var wg sync.WaitGroup
+	
 	wg.Add(4)
 	go work(&wg)
 	go work(&wg)
@@ -3943,15 +3944,15 @@ I kao što se i očekivalo, sve naše gorutine su izvršene.
 	working...
 	working...
 
-### Mutex
+# Mutex
 
 Mutex je međusobno isključujuća brava koja sprečava druge procese da uđu u kritični deo podataka dok ga neki proces zauzima kako bi se sprečilo nastajanje uslova trke.
 
-##### Šta je kritični sekcija?
+### Šta je kritični sekcija?
 
 Dakle, kritična sekcija može biti deo koda koji ne sme da se izvršava od strane više niti istovremeno jer kod sadrži deljene resurse.
 
-##### Upotreba
+### Upotreba
 
 Možemo `sync.Mutex` koristiti sledeće metode:
 
@@ -4055,7 +4056,7 @@ Drugim rečima, čitaoci ne moraju da čekaju jedni druge. Treba samo da čekaju
 
 `sync.RWMutex` je stoga poželjnije za podatke koji se uglavnom čitaju, a resurs koji se štedi u poređenju sa `sync.Mutex` je vreme.
 
-##### Upotreba
+### Upotreba
 
 Slično kao `sync.Mutex`, možemo koristiti `sync.RWMutex` sa sledećim metodama:
 
@@ -4066,7 +4067,7 @@ Slično kao `sync.Mutex`, možemo koristiti `sync.RWMutex` sa sledećim metodama
 
 Obratite pažnju kako RWMutex ima dodatne RLockmetode RUnlocku poređenju sa Mutex-om.
 
-##### Primer
+**Primer**
 
 Dodajmo `GetValue` metodu koja će čitati vrednost brojača. Takođe ćemo promeniti `sync.Mutex` u `sync.RWMutex`.
 
