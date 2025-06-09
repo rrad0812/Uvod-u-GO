@@ -3294,7 +3294,7 @@ Generici znače parametrizovane tipove. Jednostavno rečeno, generici omogućava
 
 Hajde da pogledamo jedan primer da bismo ovo bolje razumeli.
 
-Za naš primer, imamo jednostavne funkcije sumiranja za različite tipove kao što su `int`, `float64` i `string`. Pošto `overload` metoda nije dozvoljeno u Go-u, obično moramo da kreiramo nove funkcije.
+Za naš primer, imamo jednostavne funkcije sumiranja za različite tipove kao što su `int`, `float64` i `string`. Pošto `overloading` metoda nije dozvoljeno u Go-u, obično moramo da kreiramo nove funkcije.
 ```
 package main
 import "fmt"
@@ -3374,8 +3374,6 @@ Ali sada ako ovo pokrenemo, dobićemo grešku da operator `+` nije definisan u o
 Iako ograničenje tipa `any` generalno funkcioniše, ono ne podržava operatore.
 
 Dakle, hajde da definišemo sopstveno prilagođeno ograničenje koristeći interfejs. Naš interfejs treba da definiše skup tipova koji sadrži `int`, `float` i `string`.
-
-слагање
 
 Evo kako izgleda naš `SumConstraint` interfejs.
 ```
@@ -4464,7 +4462,7 @@ Ovde `atomic.AddInt32` garantuje da će rezultat n biti 1000 jer se izvršavanje
 
 Generator Pattern se koristi za generisanje niza vrednosti koje se koriste za proizvodnju nekog izlaza.
 
-U našem primeru, imamo generatorfunkciju koja jednostavno vraća kanal iz kojeg možemo da čitamo vrednosti.
+U našem primeru, imamo *generator* funkciju koja jednostavno vraća kanal iz kojeg možemo da čitamo vrednosti.
 
 Ovo funkcioniše na osnovu činjenice da se slanje i prijem blokiraju dok i pošiljalac i primalac nisu spremni. Ovo svojstvo nam je omogućilo da sačekamo dok se ne zatraži sledeća vrednost.
 ```
@@ -4499,11 +4497,11 @@ Ako ovo pokrenemo, primetićemo da možemo da konzumiramo vrednosti koje su proi
 
 Ovo je slično ponašanje kao `yield` u Javaskriptu i Pajtonu.
 
-Ventilator-in
+### Ventilator-in
 
-Šema uključivanja ventilatora kombinuje više ulaza u jedan jedinstveni izlazni kanal. U osnovi, multipleksiramo naše ulaze.
+Šema uključivanja ventilatora kombinuje više ulaza u jedan jedinstveni izlazni kanal. U osnovi, `multipleksiramo` naše ulaze.
 
-U našem primeru, kreiramo ulaze i1koristeći i2funkciju generateWork. Zatim koristimo našu varijabilnu funkciju fanIn da kombinujemo vrednosti sa ovih ulaza u jedan izlazni kanal iz kojeg možemo da konzumiramo vrednosti.
+U našem primeru, kreiramo ulaze i1,i2 koristeći funkciju *generateWork*. Zatim koristimo našu varijabilnu funkciju *fanIn* da kombinujemo vrednosti sa ovih ulaza u jedan izlazni kanal iz kojeg možemo da konzumiramo vrednosti.
 
 **Napomena**: redosled unosa neće biti zagarantovan.
 ```
@@ -4565,14 +4563,14 @@ func generateWork(work []int) <-chan int {
 	Value: 5
 	Value: 7
 
-Raspodela
+### Raspodela
 
 Šabloni raspodele nam u suštini omogućavaju da podelimo naš jedan ulazni kanal na više izlaznih kanala. Ovo je koristan šablon za distribuciju radnih elemenata u više uniformnih aktera.
 
 U našem primeru, delimo ulazni kanal na 4 različita izlazna kanala. Za dinamički broj izlaza, možemo spojiti izlaze u zajednički "agregirani" kanal i koristiti select.
 
-Napomena: obrazac širenja se razlikuje od pub/sub.
-
+**Napomena**: Obrazac širenja se razlikuje od pub/sub.
+```
 package main
 
 import "fmt"
@@ -4627,40 +4625,38 @@ func generateWork(work []int) <-chan int {
 
 	return ch
 }
-
+```
 Kao što vidimo, naš rad je podeljen između više gorutina.
 
-$ go run main.go
-Output 1 got: 1
-Output 2 got: 3
-Output 4 got: 4
-Output 1 got: 5
-Output 3 got: 2
-Output 3 got: 6
-Output 3 got: 7
-Output 1 got: 8
+	$ go run main.go
+	Output 1 got: 1
+	Output 2 got: 3
+	Output 4 got: 4
+	Output 1 got: 5
+	Output 3 got: 2
+	Output 3 got: 6
+	Output 3 got: 7
+	Output 1 got: 8
 
-Cevovod
+### Cevovod
 
 Šablon cevovoda je niz faza povezanih kanalima, gde je svaka faza grupa gorutina koje izvršavaju istu funkciju.
 
 U svakoj fazi, gorutine:
 
-    Primajte vrednosti iz uzvodnog sistema putem dolaznih kanala.
-    Izvršite neku funkciju na tim podacima, obično proizvodeći nove vrednosti.
-    Šaljite vrednosti nizvodno putem odlaznih kanala.
+- Primaju vrednosti iz uzvodnog sistema putem dolaznih kanala.
+- Izvršavaju neku funkciju na tim podacima, obično proizvodeći nove vrednosti.
+- Šalju vrednosti nizvodno putem odlaznih kanala.
 
-Svaka faza ima neograničen broj dolaznih i odlaznih kanala, osim prve i poslednje faze, koje imaju samo odlazne odnosno dolazne kanale. Prva faza se ponekad naziva izvor ili proizvođač ; poslednja faza je potrošač ili potrošač .
+Svaka faza ima neograničen broj dolaznih i odlaznih kanala, osim prve i poslednje faze, koje imaju samo odlazne odnosno dolazne kanale. Prva faza se ponekad naziva izvor ili proizvođač; poslednja faza je ponor ili potrošač.
 
 Korišćenjem cevovoda, razdvajamo brige svake faze, što pruža brojne prednosti kao što su:
 
-    Izmenite faze nezavisno jednu od druge.
-    Kombinujte načine kombinovanja faza nezavisno od same izmene faze.
+- Izmene faze nezavisno jednu od druge.
+- Kombinovanje načina kombinovanja faza nezavisno od same izmene faze.
 
-U našem primeru, definisali smo tri faze, filter, squarei half.
-
-package main
-
+U našem primeru, definisali smo tri faze, filter, square i half.
+```
 import (
 	"fmt"
 	"math"
@@ -4737,28 +4733,26 @@ func generateWork(work []int) <-chan int {
 
 	return ch
 }
-
+```
 Izgleda da je naš unos ispravno obrađen od strane cevovoda na istovremeni način.
 
-$ go run main.go
-0
-2
-8
-18
-32
+	$ go run main.go
+	0
+	2
+	8
+	18
+	32
 
-Bazen radnika
+Worker pool
 
-раднички тим
+Worker pool bazen je zaista moćan obrazac koji nam omogućava da istovremeno raspodelimo posao na više workera (gorutina).
 
-Radnički bazen je zaista moćan obrazac koji nam omogućava da istovremeno raspodelimo posao na više radnika (gorutina).
+U našem primeru, imamo jobs kanal na koji ćemo slati naše poslove i results kanal na koji će naši radnici slati rezultate kada završe posao.
 
-U našem primeru, imamo jobskanal na koji ćemo slati naše poslove i resultskanal na koji će naši radnici slati rezultate kada završe posao.
+Nakon toga, možemo istovremeno pokrenuti naše radnike i jednostavno primati rezultate sa results kanala.
 
-Nakon toga, možemo istovremeno pokrenuti naše radnike i jednostavno primati rezultate sa resultskanala.
-
-Idealno totalWorkersbi bilo da bude podešeno na runtime.NumCPU()što nam daje broj logičkih procesora koje trenutni proces može da koristi.
-
+Idealno *totalWorkers* bi bilo da bude podešeno na runtime.NumCPU()što nam daje broj logičkih procesora koje trenutni proces može da koristi.
+```
 package main
 
 import (
@@ -4813,20 +4807,20 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 
 	wg.Wait()
 }
-
+```
 Kao što se i očekivalo, naši poslovi su bili raspoređeni među našim radnicima.
 
-$ go run main.go
-Worker 2 started job 4
-Worker 2 started job 1
-Worker 1 started job 3
-Worker 2 started job 2
-Worker 2 finished job 1
-Worker 1 finished job 3
-Worker 2 finished job 2
-Worker 2 finished job 4
+	$ go run main.go
+	Worker 2 started job 4
+	Worker 2 started job 1
+	Worker 1 started job 3
+	Worker 2 started job 2
+	Worker 2 finished job 1
+	Worker 1 finished job 3
+	Worker 2 finished job 2
+	Worker 2 finished job 4
 
-Čekanje u redu
+### Čekanje u redu
 
 Šablon čekanja nam omogućava da obrađujemo nviše elemenata istovremeno.
 
@@ -4837,7 +4831,7 @@ To je zato što šalje blok baferovanom kanalu samo kada je bafer pun, a prima b
 Ovde imamo ukupan obim posla od 10 stavki i ograničenje od 2. To znači da možemo obraditi 2 stavke istovremeno.
 
 Obratite pažnju na to kako je naš queuekanal tipa struct{}, jer prazna struktura zauzima nula bajtova memorije.
-
+```
 package main
 
 import (
@@ -4879,67 +4873,70 @@ func process(work int, queue chan struct{}, wg *sync.WaitGroup) {
 		<-queue
 	}()
 }
-
+```
 Ako ovo pokrenemo, primetićemo da se nakratko pauzira kada se obradi svaka druga stavka (što je naš limit) dok naš red čeka da bude izbačen iz reda.
 
-$ go run main.go
-Queue limit: 2
-Processed: 1
-Processed: 2
-Processed: 4
-Processed: 3
-Processed: 5
-Processed: 6
-Processed: 8
-Processed: 7
-Processed: 9
-Processed: 10
-Work complete
+	$ go run main.go
+	Queue limit: 2
+	Processed: 1
+	Processed: 2
+	Processed: 4
+	Processed: 3
+	Processed: 5
+	Processed: 6
+	Processed: 8
+	Processed: 7
+	Processed: 9
+	Processed: 10
+	Work complete
 
-Dodatni obrasci
+### Dodatni obrasci
 
 Neki dodatni obrasci koje bi moglo biti korisno znati:
 
-    T-kanal
-    Kanal mosta
-    Kanal prstenastog bafera
-    Ograničeni paralelizam
+- T-kanal
+- Kanal mosta
+- Kanal prstenastog bafera
+- Ograničeni paralelizam
 
-Kontekst
+# Kontekst
 
-U istovremenim programima, često je potrebno preventivno zaustaviti operacije zbog isteka vremena, otkazivanja ili kvara drugog dela sistema.
+U konkurentnim programima, često je potrebno preventivno zaustaviti operacije zbog isteka vremena, otkazivanja ili kvara drugog dela sistema.
 
-Paket contextolakšava prosleđivanje vrednosti ograničenih na zahtev, signala za otkazivanje i rokova preko granica API-ja svim gorutinama uključenim u obradu zahteva.
+Paket context olakšava prosleđivanje vrednosti ograničenih na zahtev, signala za otkazivanje i rokova preko granica API-ja svim gorutinama uključenim u obradu zahteva.
 Vrste
 
-Hajde da razgovaramo o nekim osnovnim tipovima paketa context.
-Kontekst
+### Kontekst
 
-To Contextje interfacetip koji je definisan na sledeći način:
-
+Context je interface tip koji je definisan na sledeći način:
+```
 type Context interface {
 	Deadline() (deadline time.Time, ok bool)
 	Done() <-chan struct{}
 	Err() error
 	Value(key any) any
 }
-
+```
 Tip Context ima sledeće metode:
 
-    Done() <- chan struct{}vraća kanal koji je zatvoren kada se kontekst otkaže ili kada istekne vreme. Done može vratiti vrednost nilako se kontekst nikada ne može otkazati.
-    Deadline() (deadline time.Time, ok bool)vraća vreme kada će kontekst biti otkazan ili će vremenski isteći. Rok vraća okkao falsekada rok nije podešen.
-    Err() errorvraća grešku koja objašnjava zašto je kanal Done zatvoren. Ako Done još nije zatvoren, vraća nil.
-    Value(key any) anyvraća vrednost povezanu sa ključem ili nilako nema.
+- Done() <- chan struct{}vraća kanal koji je zatvoren kada se kontekst otkaže ili kada 
+  istekne vreme. Done može vratiti vrednost nilako se kontekst nikada ne može otkazati.
+- Deadline() (deadline time.Time, ok bool)vraća vreme kada će kontekst biti otkazan  
+  ili će vremenski isteći. Rok vraća okkao falsekada rok nije podešen.
+- Err() errorvraća grešku koja objašnjava zašto je kanal Done zatvoren. Ako Done još 
+  nije zatvoren, vraća nil.
+- Value(key any) anyvraća vrednost povezanu sa ključem ili nilako nema.
 
-Funkcija Otkaži
+### Funkcija Cancel
 
-A CancelFuncnaređuje operaciji da prekine svoj rad i ne čeka da se rad zaustavi. Ako je pozove više gorutina istovremeno, nakon prvog poziva, naredni pozivi kategorije a CancelFuncne rade ništa.
+`CancelFunc` naređuje operaciji da prekine svoj rad i ne čeka da se rad zaustavi. Ako je pozove više gorutina istovremeno, nakon prvog poziva, naredni pozivi kategorije za `CancelFunc` ne rade ništa.
 
-type CancelFunc func()
+	type CancelFunc func()
 
-Upotreba
+##### Upotreba
 
-Hajde da razgovaramo o funkcijama koje su izložene u contextpaketu:
+Hajde da razgovaramo o funkcijama koje su izložene u context paketu:
+
 Pozadina
 
 Pozadina vraća praznu vrednost, različitu od nil Context. Nikada se ne otkazuje, nema vrednosti i nema rok.
@@ -4954,24 +4951,23 @@ Slično Backgroundfunkciji, TODOfunkcija takođe vraća vrednost koja nije nula,
 
 Međutim, trebalo bi ga koristiti samo kada nismo sigurni koji kontekst da koristimo ili ako funkcija nije ažurirana da bi primila kontekst. To znači da planiramo da dodamo kontekst funkciji u budućnosti.
 
-func TODO() Context
+	func TODO() Context
 
-SaVrednošću
+##### WithValue
 
-Ova funkcija uzima kontekst i vraća izvedeni kontekst gde je vrednost valpovezana sa kontekstom keyi prolazi kroz stablo konteksta sa njim.
+Ova funkcija uzima kontekst i vraća izvedeni kontekst gde je vrednost *val* povezana sa kontekstom *key* i prolazi kroz stablo konteksta sa njim.
 
 To znači da kada dobijete kontekst sa vrednošću, svaki kontekst koji iz njega proizilazi dobija tu vrednost.
 
 Ne preporučuje se prosleđivanje kritičnih parametara koristeći kontekstualne vrednosti, umesto toga, funkcije bi trebalo da prihvate te vrednosti u potpisu, čineći ga eksplicitnim.
 
-func WithValue(parent Context, key, val any) Context
+	func WithValue(parent Context, key, val any) Context
 
-Primer
+**Primer**
 
 Uzmimo jednostavan primer da vidimo kako možemo dodati par ključ-vrednost u kontekst.
-
+```
 package main
-
 import (
 	"context"
 	"fmt"
@@ -4990,44 +4986,44 @@ func ProcessRequest(ctx context.Context) {
 	value := ctx.Value("processID")
 	fmt.Printf("Processing ID: %v", value)
 }
+```
+I ako ovo pokrenemo, videćemo da processID se prenosi preko našeg konteksta.
 
-I ako ovo pokrenemo, videćemo da processIDse prenosi preko našeg konteksta.
+	$ go run main.go
+	Processing ID: abc-xyz
 
-$ go run main.go
-Processing ID: abc-xyz
+##### WithCancel
 
-SaOtkaži
-
-Ova funkcija kreira novi kontekst iz roditeljskog konteksta i izvedenog konteksta i funkcije otkazivanja. Roditelj može biti context.Backgroundili kontekst koji je prosleđen u funkciju.
+Ova funkcija kreira novi kontekst iz roditeljskog konteksta i izvedenog konteksta i funkcije otkazivanja. Roditelj može biti `context.Background` ili kontekst koji je prosleđen u funkciju.
 
 Otkazivanje ovog konteksta oslobađa resurse povezane sa njim, tako da bi kod trebalo da pozove funkciju otmena čim se operacije koje se izvršavaju u ovom kontekstu završe.
 
-Prenošenje cancelfunkcije se ne preporučuje jer može dovesti do neočekivanog ponašanja.
+Prenošenje `cancel` funkcije se ne preporučuje jer može dovesti do neočekivanog ponašanja.
 
-func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
+	func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
 
-Sa rokom
+##### Sa rokom
 
 Ova funkcija vraća izvedeni kontekst iz svog roditelja koji se otkazuje kada istekne rok ili kada se pozove funkcija otkazivanja.
 
 Na primer, možemo kreirati kontekst koji će se automatski otkazati u određenom trenutku u budućnosti i to proslediti podređenim funkcijama. Kada se taj kontekst otkaza zbog isteka roka, sve funkcije koje su dobile kontekst dobijaju obaveštenje da prestanu sa radom i vrate se.
 
-func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
+	func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
 
-Sa vremenskim ograničenjem
+##### Sa vremenskim ograničenjem
 
 Ova funkcija je samo omotač oko WithDeadlinefunkcije sa dodatnim vremenskim ograničenjem.
 
-func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc) {
-	return WithDeadline(parent, time.Now().Add(timeout))
-}
+	func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc) {
+		return WithDeadline(parent, time.Now().Add(timeout))
+	}
 
-Primer
+##### Primer
 
 Pogledajmo jedan primer kako bismo učvrstili naše razumevanje konteksta.
 
 U primeru ispod, imamo jednostavan HTTP server koji obrađuje zahtev.
-
+```
 package main
 
 import (
@@ -5060,33 +5056,33 @@ func main() {
 	fmt.Println("Server is running...")
 	http.ListenAndServe(":4000", nil)
 }
-
+```
 Otvorimo dva terminala. U terminalu jedan ćemo pokrenuti naš primer.
 
-$ go run main.go
-Server is running...
-Handler started
-Handler complete
+	$ go run main.go
+	Server is running...
+	Handler started
+	Handler complete
 
 U drugom terminalu, jednostavno ćemo poslati zahtev našem serveru. I ako sačekamo 5 sekundi, dobićemo odgovor.
 
-$ curl localhost:4000/request
-Response from the server
+	$ curl localhost:4000/request
+	Response from the server
 
 Sada, da vidimo šta se dešava ako otkažemo zahtev pre nego što se završi.
 
 Napomena: možemo koristiti ctrl + cda otkažemo zahtev na pola puta.
 
-$ curl localhost:4000/request
-^C
+	$ curl localhost:4000/request
+	^C
 
 I kao što vidimo, u mogućnosti smo da detektujemo otkazivanje zahteva zbog konteksta zahteva.
 
-$ go run main.go
-Server is running...
-Handler started
-Error: context canceled
-Handler complete
+	$ go run main.go
+	Server is running...
+	Handler started
+	Error: context canceled
+	Handler complete
 
 Siguran sam da već možete videti koliko ovo može biti izuzetno korisno.
 
