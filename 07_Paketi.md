@@ -2,19 +2,18 @@
 
 # Paketi
 
-Paket nije ništa drugo do direktorijum koji sadrži jednu ili više Go izvornih datoteka ili drugih Go paketa.
+Paket je direktorijum koji sadrži jednu ili više Go izvornih datoteka ili drugih Go paketa.
 
 To znači da svaka Go datoteka sa izvornim kodom mora pripadati paketu, a deklaracija paketa se vrši na vrhu svake datoteke sa izvornim kodom na sledeći način:
 ```
 package <package_name>
 ```
 Do sada smo sve uradili unutar package `main`. Po konvenciji, izvršni programi 
-(pod tim mislim na one sa main paketom) se nazivaju komande, drugi se jednostavno 
-nazivaju paketi.
+(pod tim mislim na one sa `main` paketom) se nazivaju *komande*, drugi se jednostavno nazivaju *paketi*.
 
 Paket `main` bi takođe trebalo da sadrži `main()` funkciju koja je posebna funkcija koja deluje kao ulazna tačka izvršnog programa.
 
-Pogledajmo primer kreiranjem sopstvenog paketa `custom` i dodavanjem nekih izvornih datoteka u njega kao što su code.go.
+Pogledajmo primer kreiranjem sopstvenog paketa `custom` i dodavanjem nekih izvornih datoteka u njega kao što je `code.go`.
 ```
 package custom
 ```
@@ -22,7 +21,7 @@ Pre nego što nastavimo dalje, trebalo bi da razgovaramo o uvozu i izvozu. Baš 
 
 U osnovi, bilo koja vrednost (kao što je promenljiva ili funkcija) može se izvesti i biti vidljiva iz drugih paketa ako je definisana velikim slovima.
 
-Hajde da pokušamo sa primerom u našem custompaketu.
+Hajde da pokušamo sa primerom u našem `custom` paketu.
 ```
 package custom
 
@@ -34,7 +33,7 @@ u kojem su definisani. U našem slučaju, `custom` paket.
 
 To je odlično, ali kako da ga uvezemo ili mu pristupimo? Pa, isto kao što smo
 do sada radili nesvesno. Hajde da odemo do naše main.go datoteke i uvezemo naš
-custompaket.
+`custom` paket.
 
 Ovde se na to možemo pozivati koristeći module smo ranije inicijalizovali u
 našoj `go.mod` datoteci.
@@ -80,7 +79,7 @@ func main() {
 ```
 ### Spoljne zavisnosti
 
-U programu Go, nismo ograničeni samo na rad sa lokalnim paketima, već možemo instalirati i eksterne pakete koristeći go install komandu kao što smo ranije videli.
+U Gou nismo ograničeni samo na rad sa lokalnim paketima, već možemo instalirati i eksterne pakete koristeći go install komandu kao što smo ranije videli.
 
 Dakle, hajde da preuzmemo jednostavan paket za evidentiranje github.com/rs/zerolog/log.
 

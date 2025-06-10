@@ -9,7 +9,7 @@ Go (takođe poznat kao Golang) je programski jezik razvijen u kompaniji Gugl 200
 
 Go se fokusira se na jednostavnost, pouzdanost i efikasnost. Dizajniran je da kombinuje efikasnost, brzinu i bezbednost statički tipiziranog i kompajliranog jezika sa lakoćom programiranja dinamičkog jezika, kako bi programiranje ponovo bilo zabavno.
 
-Na neki način, želi da kombinuje najbolje delove Pajtona i C++-a kako bi mogao da izgradi pouzdane sisteme koji mogu da iskoriste prednosti višejezgarnih procesora.
+Na neki način, Go želi da kombinuje najbolje delove Pajtona i C++-a kako bi mogao da izgradi pouzdane sisteme koji mogu da iskoriste prednosti višejezgarnih procesora.
 
 ### Zašto učiti Go?
 
@@ -17,18 +17,14 @@ Pre nego što počnemo sa ovim kursom, hajde da razgovaramo o tome zašto bi tre
 
 - **Lako se uči**
 	
-	Go je prilično lak za učenje i ima podržavajuću i aktivnu zajednicu.
-
-	A pošto je višenamenski jezik, možete ga koristiti za stvari poput 
-	- razvoja bek-enda, 
-	- računarstva u oblaku i, u skorije vreme, 
-	- nauke o podacima.
+	Go je prilično lak za učenje i ima podržavajuću i aktivnu zajednicu. A pošto je višenamenski jezik, možete ga koristiti za stvari poput:
+	- 	razvoja bekenda, 
+	- 	računarstva u oblaku i u skorije vreme
+	- 	nauke o podacima.
 
 - **Brz i pouzdan**
 
-	Što ga čini veoma pogodnim za distribuirane sisteme. 
-	
-	Projekti kao što su **Kubernetes** i **Docker** su napisani u Go-u.
+	što ga čini veoma pogodnim za distribuirane sisteme. Projekti kao što su **Kubernetes** i **Docker** su napisani u Go-u.
 
 - **Jednostavan, ali moćan**
 
@@ -41,11 +37,10 @@ Pre nego što počnemo sa ovim kursom, hajde da razgovaramo o tome zašto bi tre
 Nadam se da Vas je ovo zainteresovalo za Go. Hajde da počnemo sa ovim kursom.
 
 ### Instalacija i podešavanje
-U ovom tutorijalu, instaliraćemo Go i podesiti naš uređivač koda.
 
 ##### Preuzimanje
 
-Možemo instalirati Go iz odeljka za preuzimanja.
+Možemo instalirati Go sa [mesta za preuzimanja](https://go.dev/dl/).
 
 ##### Instalacija
 
@@ -78,7 +73,7 @@ Ova uputstva su sa zvanične web stranice.
 
 	Otvorite MSI datoteku koju ste preuzeli i pratite uputstva za instaliranje Go-a.
 
-    Podrazumevano, instalater će instalirati program "Idi u Program Files" ili "Program Files" (x86). Lokaciju možete promeniti po potrebi. 
+    Podrazumevano, instaler će instalirati program Go u "Program Files" ili "Program Files (x86)". Lokaciju možete promeniti po potrebi. <br><br>
 	
 	Nakon instalacije, moraćete da zatvorite i ponovo otvorite sve otvorene komandne linije kako bi se promene u okruženju koje je napravio instalater odrazile u komandnoj liniji.
 
@@ -90,7 +85,7 @@ Potvrdite da komanda ispisuje instaliranu verziju programa Go.
 
 ##### Uređivač koda
 
-U ovom kursu ću koristiti **VS Code**, a možete ga preuzeti odavde.
+U ovom kursu ću koristiti **VS Code**, a možete ga preuzeti [odavde](https://code.visualstudio.com/download).
 
 Slobodno koristite bilo koji drugi uređivač koda koji vam odgovara.
 
@@ -102,13 +97,13 @@ To je to što se tiče instalacije i podešavanja Go-a, hajde da započnemo kurs
 
 ### Hello world
 
-Možemo početi inicijalizacijom modula. Za to možemo koristiti `go mod` komandu.
+Počnimo inicijalizacijom modula. Za to možemo koristiti `go mod` komandu.
 
     $ go mod init example
 
-Ali čekajte... šta je modul? Ne brinite, o tome ćemo uskoro razgovarati! Ali za sada, pretpostavimo da je modul u osnovi kolekcija Go paketa.
+Za sada, pretpostavimo da je modul u osnovi kolekcija Go paketa.
 
-Krećemo se dalje, hajde sada da kreiramo main.go datoteku i napišemo program koji jednostavno ispisuje "Hello world".
+Hajde sada da kreiramo `main.go` datoteku i napišemo program koji jednostavno ispisuje "Hello world".
 
 ```
 package main
@@ -131,14 +126,12 @@ Zatim, imamo uvoz.
 ```
 import "fmt"
 ```
-Na kraju, ali ne i najmanje važno, je naša `main` funkcija koja deluje kao ulazna tačka za našu aplikaciju, baš kao i u drugim jezicima poput C, Java ili C#.
+Na kraju, `main` funkcija deluje kao ulazna tačka za našu aplikaciju, baš kao i u drugim jezicima poput C, Java ili C#.
 ```
 func main() {
 	...
 }
 ```
-Zapamtite, cilj je ovde da vodite mentalnu belešku, a kasnije tokom kursa ćemo detaljno učiti o funkcijama, i drugim stvarima!
-
 Konačno, da bismo pokrenuli naš kod, možemo jednostavno koristiti `go run` komandu.
 
 	$ go run main.go

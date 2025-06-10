@@ -2,8 +2,6 @@
 
 # Funkcije
 
-U ovom tutorijalu ćemo razgovarati o tome kako radimo sa funkcijama u programskom jeziku Go. Dakle, počnimo sa jednostavnom deklaracijom funkcije.
-
 ### Deklaracija funkcije
 ```
 func myFunction() {}
@@ -95,9 +93,9 @@ Obratite pažnju kako to izvršavamo koristeći zagradu na kraju.
 
 ### Zatvaranja
 
-Zašto bismo se tu zaustavili? Hajde da vratimo funkciju i tako kreiramo nešto što se zove zatvaranje. Jednostavna definicija može biti da je zatvaranje funkcija koja referencira promenljive izvan svog tela.
+Hajde da vratimo funkciju i tako kreiramo nešto što se zove zatvaranje. Jednostavna definicija može biti da je zatvaranje funkcija koja referencira promenljive izvan svog tela.
  
-Zatvaranja su leksički ograničena, što znači da funkcije mogu pristupiti vrednostima u opsegu prilikom definisanja funkcije.
+Zatvaranja su leksički ograničena, što znači da funkcije mogu pristupiti vrednostima u opsegu svog definisanja.
 ```
 func myFunction() func(int) int {
 	sum := 0
@@ -112,11 +110,11 @@ add(5)
 fmt.Println(add(10))
 ...
 ```
-Kao što vidimo, dobijamo rezultat 15 jer sumje promenljiva povezana sa funkcijom. Ovo je veoma moćan koncept i definitivno ga morate znati.
+Kao što vidimo, dobijamo rezultat 15 jer *sum* je promenljiva povezana sa funkcijom. Ovo je veoma moćan koncept i definitivno ga morate znati.
 
 ### Varijadičke funkcije
 
-Sada pogledajmo varijadne funkcije, koje mogu prihvatiti nula ili više argumenata koristeći elipsis `...` operator.
+Varijadičke funkcije mogu prihvatiti nula ili više argumenata koristeći elipsis `...` operator.
 
 Primer ovde bi bila funkcija koja može da primi gomilu vrednosti.
 ```
@@ -135,7 +133,7 @@ func add(values ...int) int {
 	return sum
 }
 ```
-Baš kul, zar ne? Takođe, ne brinite o `range` ključnoj reči, o tome ćemo kasnije razgovarati u kursu.
+O `range` ključnoj reči ćemo kasnije razgovarati u kursu.
 
 **Zanimljivost**: `fmt.Println` je varijadička funkcija, zato smo joj mogli proslediti više vrednosti.
 
@@ -194,14 +192,14 @@ Funkcija `init` je opcionalna i posebno se koristi za bilo koje globalno podeša
 - podešavanje promenljivih okruženja itd.
 
 ### Defer
-Na kraju, hajde da razgovaramo o `defer` ključnoj reči koja nam omogućava da odložimo izvršavanje funkcije dok se okolna funkcija ne vrati.
+Hajde da razgovaramo o `defer` ključnoj reči koja nam omogućava da odložimo izvršavanje funkcije dok se okolna funkcija ne vrati.
 ```
 func main() {
 	defer fmt.Println("I am finished")
 	fmt.Println("Doing some work...")
 }
 ```
-Možemo koristiti više odloženih funkcija, ovo nas dovodi do onoga što je poznato kao `defer stek`. Pogledajmo primer:
+Možemo koristiti više odloženih funkcija, ovo nas dovodi do onoga što je poznato kao `defer` stek. Pogledajmo primer:
 ```
 func main() {
 	defer fmt.Println("I am finished")
@@ -214,7 +212,7 @@ func main() {
     Are you?
     I am finished
 
-Kao što vidimo, `defer` izjave se slažu i izvršavaju po principu `LIFO steka`.
+Kao što vidimo, `defer` izjave se slažu i izvršavaju po principu `LIFO` steka.
 
 Dakle, `defer` je neverovatno koristna i često se koristi za čišćenje ili rukovanje greškama.
 

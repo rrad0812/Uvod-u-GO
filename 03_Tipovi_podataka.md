@@ -55,7 +55,7 @@ var uiptr uintptr                     // Integer representation of a memory addr
 
 Ako ste primetili, postoji i `uintptr` tip neoznačenog celobrojnog pointera, koji je celobrojna reprezentacija memorijske adrese. Ne preporučuje se njegova upotreba, tako da ne moramo da brinemo o tome.
 
-**Pa koji bi tip celog broja trebalo da koristimo?**
+Pa koji bi tip celog broja trebalo da koristimo?
 
 Preporučuje se da kad god nam je potrebna celobrojna vrednost, koristimo samo `int` osim ako nemamo konkretan razlog za korišćenje nekog od tipova celog broja ili neoznačenog celog broja.
 
@@ -171,7 +171,7 @@ func main() {
 ```
 Koja je razlika?
 
-Dakle, definisani tipovi rade više od pukog davanja imena tipu. Prvo definišu novi imenovani tip od osnovnog tipa. Međutim, ovaj definisani tip se razlikuje od bilo kog drugog tipa, uključujući i njegov osnovni tip.
+Definisani tipovi rade više od pukog davanja imena tipu. Prvo definišu novi imenovani tip od osnovnog tipa. Međutim, ovaj definisani tip se razlikuje od bilo kog drugog tipa, uključujući i njegov osnovni tip.
 
 Stoga se definisani tip ne može koristiti naizmenično sa osnovnim tipom kao alias tipa. U početku je malo zbunjujuće, nadam se da će ovaj primer razjasniti stvari.
 ```

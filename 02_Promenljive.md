@@ -39,7 +39,7 @@ Počnimo sa deklarisanjem promenljive.
 
 ### Konstante
 
-Takođe možemo deklarisati konstante pomoću `const` ključne reči. Koje, kao što ime sugeriše, konstante predstavljaju fiksne vrednosti koje se ne mogu ponovo dodeliti.
+Konstante možemo deklarisati pomoću `const` ključne reči. Koje, kao što ime sugeriše, konstante predstavljaju fiksne vrednosti koje se ne mogu ponovo dodeliti.
 ```
 const constant = "This is a constant"
 ```

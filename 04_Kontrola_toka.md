@@ -4,7 +4,7 @@
 
 ### if/else
 
-Ovo funkcioniše manje-više isto kao što očekujete, ali izraz ne mora biti okružen zagradama ().
+Ovo funkcioniše manje-više isto kao što očekujete, ali if izraz ne mora biti okružen zagradama ().
 ```
 func main() {
 	x := 10
@@ -134,7 +134,7 @@ func main() {
 	fmt.Println("We broke out!")
 }
 ```
-Dakle, `continue` izjava se koristi kada želimo da preskočimo preostali deo petlje, a `break` izjava se koristi kada želimo da izađemo iz petlje.
+`continue` izjava se koristi kada želimo da preskočimo preostali deo petlje, a `break` izjava se koristi kada želimo da izađemo iz petlje.
 
 Takođe, `init` i `post` izjave for petlje su opcione, tako da možemo da nateramo našu `for` petlju da se ponaša kao `while` petlja.
 ```
@@ -149,7 +149,7 @@ func main() {
 
 ##### Beskonačna petlja
 
-Konačno, ako izostavimo uslov petlje, ona se ponavlja zauvek, tako da se beskonačna petlja može kompaktno izraziti ovako:
+Ako izostavimo uslov petlje, ona se ponavlja zauvek, tako da se beskonačna petlja može kompaktno izraziti ovako:
 ```
 func main() {
 	for {

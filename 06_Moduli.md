@@ -43,7 +43,7 @@ Ako se zavisnost ne koristi, možemo je jednostavno ukloniti pomoću `go mod tid
 
 Završavajući našu diskusiju o modulima, hajde da razgovaramo i o prodaji.
 
-Prodaja je čin pravljenja sopstvene kopije paketa trećih strana koje vaš projekat koristi. Te kopije se tradicionalno smeštaju unutar svakog projekta, a zatim čuvaju u repozitorijumu projekata.
+`Vendoring` je čin pravljenja sopstvene kopije paketa trećih strana koje vaš projekat koristi. Te kopije se tradicionalno smeštaju unutar svakog projekta, a zatim čuvaju u repozitorijumu projekata.
 
 To se može uraditi putem `go mod vendor` komande.
 
@@ -62,7 +62,7 @@ func main() {
 
     $ go mod vendor
 
-Nakon što se `go mod vendor` komanda izvrši, biće kreiran *vendor* direktorijum.
+Nakon što se `go mod vendor` komanda izvrši, biće kreiran `vendor` direktorijum.
 
 ├─ go.mod <br>
 ├─ go.sum <br>
