@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Tipovi podataka]](03_Tipovi_podataka.md) [[Sadržaj]](toc.md) [[Funkcije]](05_Funkcije.md)
 
 # Kontrola toka
 
@@ -158,4 +158,4 @@ func main() {
 }
 ```
 
-[Sadržaj](toc.md)
+[[Tipovi podataka]](03_Tipovi_podataka.md) [[Sadržaj]](toc.md) [[Funkcije]](05_Funkcije.md)

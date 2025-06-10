@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Generici]](20_Generici.md) [[Sadržaj]](toc.md) [[Gorutine]](22_Gorutine.md)
 
 # Konkurentnost
 
@@ -72,4 +72,4 @@ Do gladovanja dolazi kada je proces lišen neophodnih resursa i nije u stanju da
 
 Gladovanje može se desiti zbog zastoja ili neefikasnih algoritama za zakazivanje procesa. Da bismo rešili problem gladovanja, moramo da primenimo bolje algoritme za raspodelu resursa koji osiguravaju da svaki proces dobije svoj pravedan deo resursa.
 
-[Sadržaj](toc.md)
+[[Generici]](20_Generici.md) [[Sadržaj]](toc.md) [[Gorutine]](22_Gorutine.md)

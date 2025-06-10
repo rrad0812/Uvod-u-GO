@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Metode]](12_Metode.md) [[Sadržaj]](toc.md) [[Isečci]](14_Isečci.md)
 
 # Nizovi
 
@@ -171,4 +171,4 @@ func main() {
 }
 ```
 
-[Sadržaj](toc.md)
+[[Metode]](12_Metode.md) [[Sadržaj]](toc.md) [[Isečci]](14_Isečci.md)

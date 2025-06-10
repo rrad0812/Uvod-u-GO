@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Mape]](15_Mape.md) [[Sadržaj]](toc.md) [[Greške]](17_Greške.md)
 
 # Interfejsi
 
@@ -314,4 +314,4 @@ Time smo pokrili interfejse u Go-u.
 
 To je zaista moćna funkcija, ali zapamtite, "Što je interfejs veći, to je apstrakcija slabija" - Rob Pajk.
 
-[Sadržaj](toc.md)
+[[Mape]](15_Mape.md) [[Sadržaj]](toc.md) [[Greške]](17_Greške.md)

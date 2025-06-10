@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Sync paket]](25_Sync_paket.md) [[Sadržaj]](toc.md) [[Kontekst]](27_Kontekst.md)
 
 # Napredni obrasci konkurentnosti
 
@@ -443,4 +443,4 @@ Neki dodatni obrasci koje bi moglo biti korisno znati:
 - Kanal prstenastog bafera
 - Ograničeni paralelizam
 
-[Sadržaj](toc.md)
+[[Sync paket]](25_Sync_paket.md) [[Sadržaj]](toc.md) [[Kontekst]](27_Kontekst.md)

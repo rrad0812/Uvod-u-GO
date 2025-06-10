@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Testiranje]](19_Testiranje.md) [[Sadržaj]](toc.md) [[Konkurentnost]](21_Konkurentnost.md)
 
 # Generici
 
@@ -174,4 +174,4 @@ Na kraju, dodaću da iako su generički izrazi odličan dodatak jeziku, treba ih
 
 I, savetuje se da počnete sa jednostavnim i da pišete generički kod tek kada smo napisali veoma sličan kod najmanje 2 ili 3 puta.
 
-[Sadržaj](toc.md)
+[[Testiranje]](19_Testiranje.md) [[Sadržaj]](toc.md) [[Konkurentnost]](21_Konkurentnost.md)

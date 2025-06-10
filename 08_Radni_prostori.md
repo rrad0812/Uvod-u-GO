@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Paketi]](07_Paketi.md) [[Sadržaj]](toc.md) [[Korisne komande]](09_Korisne_komande.md)
 
 # Radni prostori
 
@@ -87,4 +87,4 @@ Odlično, sada ako pokrenemo naš hello modul primetićemo da je `Reverse` funkc
 
 Ovo je veoma potcenjena funkcija iz Go 1.18, ali je prilično korisna u određenim okolnostima.
 
-[Sadržaj](toc.md)
+[[Paketi]](07_Paketi.md) [[Sadržaj]](toc.md) [[Korisne komande]](09_Korisne_komande.md)

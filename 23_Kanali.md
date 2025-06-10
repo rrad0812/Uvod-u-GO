@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Gorutine]](22_Gorutine.md) [[Sadržaj]](toc.md) [[Select]](24_Select.md)
 
 # Kanali
 
@@ -191,4 +191,4 @@ func main() {
 }
 ```
 
-[Sadržaj](toc.md)
+[[Gorutine]](22_Gorutine.md) [[Sadržaj]](toc.md) [[Select]](24_Select.md)

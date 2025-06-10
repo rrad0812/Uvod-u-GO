@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Moduli]](06_Moduli.md) [[Sadržaj]](toc.md) [[Radni prostori]](08_Radni_prostori.md)
 
 # Paketi
 
@@ -100,4 +100,4 @@ Takođe, obavezno proverite `go doc` paketa koje instalirate, koji se obično na
 
 Na kraju, dodaću da Go nema posebnu konvenciju "strukture foldera", uvek pokušajte da organizujete svoje pakete na jednostavan i intuitivan način.
 
-[Sadržaj](toc.md)
+[[Moduli]](06_Moduli.md) [[Sadržaj]](toc.md) [[Radni prostori]](08_Radni_prostori.md)

@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Strukture]](11_Strukture.md) [[Sadržaj]](toc.md) [[Nizovi]](13_Nizovi.md)
 
 # Metode
 
@@ -110,4 +110,4 @@ Pošto je metoda vezana za određeni tip, možemo imati ista imena metoda za vi�
 
 Ali na kraju, to bi moglo da se svede na preferencije, kao što je "pozivi metoda su mnogo lakši za čitanje i razumevanje od poziva funkcija" ili obrnuto.
 
-[Sadržaj](toc.md)
+[[Strukture]](11_Strukture.md) [[Sadržaj]](toc.md) [[Nizovi]](13_Nizovi.md)

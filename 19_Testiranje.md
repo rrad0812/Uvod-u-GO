@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Panic i recover]](18_Panic_i_recover.md) [[Sadržaj]](toc.md) [[Generici]](20_Generici.md)
 
 # Testiranje
 
@@ -223,4 +223,4 @@ A ako ponovo pokrenemo test, ovaj granični slučaj će biti uhvaćen `fuzz` tes
 
 Mislim da je ovo zaista sjajna karakteristika Go 1.18. Više o `fuzz` testiranju možete saznati sa zvaničnog Go bloga.
 
-[Sadržaj](toc.md)
+[[Panic i recover]](18_Panic_i_recover.md) [[Sadržaj]](toc.md) [[Generici]](20_Generici.md)

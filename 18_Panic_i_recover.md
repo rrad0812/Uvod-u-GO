@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Greške]](17_Greške.md) [[Sadržaj]](toc.md) [[Testiranje]](19_Testiranje.md)
 
 # Panic i recover
 
@@ -88,4 +88,4 @@ Na primer, čitanje konfiguracione datoteke što je važno za pokretanje program
 
 Ovo je najčešća situacija. Na primer, dereferenciranje pointera kada je vrednost `nil` izazvalo bi paniku.
 
-[Sadržaj](toc.md)
+[[Greške]](17_Greške.md) [[Sadržaj]](toc.md) [[Testiranje]](19_Testiranje.md)

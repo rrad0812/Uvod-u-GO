@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Radni prostori]](08_Radni_prostori.md) [[Sadržaj]](toc.md) [[Pointeri]](10_Pointeri.md)
 
 # Korisne komande
 
@@ -103,4 +103,4 @@ Evo primera kako se koristi:
     $ CGO_ENABLED=0 
     $ go build -o app
 
-[Sadržaj](toc.md)
+[[Radni prostori]](08_Radni_prostori.md) [[Sadržaj]](toc.md) [[Pointeri]](10_Pointeri.md)

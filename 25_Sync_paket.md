@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Select]](24_Select.md) [[Sadržaj]](toc.md) [[Napredni obrasci konkurentnosti]](26_Napredni_obrasci_konkurentnosti.md)
 
 # Sync paket
 
@@ -594,4 +594,5 @@ Ovde `atomic.AddInt32` garantuje da će rezultat n biti 1000 jer se izvršavanje
 	$ go run main.go
 	Result: 1000
 
-[Sadržaj](toc.md)
+[[Select]](24_Select.md) [[Sadržaj]](toc.md) [[Napredni obrasci konkurentnosti]](26_Napredni_obrasci_konkurentnosti.md)
+

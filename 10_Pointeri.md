@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Korisne komande]](09_Korisne_komande.md) [[Sadržaj]](toc.md) [[Strukture]](11_Strukture.md)
 
 # Pointeri
 
@@ -158,4 +158,4 @@ Pa, nema definitivnog odgovora na to, a pointeri su samo još jedna korisna funk
 
 Na kraju, dodaću da ako dolazite iz jezika koji nema pojam pointera, ne paničite i pokušajte da formirate mentalni model kako pointeri funkcionišu.
 
-[Sadržaj](toc.md)
+[[Korisne komande]](09_Korisne_komande.md) [[Sadržaj]](toc.md) [[Strukture]](11_Strukture.md)

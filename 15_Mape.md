@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Isečci]](14_Isečci.md) [[Sadržaj]](toc.md) [[Interfejsi]](16_Interfejsi.md)
 
 # Mape
 
@@ -230,4 +230,5 @@ func main() {
 	map[a:{Peter} b:{Seth} c:{Steve}]
 	map[a:{Peter} b:{Seth} c:{Steve}]
 
-	[Sadržaj](toc.md)
+[[Isečci]](14_Isečci.md) [[Sadržaj]](toc.md) [[Interfejsi]](16_Interfejsi.md)
+	

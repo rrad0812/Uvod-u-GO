@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Konkurentnost]](21_Konkurentnost.md) [[Sadržaj]](toc.md) [[Kanali]](23_Kanali.md)
 
 # Gorutine
 
@@ -56,4 +56,4 @@ U redu, ovo funkcioniše, ali nije idealno. Pa kako da ovo poboljšamo?
 
 Najzahtevniji deo korišćenja gorutina je znati kada će se zaustaviti. Važno je razumeti da se gorutine izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan.
 
-[Sadržaj](toc.md)
+[[Konkurentnost]](21_Konkurentnost.md) [[Sadržaj]](toc.md) [[Kanali]](23_Kanali.md)

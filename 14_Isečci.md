@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Nizovi]](13_Nizovi.md) [[Sadržaj]](toc.md) [[Mape]](15_Mape.md)
 
 # Isečci
 
@@ -224,4 +224,4 @@ func add(values ...int) int {
 }
 ```
 
-[Sadržaj](toc.md)
+[[Nizovi]](13_Nizovi.md) [[Sadržaj]](toc.md) [[Mape]](15_Mape.md)

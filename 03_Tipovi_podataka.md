@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Promenljive]](02_Promenljive.md) [[Sadržaj]](toc.md) [[Kontrola toka]](04_Kontrola_toka.md)
 
 # Tipovi podataka
 
@@ -294,4 +294,4 @@ Odlično! Ali ovo je samo vrh ledenog brega... zato obavezno pogledajte dokument
 
 Za one koji dolaze sa C/C++ pozadinom, ovo bi trebalo da deluje prirodno, ali ako dolazite, recimo, sa Pythona ili Javascripta, ovo bi u početku moglo biti malo čudno. Ali je veoma moćno i videćete da se ova funkcionalnost koristi prilično intenzivno.
 
-[Sadržaj](toc.md)
+[[Promenljive]](02_Promenljive.md) [[Sadržaj]](toc.md) [[Kontrola toka]](04_Kontrola_toka.md)

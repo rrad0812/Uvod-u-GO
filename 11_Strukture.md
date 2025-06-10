@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Pointeri]](10_Pointeri.md) [[Sadržaj]](toc.md) [[Metode]](12_Metode.md)
 
 # Strukture
 
@@ -332,4 +332,4 @@ func main() {
 }
 ```
 
-[Sadržaj](toc.md)
+[[Pointeri]](10_Pointeri.md) [[Sadržaj]](toc.md) [[Metode]](12_Metode.md)

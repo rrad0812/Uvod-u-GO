@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Uvod]](01_uvod.md) [[Sadržaj]](toc.md) [[Tipovi podataka]](03_Tipovi_podataka.md)
 
 # Promenljive i konstante
 
@@ -52,4 +52,4 @@ var a = 10
 const b = a // ❌ a (variable of type int) is not constant (InvalidConstInit)
 ```
 
-[Sadržaj](toc.md)
+[[Uvod]](01_uvod.md) [[Sadržaj]](toc.md) [[Tipovi podataka]](03_Tipovi_podataka.md)

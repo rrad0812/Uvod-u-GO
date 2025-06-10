@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Kanali]](23_Kanali.md) [[Sadržaj]](toc.md) [[Sync paket]](25_Sync_paket.md)
 
 # Select izraz 
 
@@ -82,4 +82,4 @@ func main() {
 }
 ```
 
-[Sadržaj](toc.md)
+[[Kanali]](23_Kanali.md) [[Sadržaj]](toc.md) [[Sync paket]](25_Sync_paket.md)

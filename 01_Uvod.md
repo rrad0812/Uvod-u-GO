@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Sadržaj]](toc.md) [[Promenljive i konstante]](02_Promenljive.md)
 
 # Uvod u Go!
 
@@ -144,4 +144,4 @@ Konačno, da bismo pokrenuli naš kod, možemo jednostavno koristiti `go run` ko
 	$ go run main.go
 	Hello World!
 
-[Sadržaj](toc.md)
+[[Sadržaj]](toc.md) [[Promenljive i konstante]](02_Promenljive.md)

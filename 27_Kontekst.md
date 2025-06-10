@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Napredni obrasci konkurentnosti]](26_Napredni_obrasci_konkurentnosti.md) [[Sadržaj]](toc.md)
 
 # Kontekst
 
@@ -181,4 +181,4 @@ I kao što vidimo, u mogućnosti smo da detektujemo otkazivanje zahteva zbog kon
 Siguran sam da već možete videti koliko ovo može biti izuzetno korisno. Na primer, ovo možemo koristiti da otkažemo bilo koji posao koji zahteva mnogo resursa ako više nije potreban ili je prekoračio rok ili vremenski istekao.
 */
 
-[Sadržaj](toc.md)
+[[Napredni obrasci konkurentnosti]](26_Napredni_obrasi_konkurentnosti.md) [[Sadržaj]](toc.md)

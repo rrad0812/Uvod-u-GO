@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Interfejsi]](16_Interfejsi.md) [[Sadržaj]](toc.md) [[Panic i recover]](18_Panic_i_recover.md)
 
 # Greške
 
@@ -210,4 +210,4 @@ func main() {
 ```
 Na kraju, reći ću da je obrada grešaka u Gou prilično drugačija u poređenju sa tradicionalnim `try/catch` idiomom u drugim jezicima. Ali je veoma moćna jer podstiče programera da zapravo obradi grešku na eksplicitan način, što takođe poboljšava čitljivost.
 
-[Sadržaj](toc.md)
+[[Interfejsi]](16_Interfejsi.md) [[Sadržaj]](toc.md) [[Panic i recover]](18_Panic_i_recover.md)

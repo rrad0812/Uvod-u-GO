@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Funkcije]](05_Funkcije.md) [[Sadržaj]](toc.md) [[Paketi]](07_Paketi.md)
 
 # Moduli
 
@@ -75,4 +75,4 @@ Nakon što se `go mod vendor` komanda izvrši, biće kreiran *vendor* direktorij
 ....|........└─ .. <br>
 ....└─ modules.txt <br>
 
-[Sadržaj](toc.md)
+[[Funkcije]](05_Funkcije.md) [[Sadržaj]](toc.md) [[Paketi]](07_Paketi.md)

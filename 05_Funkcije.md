@@ -1,4 +1,4 @@
-[Sadržaj](toc.md)
+[[Kontrola toka]](04_Kontrola_toka.md)[[Sadržaj]](toc.md) [[Moduli]](06_Moduli.md)
 
 # Funkcije
 
@@ -220,4 +220,4 @@ Dakle, `defer` je neverovatno koristna i često se koristi za čišćenje ili ru
 
 Funkcije se takođe mogu koristiti sa generičkim tipovima, ali ćemo o njima razgovarati kasnije u kursu.
 
-[Sadržaj](toc.md)
+[[Kontrola toka]](04_Kontrola_toka.md)[[Sadržaj]](toc.md) [[Moduli]](06_Moduli.md)
