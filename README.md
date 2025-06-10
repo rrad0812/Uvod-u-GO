@@ -1,1 +1,1 @@
-Learn-go - a course on serbian!
+Uvod u go, jedan kurs Goa na srpskom jeziku!
