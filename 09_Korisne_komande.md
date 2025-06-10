@@ -2,29 +2,27 @@
 
 # Korisne komande
 
-Tokom naše diskusije o modulima, razgovarali smo o nekim go komandama vezanim za go module, a sada ćemo razgovarati o nekim drugim važnim komandama.
+- `go fmt` formatira izvorni kod i to sprovodi tako da se možemo fokusirati na  
+   to kako bi naš kod trebalo da funkcioniše, a ne na to kako bi naš kod trebalo da izgleda.
 
-Počevši od `go fmt`, koja formatira izvorni kod i to sprovodi tako da se možemo fokusirati na to kako bi naš kod trebalo da funkcioniše, a ne na to kako bi naš kod trebalo da izgleda.
+        $ go fmt
 
-    $ go fmt
+    Ovo može delovati malo čudno u početku, posebno ako dolazite iz sveta Javascripta ili Pythona, ali prilično je lepo ne brinuti o pravilima lintovanja.
 
-Ovo može delovati malo čudno u početku, posebno ako dolazite iz sveta Javascripta ili Pythona kao ja, ali iskreno, prilično je lepo ne brinuti o pravilima lintovanja.
+- `go vet` izveštava o verovatnim greškama u našim paketima. Ako napravim grešku u sintaksi, a zatim pokrenem `go vet`, trebalo bi da me obavesti o greškama.
 
-Zatim, imamo `go vet` izveštaje o verovatnim greškama u našim paketima.
+        $ go vet
 
-Dakle, ako napravim grešku u sintaksi, a zatim pokrenem go vet, trebalo bi da me obavesti o greškama.
+- `go env` ispisuje sve informacije o go okruženju, o nekim od ovih promenljivih 
+  za vreme izgradnje ćemo saznati kasnije.
 
-    $ go vet
+- `go doc` prikazuje dokumentaciju za paket ili simbol, evo primera fmt paketa.
 
-Zatim, imamo `go env` koja jednostavno ispisuje sve informacije o go okruženju, o nekim od ovih promenljivih za vreme izgradnje ćemo saznati kasnije.
+        $ go doc -src fmt Printf
 
-Na kraju, imamo `go doc` koji prikazuje dokumentaciju za paket ili simbol, evo primera fmt paketa.
+- go help` komandu koristimo da vidimo koje su druge komande dostupne.
 
-    $ go doc -src fmt Printf
-
-Hajde da koristimo go help komandu da vidimo koje su druge komande dostupne.
-
-    $ go help
+        $ go help
 
 Kao što vidimo, imamo:
 
@@ -50,7 +48,7 @@ func main() {
 ```
     $ go build
 
-Ovo bi trebalo da proizvede binarnu datoteku sa imenom našeg modula. Na primer, ovde imamo *example*.
+Ovo proizvedi binarnu datoteku sa imenom našeg modula.
 
 Takođe možemo samo odrediti naziv prevedenog binarnog izlaza.
 
@@ -61,15 +59,11 @@ Sada, da bismo ovo pokrenuli, jednostavno treba da ga izvršimo.
     $ ./app
     I am a binary!
 
-Da, to je jednostavno tako!
-
 ### Promenljive okruženja značajne za compile-time
 
-Sada, hajde da razgovaramo o nekim važnim varijablama vremena izgradnje, počevši od:
+##### `$GOOS` i `$GOARCH`
 
-    $GOOS i $GOARCH
-
-Ove promenljive okruženja nam pomažu da napravimo go programe za različite operativne sisteme i  arhitekture procesora.
+Važne promenljive okruženja su pre svega `$GOOS` i `$GOARCH`. Ove promenljive okruženja nam pomažu da napravimo go programe za različite operativne sisteme i  arhitekture procesora.
 
 Možemo navesti sve podržane arhitekture pomoću `go tool` komande.
 
@@ -79,22 +73,17 @@ Možemo navesti sve podržane arhitekture pomoću `go tool` komande.
     js/wasm
     linux/amd64
     windows/arm64
-    .
-    .
-    .
+    ...
 
-Evo primera za pravljenje izvršne datoteke za Windows iz macOS-a!
+Evo primera za izgradnju izvršne datoteke za Windows iz macOS-a!
 
     $ GOOS=windows 
     $ GOARCH=amd64 
     $ go build -o app.exe
-
     
-**Promenljiva $CGO_ENABLED**
+##### `$CGO_ENABLED`
 
-Ova promenljiva nam omogućava da konfigurišemo CGO, što je način u Go-u za pozivanje C koda.
-
-Ovo nam pomaže da napravimo statički povezan binarni fajl koji radi bez ikakvih spoljnih zavisnosti.
+Promenljiva `$CGO_ENABLED` nam omogućava da konfigurišemo `CGO`, što je način u Go-u za pozivanje C koda. Ovo nam pomaže da napravimo statički povezan binarni fajl koji radi bez ikakvih spoljnih zavisnosti.
 
 Ovo je prilično korisno, recimo, kada želimo da pokrenemo naše go binarne datoteke u docker kontejneru sa minimalnim spoljnim zavisnostima.
 

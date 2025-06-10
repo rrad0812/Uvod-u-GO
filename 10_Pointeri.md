@@ -10,7 +10,7 @@ var x *T
 ```
 Gde je T tip kao što su `int`, `string`, `float32`, i tako dalje.
 
-Hajde da pokušamo jednostavan primer i vidimo pointere u akciji.
+Jednostavan primer za pointere u akciji.
 ```
 package main
 import "fmt"
@@ -23,11 +23,13 @@ func main() {
     $ go run main.go
     nil
 
-Hmm, ovo štampa `nil`, ali šta je `nil`? Dakle, `nil` je unapred deklarisani identifikator u Go-u koji predstavlja nultu vrednost za `pointere`, `interfejse`, `kanale`, `mape` i `isečke`. Ovo je baš kao ono što smo naučili u odeljku o promenljivim i tipovima podataka, gde smo videli da neinicijalizovani `int` ima nultu vrednost `0`, a `bool` ima `false` i tako dalje.
+Ovo štampa `nil`. `nil` je unapred deklarisani identifikator u Go-u koji predstavlja nultu vrednost za `pointere`, `interfejse`, `kanale`, `mape` i `isečke`. 
 
-### Referenciranje (uzimanje adrese)
+Ovo je baš kao ono što smo naučili u odeljku o promenljivim i tipovima podataka, gde smo videli da neinicijalizovani `int` ima nultu vrednost `0`, a `bool` ima `false` i tako dalje.
 
-U redu, sada hajde da dodelimo vrednost pointeru.
+### Referenciranje (uzimanje adrese) promenljive
+
+Vrednost pointerskoj promenljivoj dodeljujemo ovako:
 ```
 package main
 import "fmt"
@@ -43,13 +45,11 @@ Koristimo `&` operator da bismo preuzeli memorijsku adresu promenljive. Ovo se n
     $ go run main.go
     0xc0000b8000
 
-Referenca je vrednost memorijske adrese promenljive *a*.
+Referenca je vrednost memorijske adrese promenljive.
 
-### Dereferenciranje (uzimanje vrednosti)
+### Dereferenciranje (uzimanje vrednosti) pointerske promenljive
 
 Takođe možemo koristiti `*` operator da bismo preuzeli vrednost sačuvanu u promenljivoj na koju pointer pokazuje. Ovo se naziva i *dereferenciranje promenljive*.
-
-Na primer, možemo pristupiti vrednosti promenljive a preko pointera *p* koristeći * operator.
 ```
 package main
 import "fmt"
@@ -83,8 +83,6 @@ func main() {
     before 10
     address: 0xc000192000
     after: 20
-
-Mislim da je ovo prilično uredno!
 
 ### Pointeri kao argumenti funkcije
 
@@ -121,7 +119,7 @@ func main() {
 
 ### Pointer na pointer
 
-Evo jedne zanimljive ideje... možemo li da napravimo pointer ka pointeru? Odgovor je da! Da, možemo.
+Možemo li da napravimo pointer na pointer? Odgovor je da, možemo!
 ```
 package main
 import "fmt"
@@ -142,20 +140,16 @@ func main() {
 
 Obratite pažnju kako vrednost *p1* odgovara adresi od *p*.
 
-Takođe, važno je znati da pointeri u Go-u ne podržavaju pointersku aritmetiku kao u C-u ili C++-u.
+Važno je znati da pointeri u Go-u *ne podržavaju pointersku aritmetiku* kao u C-u ili C++-u.
 ```
 p1 := p * 2 // Compiler Error: invalid operation
 ```
-Međutim, možemo uporediti dva pointera istog tipa radi jednakosti koristeći == operator.
+Možemo uporediti dva pointera istog tipa radi jednakosti koristeći == operator.
 ```
 p := &a
 p1 := &a
 fmt.Println(p == p1)
 ```
-Zašto su nam potrebni pointeri?
-
-Pa, nema definitivnog odgovora na to, a pointeri su samo još jedna korisna funkcija koja nam pomaže da efikasno mutiramo naše podatke bez kopiranja velike količine podataka.
-
-Na kraju, dodaću da ako dolazite iz jezika koji nema pojam pointera, ne paničite i pokušajte da formirate mentalni model kako pointeri funkcionišu.
+Zašto su nam potrebni pointeri? Nema definitivnog odgovora na to, a pointeri su samo još jedna korisna funkcija koja nam pomaže da efikasno mutiramo naše podatke bez kopiranja velike količine podataka.
 
 [[Korisne komande]](09_Korisne_komande.md) [[Sadržaj]](toc.md) [[Strukture]](11_Strukture.md)

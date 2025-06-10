@@ -2,7 +2,7 @@
 
 # Strukture
 
-Dakle, `struct` je korisnički definisan tip koji sadrži kolekciju imenovanih polja. U osnovi, koristi se za grupisanje povezanih podataka zajedno u jednu jedinicu.
+Dakle, `struct` je korisnički definisan tip koji sadrži kolekciju imenovanih polja. Koristi se za grupisanje povezanih podataka zajedno u jednu jedinicu.
 
 Ako dolazite iz objektno orijentisanog okruženja, zamislite strukture kao lagane klase koje podržavaju **kompoziciju**, ali ne i **nasleđivanje**.
 
@@ -12,9 +12,9 @@ Možemo definisati struct ovako:
 ```
 type Person struct {}
 ```
-Koristimo `type` ključnu reč da bismo uveli novi tip, nakon čega sledi ime tipa, a zatim `struct` ključna reč da bismo naznačili da definišemo strukturu.
+Koristimo `type` ključnu reč da bismo uveli novi tip, nakon čega sledi ime tipa, a zatim `struct` ključna reč da bismo naznačili osnovni tip, koji je u ovom slučaju `struct`.
 
-Sada, hajde da joj dodamo neka polja:
+Sada, hajde da dodamo strukturi *Person* neka polja:
 ```
 type Person struct {
 	FirstName string
@@ -22,7 +22,7 @@ type Person struct {
 	Age       int
 }
 ```
-A ako polja imaju isti tip, možemo ih i napisati u kompaktnoj formi:
+A ako polja imaju isti tip, možemo ih napisati u kompaktnoj formi:
 ```
 type Person struct {
 	FirstName, LastName string
@@ -64,7 +64,7 @@ Radi čitljivosti, možemo razdvojiti polja literala novim redom, ali će to zah
     Person 1: {  0}
     Person 2: {Karan Pratap Singh 22}
 
-Takođe možemo inicijalizovati podskup polja.
+Takođe možemo inicijalizovati samo podskup polja.
 ```
 func main() {
 	var p1 Person
@@ -89,7 +89,7 @@ func main() {
     Person 2: {Karan Pratap Singh 22}
     Person 3: {Tony Stark 0}
 
-Kao što vidimo, polje *age* osobe 3 je podrazumevano podešeno na nultu vrednost. 
+Kao što vidimo, polje *Age* strukture p3 3 je podrazumevano podešeno na nultu vrednost. 
 
 ### Inicijalizacija strukture poljima bez imena
 
@@ -116,7 +116,7 @@ func main() {
 	fmt.Println("Person 4:", p4)
 }
 ```
-Ali evo u čemu je caka, moraćemo da obezbedimo sve vrednosti tokom inicijalizacije ili će ona ne uspeti.
+Ali evo u čemu je problem, moraćemo da obezbedimo sve vrednosti tokom inicijalizacije ili ona neće uspeti.
 
 	$ go run main.go
 	# command-line-arguments
@@ -155,7 +155,7 @@ func main() {
 ```
 ### Pristupanje poljima struktura
 
-Hajde da malo sredimo naš primer i vidimo kako možemo pristupiti pojedinačnim poljima.
+Pristupanje pojedinačnim poljima strukture:
 ```
 func main() {
 	var p = Person{
@@ -166,7 +166,7 @@ func main() {
 	fmt.Println("FirstName", p.FirstName)
 }
 ```
-Takođe možemo kreirati pointer na strukture.
+Takođe možemo kreirati pointer na strukture, i pristupati preko pointera na pojedina polja strukture:
 ```
 func main() {
 	var p = Person{
@@ -179,7 +179,9 @@ func main() {
 	fmt.Println(ptr.FirstName)
 }
 ```
-Obe izjave su jednake jer **u Go-u ne moramo eksplicitno dereferencirati pointer.** Takođe možemo koristiti ugrađenu `new` funkciju.
+Ovde je jedna od značajnih osobina Goa, obe izjave su jednake jer **u Go-u ne moramo eksplicitno dereferencirati pointer**. 
+
+Takođe možemo koristiti ugrađenu `new` funkciju.
 ```
 func main() {
 	p := new(Person)
@@ -205,7 +207,7 @@ func main() {
 
 ### Izvezena polja
 
-Sada hajde da saznamo šta su izvezena, a šta neizvezena polja u strukturi. Isto kao i pravila za promenljive i funkcije, ako je polje strukture deklarisano malim slovima, ono neće biti izvezeno i biće vidljivo samo paketu u kojem je definisano.
+Isto kao i kod pravila za promenljive i funkcije, ako je polje strukture deklarisano malim slovima, ono neće biti izvezeno i biće vidljivo samo paketu u kojem je definisano.
 ```
 type Person struct {
 	FirstName, LastName  string
@@ -213,7 +215,7 @@ type Person struct {
 	zipCode              string
 }
 ```
-Dakle, zipCode polje neće biti izvezeno. Takođe, isto važi i za Person strukturu, ako je preimenujemo u person, ona se takođe neće izvesti.
+Dakle, *zipCode* polje neće biti izvezeno. Takođe, isto važi i za Person strukturu, ako je preimenujemo u *person*, ona se takođe neće izvesti.
 ```
 type person struct {
 	FirstName, LastName  string
@@ -223,7 +225,7 @@ type person struct {
 ```
 ### Ugrađivanje i kompozicija
 
-Kao što smo ranije pomenuli, Go ne podržava nasleđivanje, ali možemo uraditi nešto slično sa ugrađivanjem.
+Go ne podržava nasleđivanje, ali možemo uraditi nešto slično sa **ugrađivanjem**.
 ```
 type Person struct {
 	FirstName, LastName  string
@@ -235,7 +237,7 @@ type SuperHero struct {
 	Alias string
 }
 ```
-Dakle, naša nova struktura će imati sva svojstva originalne strukture. I trebalo bi da se ponaša isto kao i naša normalna struktura.
+Naša nova struktura će imati sva svojstva originalne strukture. I trebalo bi da se ponaša isto kao i naša normalna struktura.
 ```
 func main() {
 	s := SuperHero{}
@@ -249,7 +251,7 @@ func main() {
 	$ go run main.go
 	{{Bruce Wayne 40} batman}
 
-Međutim, ovo se obično ne preporučuje i u većini slučajeva, kompozicija je poželjnija. Dakle, umesto ugrađivanja, jednostavno ćemo ga definisati kao normalno polje.
+Međutim, ovo se obično ne preporučuje i u većini slučajeva, **kompozicija** je poželjnija. Dakle, umesto ugrađivanja, jednostavno ćemo ga definisati kao normalno polje.
 ```
 type Person struct {
 	FirstName, LastName  string
@@ -273,7 +275,7 @@ func main() {
 	$ go run main.go
 	{{Bruce Wayne 40} batman}
 
-Opet, ovde nema tačnog ili pogrešnog, ali ipak, ugrađivanje ponekad bude korisno.
+Ovde nema tačnog ili pogrešnog, jer ugrađivanje ponekad bude korisno.
 
 ### Strukturne oznake
 
@@ -297,9 +299,7 @@ type Animal struct {
 ```
 ### Svojstva struktura
 
-Na kraju, hajde da razgovaramo o svojstvima struktura.
-
-Strukture su vrednosni tipovi. Kada dodelimo jednu struct promenljivu drugoj, kreira se i dodeljuje se novoj struct kopija te promenljive.
+Strukture su **vrednosni** tipovi. Kada dodelimo jednu struct promenljivu drugoj, kreira se i dodeljuje se novoj struct kopija te promenljive.
 
 Slično, kada prosledimo struct drugoj funkciji, funkcija dobija svoju struct kopiju.
 ```

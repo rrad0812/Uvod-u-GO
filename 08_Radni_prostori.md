@@ -34,7 +34,7 @@ I ako ovo pokrenemo, trebalo bi da vidimo naš izlaz u obrnutom redosledu.
     $ go run main.go
     ecapskroW olleH
 
-Ovo je odlično, ali šta ako želimo da izmenimo `stringutil` modul od kog zavisi naš kod?
+Šta ako želimo da izmenimo `stringutil` modul od kog zavisi naš kod?
 
 Do sada smo to morali da radimo koristeći `replace` direktivu u `go.mod` datoteci, ali sada hajde da vidimo kako možemo da koristimo radne prostore ovde.
 
@@ -63,14 +63,14 @@ Sada, hajde da preuzmemo i izmenimo `stringutil` paket i ažuriramo implementaci
     remote: Total 204 (delta 39), reused 204 (delta 39)
     Receiving objects: 100% (204/204), 467.53 KiB | 363.00 KiB/s, done.
     Resolving deltas: 100% (39/39), done.
-```
-example/stringutil/reverse.go
 
+*example/stringutil/reverse.go*
+```
 func Reverse(s string) string {
 	return fmt.Sprintf("I can do whatever!! %s", s)
 }
 ```
-Konačno, dodajmo example paket našem radnom prostoru.
+Dodajmo example paket našem radnom prostoru.
 ```
 $ go work use ./example
 $ cat go.work
@@ -80,11 +80,11 @@ use (
 	./hello
 )
 ```
-Odlično, sada ako pokrenemo naš hello modul primetićemo da je `Reverse` funkcija izmenjena.
+Sada ako pokrenemo naš hello modul primetićemo da je `Reverse` funkcija izmenjena.
 
     $ go run hello
     I can do whatever!! Hello Workspace
 
-Ovo je veoma potcenjena funkcija iz Go 1.18, ali je prilično korisna u određenim okolnostima.
+Ovo je veoma korisna funkcija iz Go 1.18.
 
 [[Paketi]](07_Paketi.md) [[Sadržaj]](toc.md) [[Korisne komande]](09_Korisne_komande.md)
