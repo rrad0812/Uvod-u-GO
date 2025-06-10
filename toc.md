@@ -23,8 +23,13 @@
 - [Generici](20_Generici.md)
 - [Konkurentnost](21_Konkurentnost.md)
 - [Gorutine](22_Gorutine.md)
-- [Kanali](23_Gorutine.md)
+- [Kanali](23_Kanali.md)
 - [Select](24_Select.md)
 - [Sync paket](25_Sync_paket.md)
 - [Napredni obrasci konkurentnosti](26_Napredni_obrasci_konkurentnosti.md)
 - [Kontekst](27_Kontekst.md)
+
+---
+
+Priredio Radosav Radovanović, <br>
+jun. 2025. god., Vreoci
