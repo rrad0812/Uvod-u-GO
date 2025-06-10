@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Kontrola toka
 
@@ -156,3 +157,5 @@ func main() {
 	}
 }
 ```
+
+[Sadržaj](toc.md)

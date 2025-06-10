@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 ### Select izraz 
 
 Izraz `select` blokira kod i čeka na više operacija kanala istovremeno.
@@ -79,3 +81,5 @@ func main() {
 	close(two)
 }
 ```
+
+[Sadržaj](toc.md)

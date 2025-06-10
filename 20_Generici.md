@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Generici
 
 U ovom odeljku ćemo saznati o genericima, dugo očekivanoj mogućnosti koja je objavljena sa verzijom 1.18 jezika Go.
@@ -175,3 +177,5 @@ Dakle, kada koristiti generike? Možemo uzeti sledeće slučajeve upotrebe kao p
 Na kraju, dodaću da iako su generički izrazi odličan dodatak jeziku, treba ih koristiti štedljivo.
 
 I, savetuje se da počnete sa jednostavnim i da pišete generički kod tek kada smo napisali veoma sličan kod najmanje 2 ili 3 puta.
+
+[Sadržaj](toc.md)

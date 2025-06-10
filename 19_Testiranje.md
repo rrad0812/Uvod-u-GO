@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Testiranje
 
 U ovom tutorijalu ćemo govoriti o testiranju u Go-u. Dakle, hajde da počnemo sa jednostavnim primerom. Napravili smo `math` paket koji sadrži `Add` funkciju koja, kao što i samo ime sugeriše, sabira dva cela broja.
@@ -220,3 +222,5 @@ A ako ponovo pokrenemo test, ovaj granični slučaj će biti uhvaćen `fuzz` tes
 	        testing.go:1349: panic: B must be greater than A
 
 Mislim da je ovo zaista sjajna karakteristika Go 1.18. Više o `fuzz` testiranju možete saznati sa zvaničnog Go bloga.
+
+[Sadržaj](toc.md)

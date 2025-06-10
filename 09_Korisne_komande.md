@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Korisne komande
 
@@ -101,3 +102,5 @@ Evo primera kako se koristi:
 
     $ CGO_ENABLED=0 
     $ go build -o app
+
+[Sadržaj](toc.md)

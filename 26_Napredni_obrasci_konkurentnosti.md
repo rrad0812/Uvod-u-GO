@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 ### Napredni obrasci konkurentnosti
 
 ##### Generator
@@ -440,3 +442,5 @@ Neki dodatni obrasci koje bi moglo biti korisno znati:
 - Kanal mosta
 - Kanal prstenastog bafera
 - Ograničeni paralelizam
+
+[Sadržaj](toc.md)

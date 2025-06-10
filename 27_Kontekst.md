@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 ### Kontekst
 
 Context je interface tip koji je definisan na sledeći način:
@@ -180,3 +182,5 @@ Siguran sam da već možete videti koliko ovo može biti izuzetno korisno.
 
 Na primer, ovo možemo koristiti da otkažemo bilo koji posao koji zahteva mnogo resursa ako više nije potreban ili je prekoračio rok ili vremenski istekao.
 */
+
+[Sadržaj](toc.md)

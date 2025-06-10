@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Panic i recover
 
 Dakle, ranije smo saznali da je idiomatski način rešavanja abnormalnih uslova u Go programu korišćenje grešaka. Iako su greške dovoljne za većinu slučajeva, postoje neke situacije u kojima program ne može da nastavi sa radom.
@@ -85,3 +87,5 @@ Na primer, čitanje konfiguracione datoteke što je važno za pokretanje program
 ##### Greška programera
 
 Ovo je najčešća situacija. Na primer, dereferenciranje pointera kada je vrednost `nil` izazvalo bi paniku.
+
+[Sadržaj](toc.md)

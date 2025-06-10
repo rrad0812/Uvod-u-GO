@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Paketi
 
@@ -98,3 +99,5 @@ func main() {
 Takođe, obavezno proverite `go doc` paketa koje instalirate, koji se obično nalazi u `readme` datoteci projekta. `go doc` analizira izvorni kod i generiše dokumentaciju u HTML formatu. Referenca na njega se obično nalazi u `readme` datotekama.
 
 Na kraju, dodaću da Go nema posebnu konvenciju "strukture foldera", uvek pokušajte da organizujete svoje pakete na jednostavan i intuitivan način.
+
+[Sadržaj](toc.md)

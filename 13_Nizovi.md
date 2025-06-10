@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Nizovi
 
 Niz je kolekcija elemenata istog tipa fiksne veličine. Elementi niza se čuvaju sekvencijalno i može im se pristupiti pomoću njihovih index.
@@ -168,3 +170,5 @@ func main() {
 	fmt.Println(b) // Output: [Monday Tue Wed Thu Fri Sat Sun]
 }
 ```
+
+[Sadržaj](toc.md)

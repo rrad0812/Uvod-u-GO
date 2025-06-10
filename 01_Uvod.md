@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Uvod u Go!
 
@@ -142,3 +143,5 @@ Konačno, da bismo pokrenuli naš kod, možemo jednostavno koristiti `go run` ko
 
 	$ go run main.go
 	Hello World!
+
+[Sadržaj](toc.md)

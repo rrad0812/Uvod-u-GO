@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Promenljive i konstante
 
@@ -50,3 +51,5 @@ const b = a // ✅ Works
 var a = 10
 const b = a // ❌ a (variable of type int) is not constant (InvalidConstInit)
 ```
+
+[Sadržaj](toc.md)

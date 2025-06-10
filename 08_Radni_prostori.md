@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Radni prostori
 
@@ -85,3 +86,5 @@ Odlično, sada ako pokrenemo naš hello modul primetićemo da je `Reverse` funkc
     I can do whatever!! Hello Workspace
 
 Ovo je veoma potcenjena funkcija iz Go 1.18, ali je prilično korisna u određenim okolnostima.
+
+[Sadržaj](toc.md)

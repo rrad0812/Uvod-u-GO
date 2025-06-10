@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Tipovi podataka
 
@@ -292,3 +293,5 @@ fmt.Println(msg)
 Odlično! Ali ovo je samo vrh ledenog brega... zato obavezno pogledajte dokumentaciju za `fmt` paket.
 
 Za one koji dolaze sa C/C++ pozadinom, ovo bi trebalo da deluje prirodno, ali ako dolazite, recimo, sa Pythona ili Javascripta, ovo bi u početku moglo biti malo čudno. Ali je veoma moćno i videćete da se ova funkcionalnost koristi prilično intenzivno.
+
+[Sadržaj](toc.md)

@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Kanali
 
 Kanal je komunikaciona cev između gorutina. Stvari ulaze na jedan kraj, a izlaze na drugi istim redosledom dok se kanal ne zatvori.
@@ -188,3 +190,5 @@ func main() {
 	}
 }
 ```
+
+[Sadržaj](toc.md)

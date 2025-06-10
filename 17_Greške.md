@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Greške
 
 Primetite kako sam rekao greške, a ne izuzetci, jer u Go-u nema obrade izuzetaka. Umesto toga, možemo jednostavno vratiti ugrađeni `error` tip koji je tip interfejsa.
@@ -207,3 +209,5 @@ func main() {
 }
 ```
 Na kraju, reći ću da je obrada grešaka u Gou prilično drugačija u poređenju sa tradicionalnim `try/catch` idiomom u drugim jezicima. Ali je veoma moćna jer podstiče programera da zapravo obradi grešku na eksplicitan način, što takođe poboljšava čitljivost.
+
+[Sadržaj](toc.md)

@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 ### Sync paket
 
 Kao što smo ranije saznali, `gorutine` se izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan. `sync` paket pruža korisne primitive.
@@ -590,3 +592,5 @@ Ovde `atomic.AddInt32` garantuje da će rezultat n biti 1000 jer se izvršavanje
 
 	$ go run main.go
 	Result: 1000
+
+[Sadržaj](toc.md)

@@ -1,3 +1,4 @@
+[Sadržaj](toc.md)
 
 # Funkcije
 
@@ -218,3 +219,5 @@ Kao što vidimo, `defer` izjave se slažu i izvršavaju po principu `LIFO steka`
 Dakle, `defer` je neverovatno koristna i često se koristi za čišćenje ili rukovanje greškama.
 
 Funkcije se takođe mogu koristiti sa generičkim tipovima, ali ćemo o njima razgovarati kasnije u kursu.
+
+[Sadržaj](toc.md)

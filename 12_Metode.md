@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Metode
 
 Hajde da pričamo o metodama, ponekad poznatim i kao metode prijemnika.
@@ -107,3 +109,5 @@ Jedna stvar koja mi trenutno pada na pamet je da nam metode mogu pomoći da izbe
 Pošto je metoda vezana za određeni tip, možemo imati ista imena metoda za više prijemnika.
 
 Ali na kraju, to bi moglo da se svede na preferencije, kao što je "pozivi metoda su mnogo lakši za čitanje i razumevanje od poziva funkcija" ili obrnuto.
+
+[Sadržaj](toc.md)

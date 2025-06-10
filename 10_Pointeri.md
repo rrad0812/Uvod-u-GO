@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Pointeri
 
 `pointer` je promenljiva koja se koristi za čuvanje memorijske adrese druge promenljive.
@@ -155,3 +157,5 @@ Zašto su nam potrebni pointeri?
 Pa, nema definitivnog odgovora na to, a pointeri su samo još jedna korisna funkcija koja nam pomaže da efikasno mutiramo naše podatke bez kopiranja velike količine podataka.
 
 Na kraju, dodaću da ako dolazite iz jezika koji nema pojam pointera, ne paničite i pokušajte da formirate mentalni model kako pointeri funkcionišu.
+
+[Sadržaj](toc.md)

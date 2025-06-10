@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Gorutine
 
 Pre nego što započnemo našu diskusiju, želeo bih da podelim jednu važnu poslovicu o Gou: "Ne komunicirajte deljenjem memorije, delite memoriju komunikacijom." - Rob Pajk
@@ -53,3 +55,5 @@ Eto, sada možemo videti naš kompletan rezultat.
 U redu, ovo funkcioniše, ali nije idealno. Pa kako da ovo poboljšamo?
 
 Najzahtevniji deo korišćenja gorutina je znati kada će se zaustaviti. Važno je razumeti da se gorutine izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan.
+
+[Sadržaj](toc.md)

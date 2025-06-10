@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Strukture
 
 Dakle, `struct` je korisnički definisan tip koji sadrži kolekciju imenovanih polja. U osnovi, koristi se za grupisanje povezanih podataka zajedno u jednu jedinicu.
@@ -329,3 +331,5 @@ func main() {
 	fmt.Println(unsafe.Sizeof(s)) // Output: 0
 }
 ```
+
+[Sadržaj](toc.md)

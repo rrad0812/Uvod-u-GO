@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Mape
 
 Mapa je neuređena kolekcija parova `key-value`. Ona preslikava ključeve u vrednosti. Ključevi su jedinstveni unutar mape, dok vrednosti možda nisu.
@@ -227,3 +229,5 @@ func main() {
 ```
 	map[a:{Peter} b:{Seth} c:{Steve}]
 	map[a:{Peter} b:{Seth} c:{Steve}]
+
+	[Sadržaj](toc.md)

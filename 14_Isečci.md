@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Isečci
 
 Znam šta misliš, nizovi su korisni, ali pomalo nefleksibilni zbog ograničenja koje izaziva njihova fiksna veličina.
@@ -221,3 +223,5 @@ func add(values ...int) int {
 	return sum
 }
 ```
+
+[Sadržaj](toc.md)

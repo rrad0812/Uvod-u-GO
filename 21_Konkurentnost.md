@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Konkurentnost
 
 Konkurentnost je jedna od najmoćnijih karakteristika Go jezika. Konkurentnost, po definiciji, je sposobnost razlaganja računarskog programa ili algoritma na pojedinačne delove, koji se mogu izvršavati nezavisno. Konačni ishod konkurentnog programa je isti kao i kod programa koji je izvršan sekvencijalno.
@@ -70,3 +72,5 @@ Postoje četiri uslova, poznata kao `Kofmanovi uslovi`, i svi oni moraju biti za
 Do gladovanja dolazi kada je proces lišen neophodnih resursa i nije u stanju da završi svoju funkciju.
 
 Gladovanje može se desiti zbog zastoja ili neefikasnih algoritama za zakazivanje procesa. Da bismo rešili problem gladovanja, moramo da primenimo bolje algoritme za raspodelu resursa koji osiguravaju da svaki proces dobije svoj pravedan deo resursa.
+
+[Sadržaj](toc.md)

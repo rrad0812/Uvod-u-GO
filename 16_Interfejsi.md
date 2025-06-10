@@ -1,3 +1,5 @@
+[Sadržaj](toc.md)
+
 # Interfejsi
 
 Interfejs u ​​Gou je apstraktni tip koji je definisan pomoću skupa potpisa metoda. Interfejs definiše ponašanje za slične tipove objekata. Ovde je ponašanje ključni pojam o kome ćemo uskoro razgovarati.
@@ -311,3 +313,5 @@ func main() {
 Time smo pokrili interfejse u Go-u.
 
 To je zaista moćna funkcija, ali zapamtite, "Što je interfejs veći, to je apstrakcija slabija" - Rob Pajk.
+
+[Sadržaj](toc.md)
