@@ -1,20 +1,21 @@
 [Sadržaj](toc.md)
 
-### Sync paket
+# Sync paket
 
 Kao što smo ranije saznali, `gorutine` se izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan. `sync` paket pruža korisne primitive.
 
-##### WaitGroup
+### WaitGroup
 
 Grupa čeka da se završi izvršavanje kolekcije gorutina. *Main* gorutina poziva *Add* da bi podesila broj gorutina koje treba čekati. Zatim se svaka od gorutina pokreće i poziva `Done` kada se završi. Istovremeno, `Wait` se može koristiti za blokiranje dok se sve gorutine ne završe.
 
-**Upotreba**
+##### Upotreba
 
 Možemo koristiti `sync.WaitGroup` sledeće metode:
 
-`Add(delta int)` uzima celobrojnu vrednost koja je u suštini broj gorutina koje WaitGroup treba da čeka. Ovo mora biti pozvano pre nego što izvršimo gorutinu.
-`Done()` se poziva unutar gorutine da signalizira da je gorutina uspešno izvršena.
-`Wait()` blokira program dok se sve gorutine koje je odredio Add()ne pozovu Done()iznutra.
+- `Add(delta int)` uzima celobrojnu vrednost koja je u suštini broj gorutina koje `WaitGroup` treba da 
+  čeka. Ovo mora biti pozvano pre nego što izvršimo gorutinu.
+- `Done()` se poziva unutar gorutine da signalizira da je gorutina uspešno izvršena.
+- `Wait()` blokira program dok se sve gorutine koje je odredio Add()ne pozovu Done()iznutra.
 
 Hajde da pogledamo jedan primer.
 ```
@@ -80,15 +81,15 @@ I kao što se i očekivalo, sve naše gorutine su izvršene.
 	working...
 	working...
 
-# Mutex
+### Mutex
 
 Mutex je međusobno isključujuća brava koja sprečava druge procese da uđu u kritični deo podataka dok ga neki proces zauzima kako bi se sprečilo nastajanje uslova trke.
 
-### Šta je kritični sekcija?
+##### Šta je kritični sekcija?
 
 Dakle, kritična sekcija može biti deo koda koji ne sme da se izvršava od strane više niti istovremeno jer kod sadrži deljene resurse.
 
-### Upotreba
+##### Upotreba
 
 Možemo `sync.Mutex` koristiti sledeće metode:
 
@@ -192,7 +193,7 @@ Drugim rečima, čitaoci ne moraju da čekaju jedni druge. Treba samo da čekaju
 
 `sync.RWMutex` je stoga poželjnije za podatke koji se uglavnom čitaju, a resurs koji se štedi u poređenju sa `sync.Mutex` je vreme.
 
-### Upotreba
+##### Upotreba
 
 Slično kao `sync.Mutex`, možemo koristiti `sync.RWMutex` sa sledećim metodama:
 
@@ -203,7 +204,7 @@ Slično kao `sync.Mutex`, možemo koristiti `sync.RWMutex` sa sledećim metodama
 
 Obratite pažnju kako RWMutex ima dodatne RLockmetode RUnlocku poređenju sa Mutex-om.
 
-**Primer**
+##### Primer
 
 Dodajmo `GetValue` metodu koja će čitati vrednost brojača. Takođe ćemo promeniti `sync.Mutex` u `sync.RWMutex`.
 
@@ -410,7 +411,6 @@ Važno je napomenuti da `pool` takođe ima svoju cenu u pogledu performansi. Mno
 `sync.Pool` nam daje sledeće metode:
 
 - `Get()` bira proizvoljnu stavku iz bazena, uklanja je iz bazena i vraća je pozivaocu.
-
 - `Put(x any)` dodaje stavku u pul.
 
 ##### Primer
@@ -460,10 +460,11 @@ I ako ovo pokrenemo, videćemo zanimljiv izlaz:
 	Creating a new person...
 	There is no object in the pool now (new one will be created): &{}
 
-**Napomena**:Obratite pažnju kako smo uradili tvrdnju tipa kada smo pozvali Get.
+**Napomena**: Obratite pažnju kako smo uradili tvrdnju tipa kada smo pozvali Get.
 
-Može se videti da sync.Poolje isključivo privremeni objektni pul, koji je pogodan za čuvanje nekih privremenih objekata koji će se deliti između gorutina.
-Mapa
+Može se videti da je `sync.Pool` isključivo privremeni objektni pul, koji je pogodan za čuvanje nekih privremenih objekata koji će se deliti između gorutina.
+
+### Mapa
 
 Mapa je kao standardna, `map[any]any` ali je bezbedna za istovremenu upotrebu od strane više gorutina bez dodatnog zaključavanja ili koordinacije. Učitavanja, čuvanja i brisanja su raspoređena tokom konstantnog vremena.
 

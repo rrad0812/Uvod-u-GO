@@ -32,10 +32,9 @@ Kasnije u kursu ćemo naučiti kako Golang to implementira koristeći `gorutine`
 
 ##### Trka podataka
 
-Trka podataka nastaje kada procesi moraju konkuretno da pristupe istom resursu.
-Na primer, jedan proces čita, dok drugi istovremeno piše u potpuno isti resurs.
+Trka podataka nastaje kada procesi moraju konkuretno da pristupe istom resursu. Na primer, jedan proces čita, dok drugi istovremeno piše u potpuno isti resurs.
 
-##### Uslovi trke
+*Uslovi trke*
 
 Do trke dolazi kada vreme ili redosled događaja utiče na ispravnost dela koda.
 
@@ -43,23 +42,23 @@ Do trke dolazi kada vreme ili redosled događaja utiče na ispravnost dela koda.
 
 Zastoj se javlja kada su svi procesi blokirani dok čekaju jedan drugog i program ne može dalje da se izvršava.
 
-##### Kofmanovi uslovi
+*Kofmanovi uslovi*
 
 Postoje četiri uslova, poznata kao `Kofmanovi uslovi`, i svi oni moraju biti zadovoljeni da bi došlo do zastoja.
 
-- **Uzajamno isključivi**
+- *Uzajamno isključivi*
 
 	Kontinuirani proces drži barem jedan resurs u bilo kom trenutku, što ga čini nedeljivim.
 
-- **Drži i čeka**
+- *Drži i čeka*
 
 	Kontinuirani proces drži resurs i čeka na dodatni resurs.
 
-- **Bez mogućnosti konkurencije**
+- *Bez mogućnosti konkurencije*
 
 	Resurs koji drži konkurentni proces ne može biti oduzet od strane OS. Može ga osloboditi samo proces koji ga drži.
 
-- **Kružno čekanje**
+- *Kružno čekanje*
 
 	Proces čeka resurs koji drži drugi proces, koji čeka resurs koji drži treći proces, i tako dalje, sve dok poslednji proces ne čeka resurs koji drži prvi proces. Dakle, formira se kružni lanac čekanja na resurse.
 

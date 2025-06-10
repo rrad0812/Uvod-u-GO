@@ -62,7 +62,7 @@ Obratite pažnju kako možemo slati podatke koristeći `channel <- data` i prima
 
 Odlično, naš program je tekao kako smo očekivali.
 
-##### Baferovani kanali
+### Baferovani kanali
 
 Takođe možemo imati baferovane kanale koji prihvataju ograničen broj vrednosti bez odgovarajućeg prijemnika za te vrednosti.
 
@@ -85,7 +85,7 @@ Pošto je ovaj kanal baferovan, možemo poslati ove vrednosti u kanal bez odgova
 
 Podrazumevano, kanal je nebaferovan i ima kapacitet 0, stoga možemo da izostavimo drugi argument funkcije `make`.
 
-##### Usmereni kanali (unidirectional)
+### Usmereni kanali (unidirectional)
 
 Kada koristimo kanale kao parametre funkcije, možemo da odredimo da li je kanal namenjen samo za slanje ili primanje vrednosti. Ovo povećava bezbednost tipa našeg programa jer podrazumevano kanal može i da šalje i da prima vrednosti.
 
@@ -97,7 +97,7 @@ func speak(arg string, ch chan <- string) {
 ```
 Ovde se `chan <-` može koristiti samo za slanje vrednosti i doći će do panike ako pokušamo da primimo vrednosti.
 
-##### Zatvaranje kanala
+### Zatvaranje kanala
 
 Takođe, baš kao i sa bilo kojim drugim resursom, kada završimo sa našim kanalom, potrebno ga je zatvoriti. To se može postići pomoću ugrađene `close` funkcije.
 
@@ -139,28 +139,28 @@ Ako je ok == false onda nema više vrednosti za primanje i kanal je zatvoren.
 
 Na neki način, ovo je slično načinu na koji proveravamo da li ključ postoji ili ne u mapi.
 
-##### Svojstva kanala
+### Svojstva kanala
 
 Na kraju, hajde da razgovaramo o nekim svojstvima kanala:
 
-**Slanje na `nil` kanal blokira zauvek**
+##### Slanje na `nil` kanal blokira zauvek
 ```
 var c chan string
 c <- "Hello, World!" // Panic: all goroutines are asleep - deadlock!
 ```
-**Prijem sa `nil` kanala se blokira zauvek**
+##### Prijem sa `nil` kanala se blokira zauvek
 ```
 var c chan string
 fmt.Println(<-c) // Panic: all goroutines are asleep - deadlock!
 ```
-**Slanje na zatvoreni kanal izaziva paniku**
+##### Slanje na zatvoreni kanal izaziva paniku
 ```
 var c = make(chan string, 1)
 c <- "Hello, World!"
 close(c)
 c <- "Hello, Panic!" // Panic: send on closed channel
 ```
-**Prijem iz zatvorenog kanala odmah vraća nultu vrednost**
+##### Prijem iz zatvorenog kanala odmah vraća nultu vrednost
 ```
 var c = make(chan int, 2)
 c <- 5
@@ -170,7 +170,7 @@ for i := 0; i < 4; i++ {
     fmt.Printf("%d ", <-c) // Output: 5 4 0 0
 }
 ```
-**Range preko kanala**
+##### Range preko kanala
 
 Takođe možemo koristiti `for range` za iteraciju kroz vrednosti primljene iz kanala.
 ```

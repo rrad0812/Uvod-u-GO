@@ -1,6 +1,6 @@
 [Sadržaj](toc.md)
 
-### Kontekst
+# Kontekst
 
 Context je interface tip koji je definisan na sledeći način:
 ```
@@ -13,35 +13,35 @@ type Context interface {
 ```
 Tip Context ima sledeće metode:
 
-- Done() <- chan struct{}vraća kanal koji je zatvoren kada se kontekst otkaže ili kada 
-  istekne vreme. Done može vratiti vrednost nilako se kontekst nikada ne može otkazati.
-- Deadline() (deadline time.Time, ok bool)vraća vreme kada će kontekst biti otkazan  
+- `Done() <- chan struct{}` vraća kanal koji je zatvoren kada se kontekst otkaže ili 
+  kada istekne vreme. `Done` može vratiti vrednost `nil` ako se kontekst nikada ne može otkazati.
+- `Deadline() (deadline time.Time, ok bool)` vraća vreme kada će kontekst biti otkazan  
   ili će vremenski isteći. Rok vraća okkao falsekada rok nije podešen.
-- Err() errorvraća grešku koja objašnjava zašto je kanal Done zatvoren. Ako Done još 
-  nije zatvoren, vraća nil.
-- Value(key any) anyvraća vrednost povezanu sa ključem ili nilako nema.
+- `Err() error` vraća grešku koja objašnjava zašto je kanal Done zatvoren. Ako `Done` još 
+  nije zatvoren, vraća `nil`.
+- `Value(key any) any` vraća vrednost povezanu sa ključem ili `nil` ako je nema.
 
-### Funkcija Cancel
+### CancelFunc
 
 `CancelFunc` naređuje operaciji da prekine svoj rad i ne čeka da se rad zaustavi. Ako je pozove više gorutina istovremeno, nakon prvog poziva, naredni pozivi kategorije za `CancelFunc` ne rade ništa.
 
 	type CancelFunc func()
 
-##### Upotreba
+### Upotreba
 
-Hajde da razgovaramo o funkcijama koje su izložene u context paketu:
+Hajde da razgovaramo o funkcijama koje su izložene u `context` paketu:
 
-Pozadina
+##### Background
 
-Pozadina vraća praznu vrednost, različitu od nil Context. Nikada se ne otkazuje, nema vrednosti i nema rok.
+`Background` vraća praznu vrednost, različitu od `nil` Context. Nikada se ne otkazuje, nema vrednosti i nema rok.
 
 Obično ga koriste glavna funkcija, inicijalizacija i testovi, i kao kontekst najvišeg nivoa za dolazne zahteve.
 
-func Background() Context
+	func Background() Context
 
-ZADACI
+##### ToDo
 
-Slično Backgroundfunkciji, TODOfunkcija takođe vraća vrednost koja nije nula, praznu vrednost Context.
+Slično `Background` funkciji, `ToDd` funkcija takođe vraća vrednost koja nije nula, praznu vrednost Context.
 
 Međutim, trebalo bi ga koristiti samo kada nismo sigurni koji kontekst da koristimo ili ako funkcija nije ažurirana da bi primila kontekst. To znači da planiramo da dodamo kontekst funkciji u budućnosti.
 
@@ -96,7 +96,7 @@ Prenošenje `cancel` funkcije se ne preporučuje jer može dovesti do neočekiva
 
 	func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
 
-##### Sa rokom
+##### WithDeadline
 
 Ova funkcija vraća izvedeni kontekst iz svog roditelja koji se otkazuje kada istekne rok ili kada se pozove funkcija otkazivanja.
 
@@ -104,7 +104,7 @@ Na primer, možemo kreirati kontekst koji će se automatski otkazati u određeno
 
 	func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
 
-##### Sa vremenskim ograničenjem
+##### WithTimeout
 
 Ova funkcija je samo omotač oko WithDeadlinefunkcije sa dodatnim vremenskim ograničenjem.
 
@@ -178,9 +178,7 @@ I kao što vidimo, u mogućnosti smo da detektujemo otkazivanje zahteva zbog kon
 	Error: context canceled
 	Handler complete
 
-Siguran sam da već možete videti koliko ovo može biti izuzetno korisno.
-
-Na primer, ovo možemo koristiti da otkažemo bilo koji posao koji zahteva mnogo resursa ako više nije potreban ili je prekoračio rok ili vremenski istekao.
+Siguran sam da već možete videti koliko ovo može biti izuzetno korisno. Na primer, ovo možemo koristiti da otkažemo bilo koji posao koji zahteva mnogo resursa ako više nije potreban ili je prekoračio rok ili vremenski istekao.
 */
 
 [Sadržaj](toc.md)

@@ -2,11 +2,7 @@
 
 # Generici
 
-U ovom odeljku ćemo saznati o genericima, dugo očekivanoj mogućnosti koja je objavljena sa verzijom 1.18 jezika Go.
-
-Generici znače parametrizovane tipove. Jednostavno rečeno, generici omogućavaju programerima da pišu kod gde se tip može navesti kasnije jer tip nije odmah relevantan.
-
-Hajde da pogledamo jedan primer da bismo ovo bolje razumeli.
+Generici znače parametrizovane tipove. Jednostavno rečeno, generici omogućavaju programerima da pišu kod gde se tip može navesti kasnije, jer nije odmah relevantan.
 
 Za naš primer, imamo jednostavne funkcije sumiranja za različite tipove kao što su `int`, `float64` i `string`. Pošto `overloading` metoda nije dozvoljeno u Go-u, obično moramo da kreiramo nove funkcije.
 ```
@@ -45,7 +41,7 @@ func sum[T interface{}](a, b T) T {
 	fmt.Println(a, b)
 }
 ```
-Takođe, počevši od Go 1.18 možemo koristiti `any`, što je manje-više ekvivalentno praznom interfejsu.
+Počevši od Go 1.18 možemo koristiti `any`, što je manje-više ekvivalentno praznom interfejsu.
 ```
 func sum[T any](a, b T) T {
 	fmt.Println(a, b)

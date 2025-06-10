@@ -1,6 +1,6 @@
 [Sadržaj](toc.md)
 
-### Select izraz 
+# Select izraz 
 
 Izraz `select` blokira kod i čeka na više operacija kanala istovremeno.
 

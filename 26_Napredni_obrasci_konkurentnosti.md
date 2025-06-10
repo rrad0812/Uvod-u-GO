@@ -1,12 +1,12 @@
 [Sadržaj](toc.md)
 
-### Napredni obrasci konkurentnosti
+# Napredni obrasci konkurentnosti
 
-##### Generator
+### Generator pattern
 
 Generator Pattern se koristi za generisanje niza vrednosti koje se koriste za proizvodnju nekog izlaza.
 
-U našem primeru, imamo *generator* funkciju koja jednostavno vraća kanal iz kojeg možemo da čitamo vrednosti.
+U našem primeru, imamo `generator` funkciju koja jednostavno vraća kanal iz kojeg možemo da čitamo vrednosti.
 
 Ovo funkcioniše na osnovu činjenice da se slanje i prijem blokiraju dok i pošiljalac i primalac nisu spremni. Ovo svojstvo nam je omogućilo da sačekamo dok se ne zatraži sledeća vrednost.
 ```
@@ -39,13 +39,13 @@ Ako ovo pokrenemo, primetićemo da možemo da konzumiramo vrednosti koje su proi
 	Value: 3
 	Value: 4
 
-Ovo je slično ponašanje kao `yield` u Javaskriptu i Pajtonu.
+Ovo je slično ponašanje `yield` u Javaskriptu i Pajtonu.
 
 ### Ventilator-in
 
 Šema uključivanja ventilatora kombinuje više ulaza u jedan jedinstveni izlazni kanal. U osnovi, `multipleksiramo` naše ulaze.
 
-U našem primeru, kreiramo ulaze i1,i2 koristeći funkciju *generateWork*. Zatim koristimo našu varijabilnu funkciju *fanIn* da kombinujemo vrednosti sa ovih ulaza u jedan izlazni kanal iz kojeg možemo da konzumiramo vrednosti.
+U našem primeru, kreiramo ulaze i1,i2 koristeći funkciju `generateWork`. Zatim koristimo varijabilnu funkciju `fanIn` da kombinujemo vrednosti sa ovih ulaza u jedan izlazni kanal iz kojeg možemo da konzumiramo vrednosti.
 
 **Napomena**: redosled unosa neće biti zagarantovan.
 ```
@@ -287,15 +287,15 @@ Izgleda da je naš unos ispravno obrađen od strane cevovoda na istovremeni nač
 	18
 	32
 
-Worker pool
+### Worker pool
 
-Worker pool bazen je zaista moćan obrazac koji nam omogućava da istovremeno raspodelimo posao na više workera (gorutina).
+`Worker pool` je zaista moćan obrazac koji nam omogućava da istovremeno raspodelimo posao na više workera (gorutina).
 
 U našem primeru, imamo jobs kanal na koji ćemo slati naše poslove i results kanal na koji će naši radnici slati rezultate kada završe posao.
 
-Nakon toga, možemo istovremeno pokrenuti naše radnike i jednostavno primati rezultate sa results kanala.
+Nakon toga, možemo istovremeno pokrenuti radnike i jednostavno primati rezultate sa results kanala.
 
-Idealno *totalWorkers* bi bilo da bude podešeno na runtime.NumCPU()što nam daje broj logičkih procesora koje trenutni proces može da koristi.
+Idealno `totalWorkers` bi bilo, da bude podešeno na `runtime.NumCPU()` što nam daje broj logičkih procesora koje trenutni proces može da koristi.
 ```
 package main
 
