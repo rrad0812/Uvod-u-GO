@@ -2,14 +2,12 @@
 
 # Greške
 
-Primetite kako sam rekao greške, a ne izuzetci, jer u Go-u nema obrade izuzetaka. Umesto toga, možemo jednostavno vratiti ugrađeni `error` tip koji je tip interfejsa.
+U Go-u nema obrade izuzetaka. Umesto toga, možemo jednostavno vratiti ugrađeni `error` koji je tipa interfejsa.
 ```
 type error interface {
     Error() string
 }
 ```
-Uskoro ćemo se vratiti na ovo. Prvo, pokušajmo da razumemo osnove. 
-
 Dakle, deklarišimo jednostavnu *Divide* funkciju koja, kao što ime sugeriše, deli ceo broj *a* sa *b*.
 ```
 func Divide(a, b int) int {
