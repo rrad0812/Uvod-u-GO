@@ -2,7 +2,7 @@
 
 # Gorutine
 
-Pre nego što započnemo našu diskusiju, želeo bih da podelim jednu važnu poslovicu o Gou: "Ne komunicirajte deljenjem memorije, delite memoriju komunikacijom." - Rob Pajk
+Pre nego što započnemo našu diskusiju, želeo bih da podelim jednu važnu poslovicu o Gou: *"Ne komunicirajte deljenjem memorije, delite memoriju komunikacijom."* - Rob Pajk
 
 `Gorutina` je lagana nit izvršavanja kojom upravlja Go runtime i u suštini nam omogućava da pišemo asinhroni kod na sinhroni način.
 
@@ -18,7 +18,9 @@ Pre nego što napišemo bilo koji kod, važno je ukratko razmotriti model `fork-
 
 ### Model račvanja-spajanja
 
-Go koristi ideju modela `fork-join` konkurentnosti koji stoji iza `gorutina`. Model `fork-join` u suštini podrazumeva da se podređeni proces odvaja od svog roditeljskog procesa da bi se pokrenuo konkurentno sa roditeljskim procesom. Tačka razdvajanja se zove `fork point`. Nakon završetka izvršavanja, podređeni proces se ponovo spaja sa roditeljskim procesom. Tačka gde se ponovo spaja naziva se `join point`.
+Go koristi ideju `fork-join` modela konkurentnosti koji stoji iza `gorutina`. Model `fork-join` u suštini podrazumeva da se podređeni proces odvaja od svog roditeljskog procesa da bi se pokrenuo konkurentno sa roditeljskim procesom. 
+
+Tačka razdvajanja se zove `fork point`. Nakon završetka izvršavanja, podređeni proces se ponovo spaja sa roditeljskim procesom. Tačka gde se ponovo spaja naziva se `join point`.
 
 Sada, hajde da napišemo malo koda i kreiramo sopstvenu gorutinu.
 ```

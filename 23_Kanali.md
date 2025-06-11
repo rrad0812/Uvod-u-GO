@@ -12,13 +12,13 @@ Sada kada razumemo šta su kanali, hajde da vidimo kako ih možemo deklarisati.
 
 	var ch chan T
 
-Ovde ispred tipa, T koji je tip podataka vrednosti koju želimo da pošaljemo i primimo, dodajemo ključnu reč `chan` koja predstavlja kanal.
+Ovde ispred tipa, T koji je tip vrednosti podataka koju želimo da pošaljemo i primimo, dodajemo ključnu reč `chan` koja predstavlja kanal.
 
 Hajde da pokušamo da ispišemo vrednost našeg kanala tipa string.
 ```
 func main() {
 	var ch chan string
-	fmt.Println(c)
+	fmt.Println(ch)
 }
 ```
 	$ go run main.go
@@ -26,11 +26,11 @@ func main() {
 
 Kao što vidimo, nulta vrednost kanala je `nil` i ako pokušamo da pošaljemo podatke preko kanala, naš program će paničiti.
 
-Dakle, slično kao kod isečaka ili mapa, mramo inicijalizovati kanal koristeći ugrađenu `make` funkciju.
+Dakle, slično kao kod isečaka ili mapa, moramo inicijalizovati kanal koristeći ugrađenu `make` funkciju.
 ```
 func main() {
 	ch := make(chan string)
-	fmt.Println(c)
+	fmt.Println(ch)
 }
 ```
 I ako ovo pokrenemo, možemo videti vrednost pointera na alociranu memoriju različitu od `nil`, što znači da je kanal inicijalizovan.
@@ -48,6 +48,7 @@ import "fmt"
 func speak(arg string, ch chan string) {
 	ch <- arg // Send
 }
+
 func main() {
 	ch := make(chan string)
 	go speak("Hello World", ch)
@@ -60,7 +61,7 @@ Obratite pažnju kako možemo slati podatke koristeći `channel <- data` i prima
 	$ go run main.go
 	Hello World
 
-Odlično, naš program je tekao kako smo očekivali.
+Program je uspešno izvršen.
 
 ### Baferovani kanali
 
@@ -141,8 +142,6 @@ Na neki način, ovo je slično načinu na koji proveravamo da li ključ postoji 
 
 ### Svojstva kanala
 
-Na kraju, hajde da razgovaramo o nekim svojstvima kanala:
-
 ##### Slanje na `nil` kanal blokira zauvek
 ```
 var c chan string
@@ -172,7 +171,7 @@ for i := 0; i < 4; i++ {
 ```
 ##### Range preko kanala
 
-Takođe možemo koristiti `for range` za iteraciju kroz vrednosti primljene iz kanala.
+Možemo koristiti `for range` za iteraciju kroz vrednosti primljene iz kanala.
 ```
 package main
 import "fmt"
