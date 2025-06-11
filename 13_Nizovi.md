@@ -2,7 +2,7 @@
 
 # Nizovi
 
-Niz je kolekcija elemenata istog tipa fiksne veličine. Elementi niza se čuvaju sekvencijalno i može im se pristupiti pomoću njihovih index.
+Niz je kolekcija elemenata istog tipa fiksne veličine. Elementi niza se čuvaju sekvencijalno i može im se pristupiti pomoću njihovih indeksa.
 
 ### Deklaracija niza
 
@@ -10,7 +10,7 @@ Niz možemo deklarisati na sledeći način:
 ```
 var a [n]T
 ```
-Ovde je `n` dužina i `T` može biti bilo kog tipa kao što je ceo broj, string ili korisnički definisane strukture.
+Ovde je `n` dužina i `T` može biti bilo kog tipa kao što je ceo broj, string ili korisnički definisane strukture. Dužina niza je deo tipa niza, ili dva niza različiti dužina su različitog tipa.
 
 Sada, hajde da deklarišemo niz celih brojeva dužine 4 i odštampamo ga.
 ```
@@ -26,7 +26,7 @@ Podrazumevano, svi elementi niza su inicijalizovani nultom vrednošću odgovaraj
 
 ### Inicijalizacija
 
-Takođe možemo inicijalizovati niz koristeći `array literal`.
+Niz  inicijalizujemo koristeći `array literal`.
 ```
 var a [n]T = [n]T{V1, V2, ... Vn}
 
@@ -39,14 +39,14 @@ func main() {
 	$ go run main.go
 	[1 2 3 4]
 
-Možemo čak i da napravimo skraćenu deklaraciju.
+Možemo čak i da napravimo skraćenu deklaraciju i inicijalizaciju.
 ```
 ...
 arr := [4]int{1, 2, 3, 4}
 ```
 ### Pristup članovima niza
 
-I slično kao i u drugim jezicima, elementima možemo pristupiti koristeći `index` jer su sačuvani sekvencijalno.
+Elementima možemo pristupiti koristeći `index` jer su sačuvani sekvencijalno.
 ```
 func main() {
 	arr := [4]int{1, 2, 3, 4}
@@ -59,9 +59,7 @@ func main() {
 
 ### Iteriranje niza
 
-Dakle, postoji više načina za iteraciju kroz nizove.
-
-Prvi je korišćenje petlje `for` sa `len` funkcijom koja nam daje dužinu niza.
+Prvi način za iteriranje niza je korišćenje petlje `for` sa `len` funkcijom koja daje dužinu niza.
 ```
 func main() {
 	arr := [4]int{1, 2, 3, 4}
@@ -93,9 +91,9 @@ func main() {
 	Index: 2, Element: 3
 	Index: 3, Element: 4
 
-Kao što vidimo, naš primer funkcioniše isto kao i prethodni.
+Ovaj primer funkcioniše isto kao i prethodni.
 
-Ali ključna reč `range` je prilično svestrana i može se koristiti na više načina.
+Ključna reč `range` je prilično svestrana i može se koristiti na više načina.
 ```
 for i, e := range arr {} 	// Normal usage of range
 for _, e := range arr {} 	// Omit index with _ and use element
@@ -104,7 +102,7 @@ for range arr {} 			// Simply loop over the array
 ```
 ### Višedimenzionalni nizovi
 
-Svi nizovi koje smo do sada kreirali su jednodimenzionalni. Takođe možemo kreirati višedimenzionalne nizove u programskom jeziku Go.
+Možemo kreirati višedimenzionalne nizove u programskom jeziku Go.
 
 Hajde da pogledamo jedan primer:
 ```
@@ -122,10 +120,10 @@ func main() {
 	Index: 0, Element: [1 2 3 4]
 	Index: 1, Element: [5 6 7 8]
 
-Takođe možemo dozvoliti kompajleru da zaključi dužinu niza koristeći ... elipsis umesto dužine.
+Možemo dozvoliti kompajleru da zaključi dužinu niza koristeći ... elipsis umesto dužine.
 ```
 func main() {
-	arr := [...][4]int{
+	arr := [...]int{
 		{1, 2, 3, 4},
 		{5, 6, 7, 8},
 	}
@@ -140,11 +138,9 @@ func main() {
 
 ### Svojstva nizova
 
-Sada hajde da pričamo o nekim svojstvima nizova.
+Dužina niza je deo njegovog tipa. Dakle, niz a i b su potpuno različiti tipovi i ne možemo dodeliti jedan drugom, ako su različite dužine.
 
-Dužina niza je deo njegovog tipa. Dakle, niz a i b su potpuno različiti tipovi i ne možemo dodeliti jedan drugom.
-
-To takođe znači da ne možemo promeniti veličinu niza, jer bi promena veličine niza značila promenu njegovog tipa.
+To znači da ne možemo promeniti veličinu niza, jer bi promena veličine niza značila promenu njegovog tipa.
 ```
 package main
 

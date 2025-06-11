@@ -122,7 +122,7 @@ func (k kettle) Draw(power int) {
 	fmt.Printf("%T -> quantity: %s, power: %d\n", k, k.quantity, power)
 }
 ```
-Sada možemo povezati sve naše uređaje sa utičnicom pomoću našeg interfejsa!
+Sada možemo povezati sve naše uređaje sa utičnicom pomoću interfejsa!
 ```
 func main() {
 	m := mobile{"Apple"}
@@ -144,9 +144,7 @@ I funkcioniše baš onako kako smo očekivali.
 	main.toaster -> amount: 4, power: 30
 	main.kettle -> quantity: Half Empty, power: 25
 
-Ali zašto se ovo smatra tako moćnim konceptom?
-
-Pa, interfejs nam može pomoći da razdvojimo naše tipove. Na primer, pošto imamo interfejs, ne moramo da ažuriramo našu `socket` implementaciju. Možemo jednostavno definisati novi tip uređaja pomoću *Draw* metode.
+Zašto se interfejsi smatraju tako moćnim konceptom? Pa, interfejs nam može pomoći da razdvojimo naše tipove. Na primer, pošto imamo interfejs, ne moramo da ažuriramo našu `socket` implementaciju. Možemo jednostavno definisati novi tip uređaja pomoću *Draw* metode.
 
 Za razliku od drugih jezika, Go interfejsi su implicitno implementirani, tako da nam nije potrebno nešto poput `implements` ključne reči. To znači da tip automatski zadovoljava interfejs kada ima "sve metode" interfejsa.
 
@@ -158,11 +156,7 @@ Evo kako to deklarišemo.
 
 	var x interface{}
 
-Ali zašto nam je to potrebno?
-
-Prazni interfejsi se mogu koristiti za rukovanje vrednostima nepoznatih tipova.
-
-Neki primeri su:
+Zašto nam je potreban prazan interfejs? Prazni interfejsi se mogu koristiti za rukovanje vrednostima nepoznatih tipova. Neki primeri su:
 
 - Čitanje heterogenih podataka iz API-ja.
 - Promenljive nepoznatog tipa, kao u `fmt.Println` funkciji.
@@ -191,17 +185,15 @@ Tvrdnja tipa može vratiti dve vrednosti:
 - Prva je osnovna vrednost.
 - Druga je bulova vrednost koja izveštava da li je tvrdnja uspešna.
 ```
-s, ok := i.(string) 	// << ==== tvrdnja tiša u onliku zarez, ok 
+s, ok := i.(string) 	// << ==== tvrdnja tipa u obliku zarez, ok 
 fmt.Println(s, ok)
 ```
-Ovo nam može pomoći da testiramo da li vrednost interfejsa sadrži određeni tip ili ne. Na neki način, ovo je slično načinu na koji čitamo vrednosti sa mape.
-
-A ako je `ok` jednako `false` i vrednost će biti nula vrednost tipa, i neće doći do panike.
+Na neki način, ovo je slično načinu na koji čitamo vrednosti sa mape. Ako je `ok` jednako `false` i vrednost će biti nulta vrednost tipa, i neće doći do panike.
 ```
 f, ok := i.(float64)
 fmt.Println(f, ok)
 ```
-Ali ako interfejs ne sadrži tip, izjava će izazvati paniku.
+Ali ako interfejs ne sadrži taj tip, tvrdnja tipa će izazvati paniku.
 ```
 f = i.(float64)
 fmt.Println(f) // Panic!
@@ -214,7 +206,7 @@ fmt.Println(f) // Panic!
 
 ### Prekidač tipa
 
-switch se može koristiti kao iskaz za određivanje tipa promenljive tipa interface{}.
+`switch` se može koristiti kao iskaz za određivanje tipa promenljive tipa interface{}.
 ```
 var t interface{}
 t = "hello"
@@ -310,8 +302,6 @@ func main() {
 	fmt.Printf("(%v, %T)\n", i, i) 	// Output: ({10}, main.MyType)
 }
 ```
-Time smo pokrili interfejse u Go-u.
-
-To je zaista moćna funkcija, ali zapamtite, "Što je interfejs veći, to je apstrakcija slabija" - Rob Pajk.
+Interfejsi su zaista moćna funkcija, ali zapamtite, "Što je interfejs veći, to je apstrakcija slabija" - Rob Pajk.
 
 [[Mape]](15_Mape.md) [[Sadržaj]](toc.md) [[Greške]](17_Greške.md)

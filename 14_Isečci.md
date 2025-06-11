@@ -2,11 +2,7 @@
 
 # Isečci
 
-Znam šta misliš, nizovi su korisni, ali pomalo nefleksibilni zbog ograničenja koje izaziva njihova fiksna veličina.
-
-Ovo nas dovodi do isečka, pa šta je onda isečak"?
-
-`Isečak` je segment niza. Isečci se nadovezuju na nizove i pružaju veću snagu,fleksibilnost i praktičnost.
+Nizovi su korisni, ali pomalo nefleksibilni zbog ograničenja koje izaziva njihova fiksna veličina. Ovo nas dovodi do isečka. `Isečak` je segment niza. Isečci se nadovezuju na nizove i pružaju veću snagu,fleksibilnost i praktičnost.
 
 Isečak se sastoji od tri stvari:
 
@@ -31,7 +27,6 @@ func main() {
 	fmt.Printf("Slice: %v, Length: %d, Capacity: %d", s, len(s), cap(s))
 }
 ```
-Ne brinite, detaljno ćemo razgovarati o svemu što je ovde prikazano.
 
 ### Deklaracija isečka
 
@@ -39,7 +34,7 @@ Da vidimo kako možemo deklarisati isečak.
 ```
 var s []T
 ```
-Kao što vidimo, ne moramo da navodimo nikakvu dužinu. Hajde da deklarišemo isečak stringova i vidimo kako to funkcioniše.
+Prilikom deklracije ne navodimo dužinu isečka. Hajde da deklarišemo isečak stringova i vidimo kako to funkcioniše.
 ```
 func main() {
 	var s []string
@@ -51,11 +46,11 @@ func main() {
 	[]
 	true
 
-Dakle, za razliku od nizova, nulta vrednost isečka je `nil`.
+Za razliku od nizova, nulta vrednost isečka je `nil`.
 
 ### Inicijalizacija
 
-Postoji više načina za inicijalizaciju našeg isečka. Jedan od načina je korišćenje ugrađene `make` funkcije.
+Jedan od načina iicijalizacije isečka je korišćenje ugrađene `make` funkcije.
 
 	make([]T, len, cap) []T
 
@@ -123,17 +118,17 @@ var a = []string{
 
 Možemo iterirati kroz isečak na isti način kao što iterirate kroz niz, koristeći petlju `for` sa `len` funkcijom ili `range` ključnom reči.
 
-### Funkcije 
+### Funkcije na isečku
 
-Pa, sada, hajde da pričamo o ugrađenim funkcijama za isecanje koje su dostupne u Go-u.
+Slede ugrađene funkcije za isecanje koje su dostupne u Go-u.
 
 ##### Copy
 
-Funkcija `copy()` kopira elemente iz jednog isečka u drugi. Prihvata 2 isečka, odredište i izvor. Takođe vraća broj kopiranih elemenata.
+Funkcija `copy()` kopira elemente iz jednog isečka u drugi. Prihvata 2 isečka, odredište i izvor. Vraća broj kopiranih elemenata.
 
 	func copy(dst, src []T) int
 
-Da vidimo kako možemo da ga koristimo.
+Da vidimo kako možemo da je koristimo.
 ```
 func main() {
 	s1 := []string{"a", "b", "c", "d"}
@@ -151,17 +146,16 @@ func main() {
 	Dst: [a b c d]
 	Elements: 4
 
-Kao što se i očekivalo, naša 4 elementa iz izvornog isečka su kopirana u odredišni sečak.
+Kao što se i očekivalo, naša 4 elementa iz izvornog isečka su kopirana u odredišni isečak.
 
 ##### Append
 
-Sada, pogledajmo kako možemo dodati podatke isečku koristeći ugrađenu append funkciju koja dodaje nove elemente na kraj datog isečka.
+Isečku možemo dodati elemente koristeći ugrađenu `append` funkciju koja dodaje nove elemente na kraj datog isečka.
 
-Prihvata isečak i promenljiv broj argumenata. Zatim vraća novi isečak koji sadrži sve elemente.
+Funkcija `append` prihvata isečak i promenljiv broj argumenata. Vraća novi isečak koji sadrži sve elemente.
 
 	append(slice []T, elems ...T) []T
 
-Hajde da to pokušamo na primeru dodavanjem elemenata našem isečku.
 ```
 func main() {
 	s1 := []string{"a", "b", "c", "d"}
@@ -177,17 +171,11 @@ func main() {
 
 Kao što vidimo, novi elementi su dodani i vraćen je novi isečak.
 
-Ali ako dati isečak nema dovoljan kapacitet za nove elemente, onda se dodeljuje novi osnovni niz sa većim kapacitetom.
-
-Svi elementi iz osnovnog niza postojećeg isečka se kopiraju u ovaj novi niz, a zatim se dodaju novi elementi.
+Ali ako dati isečak nema dovoljan kapacitet za nove elemente, onda se dodeljuje novi osnovni niz sa većim kapacitetom. Svi elementi iz osnovnog niza postojećeg isečka se kopiraju u ovaj novi niz, a zatim se dodaju novi elementi.
 
 ### Svojstva isečaka
 
-Na kraju, hajde da razgovaramo o nekim svojstvima isečaka.
-
-Isečci su referentni tipovi, za razliku od nizova.
-
-To znači da će modifikovanje elemenata isečka modifikovati odgovarajuće elemente u referenciranom nizu.
+Isečci su referentni tipovi, za razliku od nizova. To znači da će modifikovanje elemenata isečka modifikovati odgovarajuće elemente u referenciranom nizu.
 ```
 package main
 

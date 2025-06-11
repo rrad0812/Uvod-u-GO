@@ -8,8 +8,6 @@ Mape se koriste za brzo pretraživanje, pronalaženje i brisanje podataka na osn
 
 ### Deklaracija
 
-Počnimo sa deklaracijom.
-
 Mapa se deklariše korišćenjem sledeće sintakse:
 
 	var m map[K]V
@@ -63,7 +61,7 @@ func main() {
 	fmt.Println(m)
 }
 ```
-Imajte na umu da je završni zarez obavezan.
+Imajte na umu da je završni zarez obavezan u postavci svakog para u novi red.
 
 	$ go run main.go
 	map[a:0 b:1]
@@ -102,6 +100,7 @@ func main() {
 		"a": {"Peter"},
 		"b": {"Seth"},
 	}
+
 	m["c"] = User{"Steve"}
 	fmt.Println(m)
 }
@@ -111,7 +110,7 @@ func main() {
 
 ### Preuzmimanje vrednosti sa mape
 
-Takođe možemo da preuzmemo naše vrednosti sa mape pomoću ključa.
+Takođe možemo da preuzmemo vrednosti sa mape pomoću ključa.
 ```
 ...
 c := m["c"]
@@ -200,8 +199,6 @@ Imajte na umu da je mapa neuređena kolekcija i stoga nije garantovano da će re
 
 ### Svojstava mapa
 
-Na kraju, hajde da pričamo o svojstvima mape.
-
 Mape su `referentni` tipovi, što znači da kada dodelimo mapu novoj promenljivoj, obe se odnose na istu osnovnu strukturu podataka.
 
 Stoga će promene koje izvrši jedna promenljiva biti vidljive drugoj.
@@ -231,4 +228,3 @@ func main() {
 	map[a:{Peter} b:{Seth} c:{Steve}]
 
 [[Isečci]](14_Isečci.md) [[Sadržaj]](toc.md) [[Interfejsi]](16_Interfejsi.md)
-	
