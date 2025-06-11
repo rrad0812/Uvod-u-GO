@@ -2,9 +2,9 @@
 
 # Generici
 
-Generici znače parametrizovane tipove. Jednostavno rečeno, generici omogućavaju programerima da pišu kod gde se tip može navesti kasnije, jer nije odmah relevantan.
+Generici su parametrizovani tipovi. Generici omogućavaju programerima da pišu kod gde se tip može navesti kasnije, jer nije odmah relevantan.
 
-Za naš primer, imamo jednostavne funkcije sumiranja za različite tipove kao što su `int`, `float64` i `string`. Pošto `overloading` metoda nije dozvoljeno u Go-u, obično moramo da kreiramo nove funkcije.
+Za naš primer, imamo jednostavne funkcije sumiranja za različite tipove kao što su `int`, `float64` i `string`. Pošto `overloading` metoda nije dozvoljen u Go-u, obično moramo da kreiramo nove funkcije.
 ```
 package main
 import "fmt"
@@ -41,19 +41,19 @@ func sum[T interface{}](a, b T) T {
 	fmt.Println(a, b)
 }
 ```
-Počevši od Go 1.18 možemo koristiti `any`, što je manje-više ekvivalentno praznom interfejsu.
+Počevši od Go 1.18 možemo koristiti `any`, što je manje-više ekvivalentno praznom interfejsu - `interface{}`.
 ```
 func sum[T any](a, b T) T {
 	fmt.Println(a, b)
 }
 ```
-Sa parametrima tipa dolazi do potrebe za prosleđivanjem argumenata tipa, što može učiniti naš kod opširnim.
+Sa parametrima tipa dolazi do potrebe za prosleđivanjem `argumenata tipa`, što može učiniti naš kod opširnim.
 ```
-sum[int](1, 2) // explicit type argument
-sum[float64](4.0, 2.0)
-sum[string]("a", "b")
+sum[int](1, 2) 		// explicit type argument
+sum[float64](4.0, 2.0)	// explicit type argument
+sum[string]("a", "b")	// explicit type argument
 ```
-Srećom, Go 1.18 dolazi sa zaključivanjem tipova što nam pomaže da pišemo kod koji poziva generičke funkcije bez eksplicitnih tipova.
+Srećom, Go 1.18 dolazi sa zaključivanjem tipa što nam pomaže da pišemo kod koji poziva generičke funkcije bez eksplicitnih tipova.
 ```
 sum(1, 2)
 sum(4.0, 2.0)
@@ -66,7 +66,7 @@ Hajde da ovo pokrenemo i vidimo da li radi.
 	4 2
 	a b
 
-Sada, hajde da ažuriramo sum funkciju da bismo sabrali naše promenljive.
+Sada da ažuriramo *sum* funkciju da bismo sabrali naše promenljive.
 ```
 func sum[T any](a, b T) T {
 	return a + b
@@ -164,14 +164,12 @@ Generici su neverovatna karakteristika jer omogućavaju pisanje apstraktnih funk
 
 ### Kada koristiti generike
 
-Dakle, kada koristiti generike? Možemo uzeti sledeće slučajeve upotrebe kao primer:
+Možemo uzeti sledeće slučajeve upotrebe kao primer:
 
 - Funkcije koje rade na nizovima, isečcima, mapama i kanalima.
 - Strukture podataka opšte namene kao što su stek ili povezana lista.
-- Da bi se smanjilo dupliranje koda.
+- Uvek da bi se smanjilo dupliranje koda.
 
-Na kraju, dodaću da iako su generički izrazi odličan dodatak jeziku, treba ih koristiti štedljivo.
-
-I, savetuje se da počnete sa jednostavnim i da pišete generički kod tek kada smo napisali veoma sličan kod najmanje 2 ili 3 puta.
+Na kraju, iako su generički izrazi odličan dodatak jeziku, treba ih koristiti štedljivo. Savetuje se da počnete sa jednostavnim kodom i da pišete generički kod tek kada smo napisali veoma sličan kod najmanje 2 ili 3 puta.
 
 [[Testiranje]](19_Testiranje.md) [[Sadržaj]](toc.md) [[Konkurentnost]](21_Konkurentnost.md)

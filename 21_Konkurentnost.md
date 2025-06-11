@@ -8,15 +8,15 @@ Koristeći konkurentnost, možemo postići iste rezultate za manje vremena, čim
 
 ### Konkurentnost naspram paralelizma
 
-Mnogi ljudi mešaju konkurentnost sa paralelizmom jer oba donekle podrazumevaju istovremeno izvršavanje koda, ali to su dva potpuno različita koncepta.
+Mnogi ljudi mešaju konkurentnost sa paralelizmom jer oba koncepta donekle podrazumevaju istovremeno izvršavanje koda, ali to su dva potpuno različita koncepta.
 
-Konkurencija je zadatak pokretanja i upravljanja višestrukim izračunavanjima u isto vreme, dok je zadatak paralelizam pokretanja višestrukih istovremeno.
+*Zadatak konkurencije je pokretanja i upravljanja višestrukim izračunavanjima u isto vreme, dok je zadatak paralelizam pokretanja višestrukih izračunavanja istovremeno.* 
 
-Jednostavan citat Roba Pajka prilično sumira sve: "Konkurentnost je rad sa mnogo stvari odjednom. Paralelizam je rad mnogo stvari odjednom."
+Jednostavan citat Roba Pajka prilično sumira sve: *"Konkurentnost je rad `sa` mnogo stvari odjednom. Paralelizam je rad mnogo stvari odjednom."*
 
 Ali konkurentnost u Gou je više od same sintakse. Da bismo iskoristili moć Goa, prvo moramo da razumemo kako Go pristupa konkurentnom izvršavanju koda. 
 
-Go se oslanja na model konkurentnosti koji se zove CSP (Communicating Sequential Processes - komunikacija sekvencijalnih procesa).
+Go se oslanja na model konkurentnosti koji se zove `CSP (Communicating Sequential Processes` - komunikacija sekvencijalnih procesa).
 
 ### Komunikacija sekvencijalnih procesa (CSP)
 
@@ -70,6 +70,6 @@ Postoje četiri uslova, poznata kao `Kofmanovi uslovi`, i svi oni moraju biti za
 
 Do gladovanja dolazi kada je proces lišen neophodnih resursa i nije u stanju da završi svoju funkciju.
 
-Gladovanje može se desiti zbog zastoja ili neefikasnih algoritama za zakazivanje procesa. Da bismo rešili problem gladovanja, moramo da primenimo bolje algoritme za raspodelu resursa koji osiguravaju da svaki proces dobije svoj pravedan deo resursa.
+Gladovanje može da se desi zbog zastoja ili neefikasnih algoritama za zakazivanje procesa. Da bismo rešili problem gladovanja, moramo da primenimo bolje algoritme za raspodelu resursa koji osiguravaju da svaki proces dobije svoj pravedan deo resursa.
 
 [[Generici]](20_Generici.md) [[Sadržaj]](toc.md) [[Gorutine]](22_Gorutine.md)
