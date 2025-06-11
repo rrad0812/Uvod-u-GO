@@ -2,7 +2,7 @@
 
 # Testiranje
 
-U ovom tutorijalu ćemo govoriti o testiranju u Go-u. Dakle, hajde da počnemo sa jednostavnim primerom. Napravili smo `math` paket koji sadrži `Add` funkciju koja, kao što i samo ime sugeriše, sabira dva cela broja.
+Hajde da počnemo sa jednostavnim primerom. Napravili smo `math` paket koji sadrži `Add` funkciju koja, kao što i samo ime sugeriše, sabira dva cela broja.
 ```
 package math
 func Add(a, b int) int {
@@ -26,7 +26,9 @@ I, ako ovo pokrenemo, trebalo bi da vidimo rezultat.
 	$ go run main.go
 	4
 
-Sada želimo da testiramo našu `Add` funkciju. Dakle, u programskom jeziku Go deklarišemo test datoteke sa `_test` sufiksom u nazivu datoteke. Dakle, za naš `add.go`, kreiraćemo test kao `add_test.go`. Struktura našeg projekta bi trebalo da izgleda ovako:
+Sada želimo da testiramo `Add` funkciju. 
+
+U programskom jeziku Go deklarišemo test datoteke sa `_test` sufiksom u nazivu datoteke. Dakle, za naš `add.go`, kreiraćemo test kao `add_test.go`. Struktura našeg projekta bi trebalo da izgleda ovako:
 
 ├── go.mod<br>
 ├── main.go<br>
@@ -36,7 +38,7 @@ Sada želimo da testiramo našu `Add` funkciju. Dakle, u programskom jeziku Go d
 
 Počećemo korišćenjem `math_test` paketa i njegovim uvozom `testing` iz standardne biblioteke. Testiranje je ugrađeno u Go, za razliku od mnogih drugih jezika.
 
-Ali čekajte... zašto moramo da koristimo `math_test` kao naš paket, zar ne možemo jednostavno da koristimo isti `math` paket?
+Zašto moramo da koristimo `math_test` kao naš paket, zar ne možemo jednostavno da koristimo isti `math` paket?
 
 Pa da, možemo napisati naš test u istom paketu ako želimo, ali lično mislim da nam rad u odvojenom paketu pomaže da pišemo testove na odvojeniji način.
 
@@ -60,7 +62,7 @@ Ovde ćemo imati ime našeg paketa koje je `math`, ali možemo koristiti i relat
 
 A ako Go ne pronađe nijedan test u paketu, obavestiće nas.
 
-Odlično, hajde da napišemo test kod. Da bismo to uradili, proverićemo naš rezultat sa očekivanom vrednošću i ako se ne poklapaju, možemo koristiti `t.Fail` metodu da ne prođemo test.
+Odlično, hajde da napišemo test kod. Da bismo to uradili, proverićemo naš rezultat sa očekivanom vrednošću i ako se ne poklapaju, možemo koristiti `t.Fail` metodu da test nije prošao.
 ```
 package math_test
 import "testing"
@@ -73,12 +75,12 @@ func TestAdd(t *testing.T) {
 	}
 }
 ```
-Odlično! Izgleda da je naš test prošao.
+Izgleda da je test prošao.
 
 	$ go test math
 	ok      example/math    0.412s
 
-Da vidimo i šta se dešava ako ne prođemo test, za to možemo jednostavno promeniti očekivani rezultat.
+Da vidimo šta se dešava ako ne prođemo test, za to možemo jednostavno promeniti očekivani rezultat.
 ```
 package math_test
 import "testing"
@@ -94,7 +96,7 @@ func TestAdd(t *testing.T) {
 	$ go test ./math
 	ok      example/math    (cached)
 
-Ako ovo vidite, ne brinite. Radi optimizacije, naši testovi su keširani. Možemo koristiti `go clean` komandu da obrišemo keš memoriju, a zatim ponovo pokrenemo test.
+Ako ovo vidite, ne brinite. Radi optimizacije, Go testovi su keširani. Možemo koristiti `go clean` komandu da obrišemo keš memoriju, a zatim ponovo pokrenemo test.
 
 	$ go clean -testcache
 	$ go test ./math
@@ -152,14 +154,14 @@ var testCases = []addTestCase{
 	{1, 10, 11},
 }
 ```
-Odlično, radi!
+Radi!
 
 	$ go run main.go
 	ok      example/math    0.589s
 
 ### Pokrivenost koda
 
-Na kraju, hajde da pričamo o pokrivenosti koda. Prilikom pisanja testova, često je važno znati koliki deo vašeg stvarnog koda testovi pokrivaju. Ovo se generalno naziva pokrivenošću koda.
+Prilikom pisanja testova, često je važno znati koliki deo vašeg stvarnog koda testovi pokrivaju. Ovo se generalno naziva pokrivenošću koda.
 
 Da bismo izračunali i izvezli pokrivenost za naš test, možemo jednostavno koristiti `-coverprofile` argument sa `go test` komandom.
 
@@ -174,7 +176,7 @@ Kao što vidimo, ovo je mnogo čitljiviji format. A najbolje od svega je što je
 
 ### Fuzzing testiranje
 
-`fuzzing testiranje` koje je predstavljeno u Go verziji 1.18.
+`fuzzing testiranje` je predstavljeno u Go verziji 1.18.
 
 Fuzzing je vrsta automatizovanog testiranja koja kontinuirano manipuliše ulazima u program kako bi pronašla greške.
 
@@ -211,7 +213,7 @@ func Add(a, b int) int {
 	return a + b
 }
 ```
-A ako ponovo pokrenemo test, ovaj granični slučaj će biti uhvaćen `fuzz` testiranjem.
+Ako ponovo pokrenemo test, ovaj granični slučaj će biti uhvaćen `fuzz` testiranjem.
 
 	$ go test -fuzz FuzzTestAdd example/math
 	warning: starting with empty corpus

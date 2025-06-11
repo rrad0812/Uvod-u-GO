@@ -12,9 +12,9 @@ U tim slučajevima možemo koristiti ugrađenu `panic` funkciju.
 
 `Panic` je ugrađena funkcija koja zaustavlja normalno izvršavanje trenutne goroutine. Kada funkcija pozove panic, normalno izvršavanje funkcije se odmah zaustavlja i kontrola se vraća pozivaocu. Ovo se ponavlja dok se program ne završi sa porukom panike i tragom steka.
 
-**Napomena**: O *goroutine* ćemo razgovarati skasnije u kursu.
+**Napomena**: O `goroutine` ćemo razgovarati kasnije u kursu.
 
-Dakle, da vidimo kako možemo da koristimo panic funkciju.
+Dakle, da vidimo kako možemo da koristimo `panic` funkciju.
 ```
 package main
 
@@ -38,7 +38,7 @@ main.main()
     .../main.go:4 +0x38
 exit status 2
 ```
-Kao što se i očekivalo, naš program je ispisao poruku panike, nakon čega je usledio trag steka, a zatim je prekinut.
+Naš program je ispisao poruku panike, nakon čega je usledio trag steka, a zatim je prekinut.
 
 Dakle, pitanje je šta učiniti kada se dogodi neočekivana panika?
 
@@ -48,7 +48,7 @@ Moguće je povratiti kontrolu nad programom koji izaziva paniku koristeći ugra�
 
 	func recover() interface{}
 
-Hajde da pokušamo primer kreiranjem `handlePanic` funkcije. A zatim je možemo pozvati koristeći defer.
+Hajde da pokušamo primer kreiranjem `handlePanic` funkcije. A zatim je možemo pozvati koristeći `defer`.
 ```
 package main
 import "fmt"
@@ -80,7 +80,7 @@ Postoje dva validna slučaja upotrebe za panic:
 
 ##### Nepopravljiva greška
 
-Što može biti situacija u kojoj program jednostavno ne može da nastavi svoje izvršavanje.
+Može biti situacija u kojoj program jednostavno ne može da nastavi svoje izvršavanje.
 
 Na primer, čitanje konfiguracione datoteke što je važno za pokretanje programa, jer nema šta drugo da se uradi ako samo čitanje datoteke ne uspe.
 

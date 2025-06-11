@@ -2,23 +2,23 @@
 
 # Greške
 
-U Go-u nema obrade izuzetaka. Umesto toga, možemo jednostavno vratiti ugrađeni `error` koji je tipa interfejsa.
+U Go-u nema obrade izuzetaka. Umesto toga, možemo jednostavno vratiti ugrađeni `error` tip koji je tipa interfejsa.
 ```
 type error interface {
     Error() string
 }
 ```
-Dakle, deklarišimo jednostavnu *Divide* funkciju koja, kao što ime sugeriše, deli ceo broj *a* sa *b*.
+Deklarišimo jednostavnu *Divide* funkciju koja, kao što ime sugeriše, deli ceo broj *a* sa brojem *b*.
 ```
 func Divide(a, b int) int {
 	return a/b
 }
 ```
-Sada želimo da vratimo grešku, recimo, da sprečimo deljenje nulom. To nas dovodi do konstrukcije greške.
+Sada želimo da u slučaju pokušaja deljenja sa nulom, vratimo grešku. To nas dovodi do konstrukcije greške.
 
 ### Konstrukcija grešaka
 
-Postoji više načina da se to uradi, ali ćemo pogledati dva najčešća.
+Postoji više načina da se to uradi, mi ćemo pogledati dva najčešća.
 
 ##### errors paket
 
@@ -36,9 +36,9 @@ func Divide(a, b int) (int, error) {
 	return a/b, nil
 }
 ```
-Obratite pažnju kako vraćamo `error` sa rezultatom. A ako nema greške, jednostavno vraćamo ` nil` jer je to `nulta vrednost` greške, jer je na kraju krajeva, to interfejs.
+Obratite pažnju kako vraćamo `error` sa rezultatom funkcije. Ako nema greške, jednostavno vraćamo ` nil` jer je to `nulta vrednost` greške, jer je na kraju krajeva, to interfejs.
 
-Ali kako da to rešimo? Dakle, za to ćemo pozvati `Divide` funkciju u našoj `main` funkciji.
+Kako da upravljamo sa ovim načinom tretiranja greške? Ako pozovemo `Divide` funkciju u našoj `main` funkciji:
 ```
 package main
 import (
@@ -139,7 +139,7 @@ func Divide(a, b int) (int, error) {...}
 
 ##### Prilagođene greške
 
-Ova strategija pokriva većinu slučajeva upotrebe za obradu grešaka. Ali ponekad su nam potrebne dodatne funkcionalnosti kao što su dinamičke vrednosti unutar naših grešaka.
+Ove strategije pokrivaju većinu slučajeva upotrebe za obradu grešaka. Ali ponekad su nam potrebne dodatne funkcionalnosti kao što su dinamičke vrednosti unutar naših grešaka.
 
 Ranije smo videli da je error samo interfejs. Dakle, u osnovi, bilo šta može biti `error` sve dok implementira `Error()` metodu koja vraća poruku o grešci kao string.
 
@@ -191,9 +191,7 @@ func Divide(a, b int) (int, error) {...}
 	$ go run main.go
 	code 2000: cannot divide by zero
 
-Ali koja je razlika između funkcija `errors.Is` i `errors.As`?
-
-Razlika je u tome što ova `As` funkcija proverava da li greška ima određeni tip, za razliku od `Is` funkcije koja ispituje da li je u pitanju određeni objekat greške.
+Koja je razlika između funkcija `errors.Is` i `errors.As`? Razlika je u tome što ova `As` funkcija proverava da li greška ima određeni tip, za razliku od `Is` funkcije koja ispituje da li je u pitanju određeni objekat greške.
 
 Takođe možemo koristiti tvrdnju tipa, ali to nije poželjno.
 ```
@@ -206,6 +204,6 @@ func main() {
 	fmt.Println(result)
 }
 ```
-Na kraju, reći ću da je obrada grešaka u Gou prilično drugačija u poređenju sa tradicionalnim `try/catch` idiomom u drugim jezicima. Ali je veoma moćna jer podstiče programera da zapravo obradi grešku na eksplicitan način, što takođe poboljšava čitljivost.
+Na kraju, treba reći ću da je obrada grešaka u Gou prilično drugačija u poređenju sa tradicionalnim `try/catch` idiomom u drugim jezicima. Ali je veoma moćna jer podstiče programera da obradi grešku na eksplicitan način, što poboljšava čitljivost koda.
 
 [[Interfejsi]](16_Interfejsi.md) [[Sadržaj]](toc.md) [[Panic i recover]](18_Panic_i_recover.md)
