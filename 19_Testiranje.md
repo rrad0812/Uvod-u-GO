@@ -2,7 +2,7 @@
 
 # Testiranje
 
-Hajde da počnemo sa jednostavnim primerom. Napravili smo `math` paket koji sadrži `Add` funkciju koja, kao što i samo ime sugeriše, sabira dva cela broja.
+Napravili smo `math` paket koji sadrži `Add` funkciju koja, kao što i samo ime sugeriše, sabira dva cela broja.
 ```
 package math
 func Add(a, b int) int {
@@ -40,9 +40,9 @@ Počećemo korišćenjem `math_test` paketa i njegovim uvozom `testing` iz stand
 
 Zašto moramo da koristimo `math_test` kao naš paket, zar ne možemo jednostavno da koristimo isti `math` paket?
 
-Pa da, možemo napisati naš test u istom paketu ako želimo, ali lično mislim da nam rad u odvojenom paketu pomaže da pišemo testove na odvojeniji način.
+Možemo napisati naš test u istom paketu ako želimo, ali rad u odvojenom paketu pomaže da pišemo testove na odvojeniji način.
 
-Sada možemo da kreiramo našu `TestAdd`funkciju. Ona će uzimati argument tipa `testing.T` koji će nam pružiti korisne metode.
+Sada možemo da kreiramo `TestAdd`funkciju. Ona će uzimati argument tipa `testing.T` koji će nam pružiti korisne metode.
 ```
 package math_test
 import "testing"

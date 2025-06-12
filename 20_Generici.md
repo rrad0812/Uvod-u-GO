@@ -25,7 +25,7 @@ func main() {
 	fmt.Println(sumString("a", "b"))
 }
 ```
-Kao što vidimo, osim tipova, ove funkcije su prilično slične.
+Osim tipova, ove funkcije su prilično slične.
 
 Da vidimo kako možemo definisati generičku funkciju.
 ```

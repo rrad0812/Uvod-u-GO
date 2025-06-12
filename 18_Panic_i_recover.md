@@ -2,7 +2,7 @@
 
 # Panic i recover
 
-Dakle, ranije smo saznali da je idiomatski način rešavanja abnormalnih uslova u Go programu korišćenje grešaka. Iako su greške dovoljne za većinu slučajeva, postoje neke situacije u kojima program ne može da nastavi sa radom.
+Ranije smo saznali da je idiomatski način rešavanja abnormalnih uslova u Go programu korišćenje grešaka. Iako su greške dovoljne za većinu slučajeva, postoje neke situacije u kojima program ne može da nastavi sa radom.
 
 U tim slučajevima možemo koristiti ugrađenu `panic` funkciju.
 
@@ -14,7 +14,7 @@ U tim slučajevima možemo koristiti ugrađenu `panic` funkciju.
 
 **Napomena**: O `goroutine` ćemo razgovarati kasnije u kursu.
 
-Dakle, da vidimo kako možemo da koristimo `panic` funkciju.
+Da vidimo kako možemo da koristimo `panic` funkciju.
 ```
 package main
 
@@ -40,7 +40,7 @@ exit status 2
 ```
 Naš program je ispisao poruku panike, nakon čega je usledio trag steka, a zatim je prekinut.
 
-Dakle, pitanje je šta učiniti kada se dogodi neočekivana panika?
+Pitanje je šta učiniti kada se dogodi neočekivana panika?
 
 ### Recover funkcija
 
