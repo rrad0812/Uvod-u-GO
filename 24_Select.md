@@ -71,7 +71,7 @@ func main() {
 	close(two)
 }
 ```
-Takođe je važno znati da prazno select {} blokira zauvek.
+Takođe je važno znati da prazni `select {}` blokira zauvek.
 ```
 func main() {
 	...

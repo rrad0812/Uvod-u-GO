@@ -2,7 +2,7 @@
 
 # Sync paket
 
-Kao što smo ranije saznali, `gorutine` se izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan. `sync` paket pruža korisne primitive.
+`gorutine` se izvršavaju u istom adresnom prostoru, tako da pristup deljenoj memoriji mora biti sinhronizovan. `sync` paket pruža korisne primitive.
 
 ### WaitGroup
 
@@ -272,9 +272,7 @@ Uslovna `sync.Cond` promenljiva može se koristiti za koordiniranje onih gorutin
 
 Svaki `Cond` ima pridruženu bravu (često `*Mutex` ili `*RWMutex`), koja mora biti zaključana pri promeni uslova i pri pozivanju `Wait` metode.
 
-Ali zašto nam je to potrebno?
-
-Jedan scenario može biti kada jedan proces prima podatke, a drugi procesi moraju da čekaju da ovaj proces primi podatke pre nego što mogu da pročitaju ispravne podatke.
+Ali zašto nam je to potrebno? Jedan scenario može biti kada jedan proces prima podatke, a drugi procesi moraju da čekaju da ovaj proces primi podatke pre nego što mogu da pročitaju ispravne podatke.
 
 Ako jednostavno koristimo kanal ili mutex, samo jedan proces može da čeka i čita podatke. Ne postoji način da se obaveste drugi procesi da čitaju podatke. Stoga možemo sa `sync.Cond` da koordiniramo deljene resurse.
 
@@ -398,9 +396,7 @@ Kao što vidimo, čak i kada smo pokrenuli 100 gorutina, broj se povećao samo j
 
 Ključna ideja je ponovna upotreba objekata kako bi se izbeglo ponovno stvaranje i uništavanje, što će uticati na performanse.
 
-Ali zašto nam je to potrebno?
-
-Svrha pool-a je da kešira dodeljene, ali nekorišćene stavke za kasniju ponovnu upotrebu, smanjujući pritisak na sakupljač smeća. To jest, olakšava kreiranje efikasnih, nitno bezbednih lista slobodnih stavki. Međutim, nije pogodan za sve liste slobodnih stavki.
+Ali zašto nam je to potrebno? Svrha pool-a je da kešira dodeljene, ali nekorišćene stavke za kasniju ponovnu upotrebu, smanjujući pritisak na sakupljač smeća. To jest, olakšava kreiranje efikasnih, nitno bezbednih lista slobodnih stavki. Međutim, nije pogodan za sve liste slobodnih stavki.
 
 Odgovarajuća upotreba `pool-a` je upravljanje grupom privremenih stavki koje se tiho dele između i potencijalno ponovo koriste od strane konkurentno nezavisnih klijenata paketa. Bazen pruža način da se troškovi alokacije raspodele na više klijenata.
 
@@ -468,9 +464,7 @@ Može se videti da je `sync.Pool` isključivo privremeni objektni pul, koji je p
 
 Mapa je kao standardna, `map[any]any` ali je bezbedna za istovremenu upotrebu od strane više gorutina bez dodatnog zaključavanja ili koordinacije. Učitavanja, čuvanja i brisanja su raspoređena tokom konstantnog vremena.
 
-Ali zašto nam je to potrebno?
-
-Tip Map je specijalizovan. Većina koda bi trebalo da koristi običnu Go mapu umesto toga, sa odvojenim zaključavanjem ili koordinacijom, radi bolje bezbednosti tipa i kako bi se olakšalo održavanje drugih invarijanti zajedno sa sadržajem mape.
+Ali zašto nam je to potrebno? Tip Map je specijalizovan. Većina koda bi trebalo da koristi običnu Go mapu umesto toga, sa odvojenim zaključavanjem ili koordinacijom, radi bolje bezbednosti tipa i kako bi se olakšalo održavanje drugih invarijanti zajedno sa sadržajem mape.
 
 Tip mape je optimizovan za dva uobičajena slučaja upotrebe:
 

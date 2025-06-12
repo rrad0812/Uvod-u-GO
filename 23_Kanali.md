@@ -8,7 +8,7 @@ Kanali u Go-u su zasnovani na komunikaciji sekvencijalnih procesa (CSP).
 
 ### Kreiranje kanala
 
-Sada kada razumemo šta su kanali, hajde da vidimo kako ih možemo deklarisati.
+Hajde da vidimo kako ih možemo deklarisati:
 
 	var ch chan T
 
@@ -100,7 +100,7 @@ Ovde se `chan <-` može koristiti samo za slanje vrednosti i doći će do panike
 
 ### Zatvaranje kanala
 
-Takođe, baš kao i sa bilo kojim drugim resursom, kada završimo sa našim kanalom, potrebno ga je zatvoriti. To se može postići pomoću ugrađene `close` funkcije.
+Kada završimo sa našim kanalom, potrebno ga je zatvoriti. To se može postići pomoću ugrađene `close` funkcije.
 
 Pri zatvaranu, možemo samo da prosledimo naš kanal funkciji `close`.
 ```

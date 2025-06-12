@@ -29,21 +29,21 @@ Tip Context ima sledeće metode:
 
 ### Upotreba
 
-Hajde da razgovaramo o funkcijama koje su izložene u `context` paketu:
+Funkcije koje su izložene u `context` paketu:
 
 ##### Background
 
 `Background` vraća praznu vrednost, različitu od `nil` Context. Nikada se ne otkazuje, nema vrednosti i nema rok.
 
-Obično ga koriste glavna funkcija, inicijalizacija i testovi, i kao kontekst najvišeg nivoa za dolazne zahteve.
+Obično je koriste `main` funkcija, inicijalizacija i testovi, i kao kontekst najvišeg nivoa za dolazne zahteve.
 
 	func Background() Context
 
 ##### ToDo
 
-Slično `Background` funkciji, `ToDd` funkcija takođe vraća vrednost koja nije nula, praznu vrednost Context.
+Slično `Background` funkciji, `ToDo` funkcija takođe vraća vrednost koja nije nula, praznu vrednost Context.
 
-Međutim, trebalo bi ga koristiti samo kada nismo sigurni koji kontekst da koristimo ili ako funkcija nije ažurirana da bi primila kontekst. To znači da planiramo da dodamo kontekst funkciji u budućnosti.
+Međutim, trebalo bi je koristiti samo kada nismo sigurni koji kontekst da koristimo ili ako funkcija nije ažurirana da bi primila kontekst. To znači da planiramo da dodamo kontekst funkciji u budućnosti.
 
 	func TODO() Context
 
@@ -114,8 +114,6 @@ Ova funkcija je samo omotač oko WithDeadlinefunkcije sa dodatnim vremenskim ogr
 
 ##### Primer
 
-Pogledajmo jedan primer kako bismo učvrstili naše razumevanje konteksta.
-
 U primeru ispod, imamo jednostavan HTTP server koji obrađuje zahtev.
 ```
 package main
@@ -165,7 +163,7 @@ U drugom terminalu, jednostavno ćemo poslati zahtev našem serveru. I ako sače
 
 Sada, da vidimo šta se dešava ako otkažemo zahtev pre nego što se završi.
 
-Napomena: možemo koristiti ctrl + cda otkažemo zahtev na pola puta.
+**Napomena**: možemo koristiti `ctrl + c` da otkažemo zahtev na pola puta.
 
 	$ curl localhost:4000/request
 	^C
@@ -178,7 +176,7 @@ I kao što vidimo, u mogućnosti smo da detektujemo otkazivanje zahteva zbog kon
 	Error: context canceled
 	Handler complete
 
-Siguran sam da već možete videti koliko ovo može biti izuzetno korisno. Na primer, ovo možemo koristiti da otkažemo bilo koji posao koji zahteva mnogo resursa ako više nije potreban ili je prekoračio rok ili vremenski istekao.
+Ovo možemo koristiti da otkažemo bilo koji posao koji zahteva mnogo resursa ako više nije potreban ili je prekoračio rok ili vremenski istekao.
 */
 
 [[Napredni obrasci konkurentnosti]](26_Napredni_obrasi_konkurentnosti.md) [[Sadržaj]](toc.md)

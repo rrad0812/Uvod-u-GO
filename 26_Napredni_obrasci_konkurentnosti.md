@@ -4,7 +4,7 @@
 
 ### Generator pattern
 
-Generator Pattern se koristi za generisanje niza vrednosti koje se koriste za proizvodnju nekog izlaza.
+`Generator pattern` se koristi za generisanje niza vrednosti koji se koriste za proizvodnju nekog izlaza.
 
 U našem primeru, imamo `generator` funkciju koja jednostavno vraća kanal iz kojeg možemo da čitamo vrednosti.
 
@@ -366,7 +366,7 @@ Kao što se i očekivalo, naši poslovi su bili raspoređeni među našim radnic
 
 ### Čekanje u redu
 
-Šablon čekanja nam omogućava da obrađujemo nviše elemenata istovremeno.
+Šablon čekanja nam omogućava da obrađujemo više elemenata istovremeno.
 
 U našem primeru, koristimo baferovani kanal da simuliramo ponašanje reda čekanja. Jednostavno šaljemo praznu strukturu našem queuekanalu i čekamo da je prethodni proces oslobodi kako bismo mogli da nastavimo.
 
