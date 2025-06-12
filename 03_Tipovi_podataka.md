@@ -169,8 +169,6 @@ func main() {
 	fmt.Printf("%T - %s", str, str) // Output: main.MyDefined - I am defined
 }
 ```
-Koja je razlika?
-
 Definisani tipovi rade više od pukog davanja imena tipu. Prvo definišu novi imenovani tip od osnovnog tipa. Međutim, ovaj definisani tip se razlikuje od bilo kog drugog tipa, uključujući i njegov osnovni tip.
 
 Stoga se definisani tip ne može koristiti naizmenično sa osnovnim tipom kao alias tipa. U početku je malo zbunjujuće, nadam se da će ovaj primer razjasniti stvari.
@@ -198,52 +196,45 @@ Kao što vidimo, ne možemo koristiti definisani tip naizmenično sa osnovnim ti
 
 ### Formatiranje stringova
 
-`fmt` paket sadrži mnogo funkcija. Da bismo uštedeli vreme, razmotrićemo najčešće korišćene funkcije. Počnimo sa `fmt.Print` našom glavnom funkcijom.
-```
-...
-fmt.Print("What", "is", "your", "name?")
-fmt.Print("My", "name", "is", "golang")
-...
-```
-    $ go run main.go
-    Whatisyourname?Mynameisgolang
+`fmt` paket sadrži mnogo funkcija. Da bismo uštedeli vreme, razmotrićemo najčešće korišćene funkcije. 
 
-Kao što vidimo, `fmt.Print` ne formatira izlaz, jednostavno uzima string i ispisuje ga.
+- Počnimo sa `fmt.Print` našom glavnom funkcijom.
+  ```
+  fmt.Print("What", "is", "your", "name?")
+  fmt.Print("My", "name", "is", "golang")
+  ```
+      $ go run main.go
+      Whatisyourname?Mynameisgolang
 
-Zatim, imamo `fmt.Println` što je isto kao i `fmt.Print`, ali dodaje novi red na kraju i takođe ubacuje razmak između argumenata.
-```
-...
-fmt.Println("What", "is", "your", "name?")
-fmt.Println("My", "name", "is", "golang")
-...
-```
-    $ go run main.go
-    What is your name?
-    My name is golang
+  `fmt.Print` ne formatira izlaz, jednostavno uzima string i ispisuje ga.
 
-To je mnogo bolje!
+- Zatim, imamo `fmt.Println` što je isto kao i `fmt.Print`, ali dodaje novi 
+  red na kraju i takođe ubacuje razmak između argumenata.
+  ```
+  fmt.Println("What", "is", "your", "name?")
+  fmt.Println("My", "name", "is", "golang")
+  ```
+      $ go run main.go
+      What is your name?
+      My name is golang
 
-Zatim, `fmt.Printf` poznat nam je i kao  "Formatizater štampe", koji nam omogućava formatiranje brojeva, stringova, bulovih vrednosti i još mnogo toga.
+- Zatim, `fmt.Printf` poznat nam je i kao  "Formatizater štampe", koji nam  omogućava formatiranje brojeva, stringova, bulovih vrednosti i još mnogo toga.
 
-Pogledajmo jedan primer.
-```
-...
-name := "golang"
-fmt.Println("What is your name?")
-fmt.Printf("My name is %s", name)
-...
-```
-    $ go run main.go
-    What is your name?
-    My name is golang
+  Pogledajmo jedan primer.
+  ```
+  name := "golang"
+  fmt.Println("What is your name?")
+  fmt.Printf("My name is %s", name)
+  ```
+      $ go run main.go
+      What is your name?
+      My name is golang
 
-Kao što vidimo, to `%s` je zamenjeno našom *name* promenljivom.
+  Kao što vidimo, to `%s` je zamenjeno našom *name* promenljivom.
 
-Ali pitanje je šta jes `%s` i šta znači?
+Ali pitanje je šta je `%s` i šta znači? Dakle, `%s` je jedan od *glagola annotacije* i oni govore funkciji kako da formatira argumente. Pomoću njih možemo kontrolisati stvari poput širine, tipova i preciznosti, a ima ih mnogo.
 
-Dakle, `%s` je jedan od *glagola annotacije* i oni govore funkciji kako da formatira argumente. Pomoću njih možemo kontrolisati stvari poput širine, tipova i preciznosti, a ima ih mnogo.
-
-Sada, hajde da brzo pogledamo još nekoliko primera. Ovde ćemo pokušati daizračunamo procenat i ispišemo ga u konzolu.
+Sada, hajde da brzo pogledamo još nekoliko primera. Ovde ćemo pokušati da izračunamo procenat i ispišemo ga u konzolu.
 ```
 ...
 percent := (7.0 / 9) * 100
